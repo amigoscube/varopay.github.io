@@ -30,10 +30,13 @@ input[type="email"] {
 
 .varopay-Logo
 { 
-   width:100px;
-   height:20px;
+   width:123px;
+   height:33px;
    display:inline-block;
    overflow:hidden;
+   background:url("../Images/VaroPayLogoSmall.png");
+   background-size:124px 33px;
+   vertical-align:middle;
 }
 #nav-menu 
 {
@@ -75,3 +78,31 @@ a
         background-color:#777;
         height:500px;
     }
+    .fixednav
+    {
+        padding-top:5%;
+        float:right;
+        font-weight:normal;
+    }
+    .mainbody-content
+    {
+        padding-top:10%;
+        color:white;
+    }
+.float-right 
+{
+   float:right;
+}
+.float-left 
+{
+    float:left;
+}
+.circle {
+    border:1px solid black;
+    border-radius:50%;
+    padding:10px;
+}
+.arrow-down
+{
+    padding-left:50%;
+}

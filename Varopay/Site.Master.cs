@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.UI.HtmlControls;
 
 namespace Varopay
 {
@@ -68,13 +69,21 @@ namespace Varopay
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
         {
             Context.GetOwinContext().Authentication.SignOut();
         }
+
+        protected void btnLogin_Click(object sender, EventArgs e)
+        {
+            txtUserName.Visible = true;
+            txtPassWord.Visible = true;
+        }
+
+        
     }
 
 }

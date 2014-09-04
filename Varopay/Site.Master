@@ -11,8 +11,10 @@
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <link href="Content/bootstrap.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="Scripts/bootstrap.js"></script>
     <link href="Content/Site.css" rel="stylesheet" type="text/css" />
@@ -39,19 +41,32 @@
                 <asp:ScriptReference Name="WebFormsBundle" />
                 <%--Site Scripts--%>
             </Scripts>
-        </asp:ScriptManager>  
-            <header id="Header" class="nav nav-tabs nav-header" role="banner">
-                <div>
-                        <a href="#" runat="server" style="font-size:xx-large">Varopay</a>                     
-                        <a href="#" runat="server" role="button">About Us</a>
-                        <a href="#" runat="server" role="button">Fee Structure</a>
-                        <a href="#" runat="server" role="button">Contact</a>
-                        
-                    <div style="float:right;margin-right:3%">
-                        <asp:Button runat="server" CssClass="btn"  Text="Login"/>
-                        <asp:Button runat="server" CssClass="btn btn-primary" Text="Signup" />
+        </asp:ScriptManager>
+        <header id="Header" class="nav nav-tabs nav-header" role="banner">
+            <div class="row">
+                <div class="col-md-8">
+                    <a href="Default.aspx" runat="server" class="varopay-Logo" role="button"></a>
+                    <a href="#" runat="server" role="button">About Us</a>
+                    <a href="#" runat="server" role="button">Fee Structure</a>
+                    <a href="#" runat="server" role="button">Contact</a>
+                </div>
+                <div class="col-md-4">
+                    <div>
+                        <ul class="nav nav-justified">
+                            <li class="">
+                                <asp:TextBox runat="server" ID="txtUserName" placeholder="Username" Class="form-inline form-control"></asp:TextBox></li>
+                            <li>
+                                <asp:TextBox runat="server" ID="txtPassWord" placeholder="PassWord" class="form-inline form-control"></asp:TextBox></li>
+                            <li>
+                                <asp:Button runat="server" CssClass="btn" Text="Login" ID="btnLogin" OnClick="btnLogin_Click" /></li>
+                            <li>
+                                <asp:Button runat="server" CssClass="btn btn-primary" ID="btnSignUp" Text="Signup" /></li>
+
+
+                        </ul>
                     </div>
-                       <%--<asp:LoginView runat="server" ViewStateMode="Disabled">
+                </div>
+                <%--<asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul class="nav">
                                 <li><a runat="server" href="~/Account/Register" class="btn btn-sm">Register</a></li>
@@ -67,28 +82,10 @@
                             </ul>
                         </LoggedInTemplate>
                     </asp:LoginView>--%>
-                </div>
-            </header>
-           <div class="mainbody-bg">
-               <div class="container">
-
-               </div>
-           </div>
-        <div id="fixed-nav" class="container">
-            <div class="row">
-                <div class="col-md-4">
-
-                </div>
-                <div class="col-md-8 nav nav-tabs" >
-                    <a href="#" runat="server" >Fees</a>
-                    <a href ="#" runat="server">Prepaid Cards</a>
-                    <a href="#" runat="server">Service Center</a>
-                    <a href="#" runat="server">Exchangers</a>
-                </div>
             </div>
-        </div>
+        </header>
         <div class="container body-content">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server"> 
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
