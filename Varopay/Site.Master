@@ -13,10 +13,7 @@
     </asp:PlaceHolder>
     <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <link href="Content/bootstrap.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="Scripts/bootstrap.js"></script>
     <link href="Content/Site.css" rel="stylesheet" type="text/css" />
 
 </head>
@@ -42,31 +39,36 @@
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
-        <header id="Header" class="nav nav-tabs nav-header" role="banner">
+        <header id="Header">
             <div class="row">
-                <div class="col-md-8">
-                    <a href="Default.aspx" runat="server" class="varopay-Logo" role="button"></a>
-                    <a href="#" runat="server" role="button">About Us</a>
-                    <a href="#" runat="server" role="button">Fee Structure</a>
-                    <a href="#" runat="server" role="button">Contact</a>
+                <div class="col-md-6">
+                    <ul class="nav nav-pills">
+                        <li><a href="Default.aspx" runat="server" class="varopay-Logo" role="button"></a>
+                            <li><a href="#" runat="server" role="button">About Us</a></li>
+                        <li><a href="#" runat="server" role="button">Fee Structure</a></li>
+                        <li><a href="#" runat="server" role="button">Contact</a></li>
+                    </ul>
                 </div>
-                <div class="col-md-4">
-                    <div>
-                        <ul class="nav nav-justified">
-                            <li class="">
-                                <asp:TextBox runat="server" ID="txtUserName" placeholder="Username" Class="form-inline form-control"></asp:TextBox></li>
-                            <li>
-                                <asp:TextBox runat="server" ID="txtPassWord" placeholder="PassWord" class="form-inline form-control"></asp:TextBox></li>
-                            <li>
-                                <asp:Button runat="server" CssClass="btn" Text="Login" ID="btnLogin" OnClick="btnLogin_Click" /></li>
-                            <li>
-                                <asp:Button runat="server" CssClass="btn btn-primary" ID="btnSignUp" Text="Signup" /></li>
+                <div class="col-md-6">
+                    <ul class=" nav nav-pills">
+                        <li>
+                            <asp:TextBox runat="server" ID="txtUserName" placeholder="Username" CssClass="form-control"></asp:TextBox></li>
+                        <li>
+                            <asp:TextBox runat="server" ID="txtPassWord" placeholder="Password" TextMode="Password" CssClass="form-control"></asp:TextBox>
+                        </li>
 
+                        <li>
+                            <asp:Button runat="server" CssClass="btn" Text="Login" ID="btnLogin" OnClick="btnLogin_Click" />
+                        </li>
+                        <li>
+                            <asp:Button runat="server" CssClass="btn btn-primary" ID="btnSignUp" Text="Signup" />
+                        </li>
+                    </ul>
 
-                        </ul>
-                    </div>
                 </div>
-                <%--<asp:LoginView runat="server" ViewStateMode="Disabled">
+            </div>
+
+            <%--<asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul class="nav">
                                 <li><a runat="server" href="~/Account/Register" class="btn btn-sm">Register</a></li>
@@ -82,15 +84,32 @@
                             </ul>
                         </LoggedInTemplate>
                     </asp:LoginView>--%>
-            </div>
         </header>
-        <div class="container body-content">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-            </asp:ContentPlaceHolder>
-            <hr />
-            <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Varopay</p>
-            </footer>
+        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+        </asp:ContentPlaceHolder>
+        <div class="footer-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7 side-border">
+                            <ul class="footer-nav float-left pad-zero">
+                                <li><a href="#">SiteMap</a></li>
+                                <li><a href="#">Developers</a></li>
+                                <li><a href="#">Feedback</a></li>
+                            </ul>
+                        <footer  class="clear-both">
+                            <p class="footer-text">&copy; <%: DateTime.Now.Year %> - Varopay All Rights Reserved</p>
+                        </footer>
+                    </div>
+                    <div class="col-md-5">
+                        <ul class="footer-link-font footer-nav float-right">
+                            <li><a href="#">F.A.Qs</a></li>
+                            <li><a href="#">Terms &amp; Conditions</a></li>
+                            <li><a href="#">Private Policy</a></li>
+                            <li><a href="#">Legal Notice</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </form>
 </body>
