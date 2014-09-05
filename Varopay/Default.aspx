@@ -20,13 +20,13 @@
                         <div class="item">
                             <img src="Images/white.jpg" class="transparent-img" />
                             <div class="carousel-caption">
-                                <h1>Second Slide</h1>
+                                <h1>2 Security Authentications</h1>
                             </div>
                         </div>
                         <div class="item">
                             <img src="Images/white.jpg" class="transparent-img" />
                             <div class="carousel-caption">
-                                <h1>Third Slide</h1>
+                                <h1>Low Fees and Easy for both<br />Business & Individuals</h1>
                             </div>
                         </div>
                     </div>
