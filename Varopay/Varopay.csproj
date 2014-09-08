@@ -205,7 +205,6 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="ServiceCenter.aspx" />
-    <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -333,13 +332,6 @@
     </Compile>
     <Compile Include="ServiceCenter.aspx.designer.cs">
       <DependentUpon>ServiceCenter.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Site.Master.cs">
-      <DependentUpon>Site.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Site.Master.designer.cs">
-      <DependentUpon>Site.Master</DependentUpon>
     </Compile>
     <Compile Include="Site.Mobile.Master.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
