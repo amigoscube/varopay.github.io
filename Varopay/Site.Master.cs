@@ -83,6 +83,11 @@ namespace Varopay
             txtPassWord.Visible = true;
         }
 
+        protected void btnSignUp_Click(object sender, EventArgs e)
+        {
+
+        }
+
         
     }
 
