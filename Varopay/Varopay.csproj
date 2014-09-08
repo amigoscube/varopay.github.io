@@ -162,10 +162,7 @@
     <Content Include="Exchangers.aspx" />
     <Content Include="FeeStructure.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Images\carousel-image.jpg" />
-    <Content Include="Images\footer-bg.jpg" />
     <Content Include="Images\VaroPayLogoSmall.png" />
-    <Content Include="Images\white.jpg" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />

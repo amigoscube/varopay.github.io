@@ -3785,8 +3785,8 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .nav {
-  padding-left: 5%;
-  margin-bottom: 3%;
+  padding-left: 0;
+  margin-bottom: 0;
   list-style: none;
 }
 
@@ -6198,7 +6198,7 @@ body.modal-open,
     padding-bottom: 30px;
   }
   .carousel-indicators {
-    bottom: 50px;
+    bottom: 20px;
   }
 }
 

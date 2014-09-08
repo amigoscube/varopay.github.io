@@ -1,0 +1,97 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Varopay.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en" data-device-type="dedicated">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> VAROPAY</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <link href="Content/bootstrap.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="Scripts/bootstrap.js"></script>
+    <link href="Content/Site.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="respond" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+        <header id="Header" class="nav nav-tabs nav-header" role="banner">
+            <div class="row">
+                <div class="col-md-8">
+                    <a href="Default.aspx" runat="server" class="varopay-Logo" role="button"></a>
+                    <a href="#" runat="server" role="button">About Us</a>
+                    <a href="#" runat="server" role="button">Fee Structure</a>
+                    <a href="#" runat="server" role="button">Contact</a>
+                </div>
+                <div class="col-md-4">
+                    <div>
+                        <ul class="nav nav-justified">
+                            <li class="">
+                                <asp:TextBox runat="server" ID="txtUserName" placeholder="Username" Class="form-inline form-control"></asp:TextBox></li>
+                            <li>
+                                <asp:TextBox runat="server" ID="txtPassWord" placeholder="PassWord" class="form-inline form-control"></asp:TextBox></li>
+                            <li>
+                                <asp:Button runat="server" CssClass="btn" Text="Login" ID="btnLogin" OnClick="btnLogin_Click" /></li>
+                            <li>
+                                <asp:Button runat="server" CssClass="btn btn-primary" ID="btnSignUp" Text="Signup" /></li>
+
+
+                        </ul>
+                    </div>
+                </div>
+                <%--<asp:LoginView runat="server" ViewStateMode="Disabled">
+                        <AnonymousTemplate>
+                            <ul class="nav">
+                                <li><a runat="server" href="~/Account/Register" class="btn btn-sm">Register</a></li>
+                                <li><a runat="server" href="~/Account/Login" class="btn btn-sm btn-primary">Log in</a></li>
+                            </ul>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
+                                <li>
+                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                </li>
+                            </ul>
+                        </LoggedInTemplate>
+                    </asp:LoginView>--%>
+            </div>
+        </header>
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+            <footer>
+                <p>&copy; <%: DateTime.Now.Year %> - Varopay</p>
+            </footer>
+        </div>
+    </form>
+</body>
+</html>
