@@ -1,24 +1,18 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Varopay.SiteMaster" %>
 
 <!DOCTYPE html>
-
-<html lang="en" data-device-type="dedicated">
+<html lang="en">
 <head runat="server">
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> VAROPAY</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
-    <webopt:BundleReference runat="server" Path="~/Content/css" />
+<%--    <webopt:BundleReference runat="server" Path="~/Content/css" />--%>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <link href="Content/bootstrap.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="Scripts/bootstrap.js"></script>
     <link href="Content/Site.css" rel="stylesheet" type="text/css" />
-
 </head>
 <body>
     <form runat="server">
@@ -42,31 +36,47 @@
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
-        <header id="Header" class="nav nav-tabs nav-header" role="banner">
+        <header id="Header">
             <div class="row">
-                <div class="col-md-8">
-                    <a href="Default.aspx" runat="server" class="varopay-Logo" role="button"></a>
-                    <a href="#" runat="server" role="button">About Us</a>
-                    <a href="#" runat="server" role="button">Fee Structure</a>
-                    <a href="#" runat="server" role="button">Contact</a>
+                <div class="col-md-6">
+                    <ul class="nav nav-justified">
+                        <li class="vertical-center"><a href="/" runat="server" class="varopay-Logo" role="button"></a></li>
+                        <li><a href="~/About.aspx" runat="server" role="button">About Us</a></li>
+                        <li><a href="~/FeeStructure.aspx" runat="server" role="button">Fee Structure</a></li>
+                        <li><a href="~/Contact.aspx" runat="server" role="button">Contact</a></li>
+                    </ul>
                 </div>
-                <div class="col-md-4">
-                    <div>
-                        <ul class="nav nav-justified">
-                            <li class="">
-                                <asp:TextBox runat="server" ID="txtUserName" placeholder="Username" Class="form-inline form-control"></asp:TextBox></li>
-                            <li>
-                                <asp:TextBox runat="server" ID="txtPassWord" placeholder="PassWord" class="form-inline form-control"></asp:TextBox></li>
-                            <li>
-                                <asp:Button runat="server" CssClass="btn" Text="Login" ID="btnLogin" OnClick="btnLogin_Click" /></li>
-                            <li>
-                                <asp:Button runat="server" CssClass="btn btn-primary" ID="btnSignUp" Text="Signup" /></li>
+                <div class="col-md-6">
+                    <asp:LoginView runat="server" ViewStateMode="Disabled">
+                        <AnonymousTemplate>
+                            <ul class=" nav nav-pills">
+                                <li>
+                                    <asp:TextBox runat="server" ID="txtUserName" placeholder="Username" CssClass="form-control"></asp:TextBox></li>
+                                <li>
+                                    <asp:TextBox runat="server" ID="txtPassWord" placeholder="Password" TextMode="Password" CssClass="form-control"></asp:TextBox>
+                                </li>
 
-
-                        </ul>
-                    </div>
+                                <li>
+                                    <asp:Button runat="server" CssClass="btn" Text="Login" ID="btnLogin" />
+                                </li>
+                                <li>
+                                    <asp:Button runat="server" CssClass="btn btn-primary" ID="btnSignUp" Text="Signup" data-target="#SignUpModal" data-toggle="modal" />
+                                </li>
+                            </ul>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
+                                <li>
+                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                </li>
+                            </ul>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
                 </div>
-                <%--<asp:LoginView runat="server" ViewStateMode="Disabled">
+            </div>
+
+            <%--<asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul class="nav">
                                 <li><a runat="server" href="~/Account/Register" class="btn btn-sm">Register</a></li>
@@ -82,15 +92,200 @@
                             </ul>
                         </LoggedInTemplate>
                     </asp:LoginView>--%>
+            <div>
+                <div class="modal fade" id="SignUpModal" tabindex="-1" role="dialog" aria-labelledby="SignUpModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <h1 class="modal-title" id="SignUpModalLabel">Sign Up</h1>
+                            </div>
+                            <div class="modal-body">
+                                <table runat="server">
+                                    <tr>
+                                        <td>
+                                            <asp:Label ID="lblUsername" Text="Username" runat="server"></asp:Label>
+                                        </td>
+                                        <td>
+                                            <asp:TextBox ID="txtUsername" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="rfvUsername" runat="server" CssClass="text-danger" ControlToValidate="txtUsername" ErrorMessage="Username is required"></asp:RequiredFieldValidator>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:Label runat="server" Text="Email"></asp:Label>
+                                        </td>
+                                        <td>
+                                            <asp:TextBox runat="server" ID="txtEmail" TextMode="Email" CssClass="form-control"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="rfvEmail" runat="server" CssClass="text-danger" ControlToValidate="txtEmail" ErrorMessage="Enter a valid Email ID"></asp:RequiredFieldValidator>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:Label runat="server" Text="Password" ID="lblPassword"></asp:Label>
+                                        </td>
+                                        <td>
+                                            <asp:TextBox runat="server"  ID="txtPassword" CssClass="form-control" TextMode="Password"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="rfvPassword" runat="server" CssClass="text-danger" ControlToValidate="txtPassword" Display="Dynamic" ErrorMessage="Password field is required"></asp:RequiredFieldValidator>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:Label runat="server" Text="Confirm Password" ID="lblConfirmPassword"></asp:Label>
+                                        </td>
+                                        <td>
+                                            <asp:TextBox runat="server"  ID="txtConfirmPassword" CssClass="form-control" TextMode="Password"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="rfvConfirmPassword" runat="server" CssClass="text-danger" Display="Dynamic" ControlToValidate="txtConfirmPassword" ErrorMessage="Confirm Password field is required"></asp:RequiredFieldValidator>
+                                            <asp:CompareValidator ID="cmpPassword" runat="server" ControlToCompare="txtPassword" ControlToValidate="txtConfirmPassword" ErrorMessage="The passworrd and Confirm Password do not match" Display="Dynamic" CssClass="text-danger"></asp:CompareValidator>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                        <td>
+                                            <asp:TextBox runat="server" placeholder="Enter the Captcha"></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                                <asp:Button Text="Register" runat="server" ID="btnRegister" CssClass="btn btn-primary" />
+                                <asp:Button Text="Cancel" runat="server" data-dismiss="modal" CssClass="btn btn-primary" ID="btnCancel" />
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </header>
-        <div class="container body-content">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-            </asp:ContentPlaceHolder>
-            <hr />
-            <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Varopay</p>
-            </footer>
+        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+        </asp:ContentPlaceHolder>
+        <div class="footer-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 side-border">
+                        <ul class="footer-nav float-left pad-zero">
+                            <li><a href="~/SiteMap.aspx" runat="server">SiteMap</a></li>
+                            <li><a href="~/Developers.aspx" runat="server">Developers</a></li>
+                            <li><a href="#" data-target="#FeedBackModal" runat="server" data-toggle="modal" role="dialog">Feedback</a></li>
+                        </ul>
+                        <footer class="clear-both">
+                            <p class="footer-text">&copy; <%: DateTime.Now.Year %> - Varopay All Rights Reserved</p>
+                        </footer>
+                    </div>
+                    <div class="col-md-6">
+                        <%--<ul class="footer-link-font footer-nav float-right">
+                            <li><a href="#" data-target="#FAQModal" data-toggle="modal" role="dialog">F.A.Qs</a></li>
+                            <li><a href="#" data-target="#TermsAndConditionsModal" data-toggle="modal" role="dialog">Terms &amp; Conditions</a></li>
+                            <li><a href="#" data-target="#PrivacyPolicyModal" data-toggle="modal" role="dialog">Privacy Policy</a></li>
+                            <li><a href="#" data-target="#LegalNoticeModal" data-toggle="modal" role="dialog">Legal Notice</a></li>
+                        </ul>--%>
+                        <ul class="footer-link-font nav-pills footer-nav float-right">
+                            <li><a href="#" data-target="#FAQModal" data-toggle="modal" role="dialog">F.A.Qs</a></li>
+                            <li><a href="#" data-target="#TermsAndConditionsModal" data-toggle="modal" role="dialog">Terms &amp; Conditions</a></li>
+                            <li><a href="#" data-target="#PrivacyPolicyModal" data-toggle="modal" role="dialog">Privacy Policy</a></li>
+                            <li><a href="#" data-target="#LegalNoticeModal" data-toggle="modal" role="dialog">Legal Notice</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="FAQModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h1 class="modal-tile">Frequently Asked Questions</h1>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                        <asp:Button Text="Cancel" data-dismiss="modal" runat="server" CssClass="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="TermsAndConditionsModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h1 class="modal-tile">Terms &amp Conditions</h1>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                        <asp:Button Text="Cancel" data-dismiss="modal" runat="server" CssClass="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="PrivacyPolicyModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h1 class="modal-tile">Privacy Policy</h1>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                        <asp:Button Text="Cancel" data-dismiss="modal" runat="server" CssClass="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="LegalNoticeModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h1 class="modal-tile">Legal Notice</h1>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                        <asp:Button Text="Cancel" data-dismiss="modal" runat="server" CssClass="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="FeedBackModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h1 class="modal-tile">FeedBack</h1>
+                    </div>
+                    <div class="modal-body">
+                        <table runat="server">
+                            <tr>
+                                <td>
+                                    <asp:Label runat="server" Text="Name" ID="lblName"></asp:Label>
+                                </td>
+                                <td>
+                                    <asp:TextBox runat="server" placeholder="Name" ID="txtName" CssClass="form-control"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:Label runat="server" Text="Email" ID="lblFeedBackEmail"></asp:Label>
+                                </td>
+                                <td>
+                                    <asp:TextBox runat="server" placeholder="Email" ID="txtFeedBackEmail" TextMode="Email" CssClass="form-control"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><asp:Label runat="server" Text="FeedBack" ID="lblFeedBack"></asp:Label></td>
+                                <td><asp:TextBox runat="server" placeholder="Enter Your FeedBack Here" TextMode="MultiLine" CssClass="form-control"></asp:TextBox></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <asp:Button Text="Submit" runat="server" ID-="btnSubmitFeedBack" CssClass="btn btn-primary" />
+                        <asp:Button Text="Cancel" data-dismiss="modal" runat="server" CssClass="btn btn-default" />
+                    </div>
+                </div>
+            </div>
         </div>
     </form>
 </body>

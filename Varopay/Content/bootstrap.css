@@ -3785,8 +3785,8 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .nav {
-  padding-left: 0;
-  margin-bottom: 0;
+  padding-left: 5%;
+  margin-bottom:0;
   list-style: none;
 }
 
@@ -6138,7 +6138,7 @@ body.modal-open,
 
 .carousel-indicators {
   position: absolute;
-  bottom: 10px;
+  bottom: 50px !important;
   left: 50%;
   z-index: 15;
   width: 60%;
