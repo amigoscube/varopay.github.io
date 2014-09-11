@@ -4,12 +4,12 @@
 <html lang="en">
 <head runat="server">
     <meta charset="utf-8" />
-    <title><%: Page.Title %> VAROPAY</title>
+    <title>VAROPAY</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
-<%--    <webopt:BundleReference runat="server" Path="~/Content/css" />--%>
+    <%--    <webopt:BundleReference runat="server" Path="~/Content/css" />--%>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link href="Content/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="Content/Site.css" rel="stylesheet" type="text/css" />
@@ -20,11 +20,11 @@
             <Scripts>
                 <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
                 <%--Framework Scripts--%>
-                <asp:ScriptReference Name="MsAjaxBundle" />
+                <%--<asp:ScriptReference Name="MsAjaxBundle" />--%>
                 <asp:ScriptReference Name="jquery" />
                 <asp:ScriptReference Name="bootstrap" />
                 <asp:ScriptReference Name="respond" />
-                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+<%--                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
                 <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
                 <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
                 <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
@@ -32,7 +32,7 @@
                 <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
                 <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
                 <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
-                <asp:ScriptReference Name="WebFormsBundle" />
+                <asp:ScriptReference Name="WebFormsBundle" />--%>
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
@@ -44,6 +44,7 @@
                         <li><a href="~/About.aspx" runat="server" role="button">About Us</a></li>
                         <li><a href="~/FeeStructure.aspx" runat="server" role="button">Fee Structure</a></li>
                         <li><a href="~/Contact.aspx" runat="server" role="button">Contact</a></li>
+                        <li><a href="#" runat="server" role="button">Help</a></li>
                     </ul>
                 </div>
                 <div class="col-md-6">
@@ -60,7 +61,7 @@
                                     <asp:Button runat="server" CssClass="btn" Text="Login" ID="btnLogin" />
                                 </li>
                                 <li>
-                                    <asp:Button runat="server" CssClass="btn btn-primary" ID="btnSignUp" Text="Signup" data-target="#SignUpModal" data-toggle="modal" />
+                                    <asp:Button runat="server" CssClass="btn btn-primary" ID="btnSignUp" Text="Signup" data-target="#SignUpModal" data-toggle="modal" role="dialog" />
                                 </li>
                             </ul>
                         </AnonymousTemplate>
@@ -75,7 +76,6 @@
                     </asp:LoginView>
                 </div>
             </div>
-
             <%--<asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul class="nav">
@@ -91,74 +91,11 @@
                                 </li>
                             </ul>
                         </LoggedInTemplate>
-                    </asp:LoginView>--%>
-            <div>
-                <div class="modal fade" id="SignUpModal" tabindex="-1" role="dialog" aria-labelledby="SignUpModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                <h1 class="modal-title" id="SignUpModalLabel">Sign Up</h1>
-                            </div>
-                            <div class="modal-body">
-                                <table runat="server">
-                                    <tr>
-                                        <td>
-                                            <asp:Label ID="lblUsername" Text="Username" runat="server"></asp:Label>
-                                        </td>
-                                        <td>
-                                            <asp:TextBox ID="txtUsername" runat="server" CssClass="form-control"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="rfvUsername" runat="server" CssClass="text-danger" ControlToValidate="txtUsername" ErrorMessage="Username is required"></asp:RequiredFieldValidator>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <asp:Label runat="server" Text="Email"></asp:Label>
-                                        </td>
-                                        <td>
-                                            <asp:TextBox runat="server" ID="txtEmail" TextMode="Email" CssClass="form-control"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="rfvEmail" runat="server" CssClass="text-danger" ControlToValidate="txtEmail" ErrorMessage="Enter a valid Email ID"></asp:RequiredFieldValidator>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <asp:Label runat="server" Text="Password" ID="lblPassword"></asp:Label>
-                                        </td>
-                                        <td>
-                                            <asp:TextBox runat="server"  ID="txtPassword" CssClass="form-control" TextMode="Password"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="rfvPassword" runat="server" CssClass="text-danger" ControlToValidate="txtPassword" Display="Dynamic" ErrorMessage="Password field is required"></asp:RequiredFieldValidator>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <asp:Label runat="server" Text="Confirm Password" ID="lblConfirmPassword"></asp:Label>
-                                        </td>
-                                        <td>
-                                            <asp:TextBox runat="server"  ID="txtConfirmPassword" CssClass="form-control" TextMode="Password"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="rfvConfirmPassword" runat="server" CssClass="text-danger" Display="Dynamic" ControlToValidate="txtConfirmPassword" ErrorMessage="Confirm Password field is required"></asp:RequiredFieldValidator>
-                                            <asp:CompareValidator ID="cmpPassword" runat="server" ControlToCompare="txtPassword" ControlToValidate="txtConfirmPassword" ErrorMessage="The passworrd and Confirm Password do not match" Display="Dynamic" CssClass="text-danger"></asp:CompareValidator>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                        <td>
-                                            <asp:TextBox runat="server" placeholder="Enter the Captcha"></asp:TextBox>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div class="modal-footer">
-                                <asp:Button Text="Register" runat="server" ID="btnRegister" CssClass="btn btn-primary" />
-                                <asp:Button Text="Cancel" runat="server" data-dismiss="modal" CssClass="btn btn-primary" ID="btnCancel" />
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
+                    </asp:LoginView>--%>            
         </header>
         <asp:ContentPlaceHolder ID="MainContent" runat="server">
         </asp:ContentPlaceHolder>
+   
         <div class="footer-wrapper">
             <div class="container">
                 <div class="row">
@@ -189,6 +126,96 @@
                 </div>
             </div>
         </div>
+        <div class="modal fade" id="SignUpModal" tabindex="-1" role="dialog" aria-labelledby="SignUpModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <h1 class="modal-title" id="SignUpModalLabel">Sign Up</h1>
+                        </div>
+                        <div class="modal-body">
+                            <table runat="server">
+                                <tr>
+                                    <td>
+                                        <asp:Label ID="lblUsername" Text="Username" runat="server"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:TextBox ID="txtRegisterUsername" runat="server" CssClass="form-control"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="rfvUsername" runat="server" CssClass="text-warning" ControlToValidate="txtRegisterUsername" ErrorMessage="Username is required"></asp:RequiredFieldValidator>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <asp:Label runat="server" Text="Email"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:TextBox runat="server" ID="txtRegisterEmail" TextMode="Email" CssClass="form-control"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="rfvEmail" runat="server" CssClass="text-warning" ControlToValidate="txtRegisterEmail" ErrorMessage="Enter a valid Email ID"></asp:RequiredFieldValidator>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <asp:Label runat="server" Text="Password" ID="lblPassword"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:TextBox runat="server" ID="txtRegisterPassword" CssClass="form-control" TextMode="Password"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="rfvRegisterPassword" runat="server" CssClass="text-warning" ControlToValidate="txtRegisterPassword" ErrorMessage="Password field is required"></asp:RequiredFieldValidator>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <asp:Label runat="server" Text="Confirm Password" ID="lblConfirmPassword"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:TextBox runat="server" ID="txtRegisterConfirmPassword" CssClass="form-control" TextMode="Password"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="rfvRegisterConfirmPassword" runat="server" CssClass="text-warning" ControlToValidate="txtRegisterConfirmPassword" ErrorMessage="Confirm Password field is required"></asp:RequiredFieldValidator>
+                                        <asp:CompareValidator ID="cmpPassword" runat="server" ControlToCompare="txtRegisterPassword" ControlToValidate="txtRegisterConfirmPassword" ErrorMessage="The password and Confirm Password do not match" Display="Dynamic" CssClass="text-warning"></asp:CompareValidator>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <%--<td>
+                                        <asp:Image ID="imgCaptcha" runat="server" />
+                                        <asp:Button ID="btnRefresh" runat="server" Text="Refresh" OnClick="btnRefresh_Click" />
+                                    </td>--%>
+                                </tr>
+                                <tr>
+                                        <td>
+                                            <asp:UpdatePanel ID="upCaptcha" runat="server">
+                                                <ContentTemplate>
+                                                    <table>
+                                                        <tr>
+                                                            <td>
+                                                                <asp:Image ID="imgCaptcha" runat="server" />
+                                                            </td>
+                                                            <td>
+                                                                <asp:Button runat="server" ID="btnRefresh" Text="Refresh" OnClick="btnRefresh_Click" />
+                                                            </td>
+
+                                                        </tr>
+                                                    </table>
+                                                </ContentTemplate>
+                                            </asp:UpdatePanel>
+                                        </td>
+                                        <td>
+                                           <asp:TextBox runat="server" placeholder="Enter the Captcha" ID="txtCaptcha" CssClass="form-control"></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <asp:Label ID="lblCaptcha" runat="server"></asp:Label>
+                                    </td>
+                                </tr>
+                            </table>
+                               
+                        <div class="modal-footer" runat="server">
+                            <asp:Button Text="Register" runat="server" ID="btnRegister" CssClass="btn btn-primary" OnClick="btnRegister_Click" />
+                            <asp:Button Text="Cancel" runat="server" data-dismiss="modal" CssClass="btn btn-primary" ID="btnCancel" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
         <div class="modal fade" id="FAQModal">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -234,6 +261,7 @@
                 </div>
             </div>
         </div>
+   
         <div class="modal fade" id="LegalNoticeModal">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -248,7 +276,8 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>       
+    
         <div class="modal fade" id="FeedBackModal">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -263,7 +292,8 @@
                                     <asp:Label runat="server" Text="Name" ID="lblName"></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:TextBox runat="server" placeholder="Name" ID="txtName" CssClass="form-control"></asp:TextBox>
+                                    <asp:TextBox runat="server" ID="txtFeedBackName" CssClass="form-control"></asp:TextBox>
+                                    <asp:RequiredFieldValidator runat="server" ID="rfvName" ControlToValidate="txtFeedBackName" CssClass="text-warning" ErrorMessage="Name field is required"></asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -271,17 +301,20 @@
                                     <asp:Label runat="server" Text="Email" ID="lblFeedBackEmail"></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:TextBox runat="server" placeholder="Email" ID="txtFeedBackEmail" TextMode="Email" CssClass="form-control"></asp:TextBox>
+                                    <asp:TextBox runat="server" ID="txtFeedBackEmail" TextMode="Email" CssClass="form-control"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="rfvFeedBackEmail" runat="server" ControlToValidate="txtFeedBackEmail" CssClass="text-warning" ErrorMessage="Email Field is required"></asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                             <tr>
-                                <td><asp:Label runat="server" Text="FeedBack" ID="lblFeedBack"></asp:Label></td>
-                                <td><asp:TextBox runat="server" placeholder="Enter Your FeedBack Here" TextMode="MultiLine" CssClass="form-control"></asp:TextBox></td>
+                                <td>
+                                    <asp:Label runat="server" Text="FeedBack" ID="lblFeedBack"></asp:Label></td>
+                                <td>
+                                    <asp:TextBox runat="server" TextMode="MultiLine" CssClass="form-control"></asp:TextBox></td>
                             </tr>
                         </table>
                     </div>
                     <div class="modal-footer">
-                        <asp:Button Text="Submit" runat="server" ID-="btnSubmitFeedBack" CssClass="btn btn-primary" />
+                        <asp:Button Text="Submit" runat="server" ID="btnSubmitFeedBack" CssClass="btn btn-primary" />
                         <asp:Button Text="Cancel" data-dismiss="modal" runat="server" CssClass="btn btn-default" />
                     </div>
                 </div>

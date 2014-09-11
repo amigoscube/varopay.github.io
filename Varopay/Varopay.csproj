@@ -163,6 +163,8 @@
     <Content Include="Exchangers.aspx" />
     <Content Include="FeeStructure.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Functionality.aspx" />
+    <Content Include="GenerateCaptcha.aspx" />
     <Content Include="Images\footer-bg.jpg" />
     <Content Include="Images\VaroPayLogoSmall.png" />
     <Content Include="Images\white.jpg" />
@@ -204,6 +206,7 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Security.aspx" />
     <Content Include="ServiceCenter.aspx" />
     <Content Include="SiteMap.aspx" />
     <Content Include="ViewSwitcher.ascx" />
@@ -332,11 +335,32 @@
     <Compile Include="FeeStructure.aspx.designer.cs">
       <DependentUpon>FeeStructure.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Functionality.aspx.cs">
+      <DependentUpon>Functionality.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Functionality.aspx.designer.cs">
+      <DependentUpon>Functionality.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GenerateCaptcha.aspx.cs">
+      <DependentUpon>GenerateCaptcha.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GenerateCaptcha.aspx.designer.cs">
+      <DependentUpon>GenerateCaptcha.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security.aspx.cs">
+      <DependentUpon>Security.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Security.aspx.designer.cs">
+      <DependentUpon>Security.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ServiceCenter.aspx.cs">
       <DependentUpon>ServiceCenter.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

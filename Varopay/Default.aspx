@@ -68,12 +68,12 @@
                         <div class="col-md-4">
                             <h3>Security</h3>
                             <p>Democratic approach of VaroPay payment system enables every Customer to decide independently which security settings he needs to use for his account. Every customer of Varopay makes a compromise with himself and chooses his own edge of convenience of use and protection of his account from non-authorized view or use.</p>
-                            <p><a href="#" runat="server">More About Security</a></p>
+                            <p><a href="~/Security.aspx" runat="server">More About Security</a></p>
                         </div>
                         <div class="col-md-4">
-                            <h3>Electronic Currency</h3>
-                            <p>VaroPay system works with a significant number of e-currencies and, owing to this, the account funding can be performed by means of e-currencies. Such transaction can be performed automatically via merchants of these payment systems.</p>
-                            <p><a href="#" runat="server">More About E-Currency</a></p>
+                            <h3>Functionality</h3>
+                            <p>For Customers whose business activity is connected with Internet VaroPay system offers an optimal package of business solutions including convenient functional tools of settlements specially developed by the Varopay financiers while considering the needs of the state-of-art IT business.</p>
+                            <p><a href="~/Functionality.aspx" runat="server">More About Functionality</a></p>
                         </div>
                         <div class="col-md-4">
                             <h3>Exchange Partners</h3>

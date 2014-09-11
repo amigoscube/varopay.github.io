@@ -13,6 +13,15 @@ namespace Varopay {
     public partial class SiteMaster {
         
         /// <summary>
+        /// MainContent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+        
+        /// <summary>
         /// lblUsername control.
         /// </summary>
         /// <remarks>
@@ -22,13 +31,13 @@ namespace Varopay {
         protected global::System.Web.UI.WebControls.Label lblUsername;
         
         /// <summary>
-        /// txtUsername control.
+        /// txtRegisterUsername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUsername;
+        protected global::System.Web.UI.WebControls.TextBox txtRegisterUsername;
         
         /// <summary>
         /// rfvUsername control.
@@ -40,13 +49,13 @@ namespace Varopay {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvUsername;
         
         /// <summary>
-        /// txtEmail control.
+        /// txtRegisterEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmail;
+        protected global::System.Web.UI.WebControls.TextBox txtRegisterEmail;
         
         /// <summary>
         /// rfvEmail control.
@@ -67,22 +76,22 @@ namespace Varopay {
         protected global::System.Web.UI.WebControls.Label lblPassword;
         
         /// <summary>
-        /// txtPassword control.
+        /// txtRegisterPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPassword;
+        protected global::System.Web.UI.WebControls.TextBox txtRegisterPassword;
         
         /// <summary>
-        /// rfvPassword control.
+        /// rfvRegisterPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPassword;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvRegisterPassword;
         
         /// <summary>
         /// lblConfirmPassword control.
@@ -94,22 +103,22 @@ namespace Varopay {
         protected global::System.Web.UI.WebControls.Label lblConfirmPassword;
         
         /// <summary>
-        /// txtConfirmPassword control.
+        /// txtRegisterConfirmPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtConfirmPassword;
+        protected global::System.Web.UI.WebControls.TextBox txtRegisterConfirmPassword;
         
         /// <summary>
-        /// rfvConfirmPassword control.
+        /// rfvRegisterConfirmPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvConfirmPassword;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvRegisterConfirmPassword;
         
         /// <summary>
         /// cmpPassword control.
@@ -119,6 +128,51 @@ namespace Varopay {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CompareValidator cmpPassword;
+        
+        /// <summary>
+        /// upCaptcha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel upCaptcha;
+        
+        /// <summary>
+        /// imgCaptcha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgCaptcha;
+        
+        /// <summary>
+        /// btnRefresh control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRefresh;
+        
+        /// <summary>
+        /// txtCaptcha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCaptcha;
+        
+        /// <summary>
+        /// lblCaptcha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCaptcha;
         
         /// <summary>
         /// btnRegister control.
@@ -139,15 +193,6 @@ namespace Varopay {
         protected global::System.Web.UI.WebControls.Button btnCancel;
         
         /// <summary>
-        /// MainContent control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
-        
-        /// <summary>
         /// lblName control.
         /// </summary>
         /// <remarks>
@@ -157,13 +202,22 @@ namespace Varopay {
         protected global::System.Web.UI.WebControls.Label lblName;
         
         /// <summary>
-        /// txtName control.
+        /// txtFeedBackName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtName;
+        protected global::System.Web.UI.WebControls.TextBox txtFeedBackName;
+        
+        /// <summary>
+        /// rfvName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvName;
         
         /// <summary>
         /// lblFeedBackEmail control.
@@ -184,6 +238,15 @@ namespace Varopay {
         protected global::System.Web.UI.WebControls.TextBox txtFeedBackEmail;
         
         /// <summary>
+        /// rfvFeedBackEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvFeedBackEmail;
+        
+        /// <summary>
         /// lblFeedBack control.
         /// </summary>
         /// <remarks>
@@ -191,5 +254,14 @@ namespace Varopay {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblFeedBack;
+        
+        /// <summary>
+        /// btnSubmitFeedBack control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSubmitFeedBack;
     }
 }
