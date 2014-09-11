@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Varopay.Models;
+using System.Data.Entity;
 
 namespace Varopay.Models
 {
@@ -33,6 +34,7 @@ namespace Varopay.Models
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
+        public DbSet<RegisterUser> RegisteredUsers { get; set; }
 
         public static ApplicationDbContext Create()
         {

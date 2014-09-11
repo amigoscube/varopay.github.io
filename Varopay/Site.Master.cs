@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using System.Security.Claims;
 using System.Security.Principal;
 using System.Text;
+using Varopay.Models;
 
 namespace Varopay
 {
