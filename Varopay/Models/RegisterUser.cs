@@ -13,18 +13,14 @@ namespace Varopay.Models
         [ScaffoldColumn(false)]
         public int RegisterUserID { get; set; }
         
-        [Display(Name="Username")]
         public String Username { get; set; }
        
-        [Display(Name="Email")]
         [DataType(DataType.EmailAddress)]
         public String Email { get; set; }
         
-        [Display(Name="Password")]
         [DataType(DataType.Password)]
         public String Password { get; set; }
 
-        [Display(Name="ConfirmPassword")]
         [DataType(DataType.Password)]
         public String ConfirmPassword { get; set; }
     }

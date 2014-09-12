@@ -9,6 +9,10 @@ using System.Security.Claims;
 using System.Security.Principal;
 using System.Text;
 using Varopay.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Owin;
+using Varopay.Account;
 
 namespace Varopay
 {
@@ -92,24 +96,34 @@ namespace Varopay
                 for (int i = 0; i < 6; i++)
                     captcha.Append(combination[random.Next(combination.Length)]);
                Session["captcha"] = captcha.ToString();
-                imgCaptcha.ImageUrl = "GenerateCaptcha.aspx?" + DateTime.Now.Ticks.ToString();
+               imgCaptcha.ImageUrl = "GenerateCaptcha.aspx?" + DateTime.Now.Ticks.ToString();
             }
             catch
             {
                 throw;
             }
         }
-       
+
         protected void btnRegister_Click(object sender, EventArgs e)
         {
-            if (Session["captcha"].ToString() != txtCaptcha.Text)
-            {
-                lblCaptcha.Text = "Invalid Captcha";
-            }
-            else
-            {
- 
-            }
+                var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                var user = new ApplicationUser() { UserName = txtRegisterUsername.Text, Email = txtRegisterEmail.Text };
+                IdentityResult result = manager.Create(user, txtRegisterPassword.Text);
+                if (result.Succeeded)
+                {
+
+                    IdentityHelper.SignIn(manager, user, isPersistent: false);
+
+                    // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
+                    //string code = manager.GenerateEmailConfirmationToken(user.Id);
+                    //string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id);
+                    //manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>.");
+                    IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+                }
+                else
+                {
+                    //ErrorMessage.Text = result.Errors.FirstOrDefault();
+                }
         }
 
         protected void btnRefresh_Click(object sender, EventArgs e)
