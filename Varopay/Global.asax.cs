@@ -10,6 +10,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Owin;
 using Varopay.Models;
+using System.Data.Entity;
+using Varopay.App_Start;
 
 namespace Varopay
 {
@@ -20,6 +22,7 @@ namespace Varopay
             // Code that runs on application startup
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            Database.SetInitializer<ApplicationDbContext>(new DatabaseInitializer());
         }
     }
 }

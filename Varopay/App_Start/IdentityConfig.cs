@@ -4,6 +4,13 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Varopay.Models;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+using System.Threading;
+using System.Web;
+using System;
+using System.Text;
 
 namespace Varopay
 {
@@ -55,7 +62,7 @@ namespace Varopay
             return manager;
         }
     }
-
+   
     public class EmailService : IIdentityMessageService
     {
         public Task SendAsync(IdentityMessage message)
@@ -74,3 +81,4 @@ namespace Varopay
         }
     }
 }
+

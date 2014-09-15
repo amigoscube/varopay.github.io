@@ -13,6 +13,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Owin;
 using Varopay.Account;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Varopay
 {
@@ -109,9 +110,16 @@ namespace Varopay
                 var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
                 var user = new ApplicationUser() { UserName = txtRegisterUsername.Text, Email = txtRegisterEmail.Text };
                 IdentityResult result = manager.Create(user, txtRegisterPassword.Text);
+                string role = "User";
+                var RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>());
+                if (!RoleManager.RoleExists(role))
+                {
+                    var userrole = RoleManager.Create(new IdentityRole(role));
+                }
+
                 if (result.Succeeded)
                 {
-
+                    var roleresult = manager.AddToRole(user.Id, role);
                     IdentityHelper.SignIn(manager, user, isPersistent: false);
 
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
@@ -130,6 +138,23 @@ namespace Varopay
         {
             FillCaptcha();
         }
+
+        protected void btnLogin_Click(object sender, EventArgs e)
+        {
+            var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            ApplicationUser user = manager.Find(txtUsername.Text, txtPassword.Text);
+            if (user != null)
+            {
+                IdentityHelper.SignIn(manager, user, isPersistent:false);
+                IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+            }
+                else
+                {
+                   // FailureText.Text = "Invalid username or password.";
+                   // ErrorMessage.Visible = true;
+                }
+            }
+        }
     }
 
-}
+

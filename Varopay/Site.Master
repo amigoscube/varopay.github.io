@@ -48,44 +48,44 @@
                     </ul>
                 </div>
                 <div class="col-md-6">
-                    <asp:LoginView runat="server" ViewStateMode="Disabled">
-                        <AnonymousTemplate>
                             <ul class=" nav nav-pills">
                                 <li>
-                                    <asp:TextBox runat="server" ID="txtUserName" placeholder="Username" CssClass="form-control"></asp:TextBox></li>
+                                    <asp:TextBox runat="server" ID="txtUsername" placeholder="Username" CssClass="form-control"></asp:TextBox></li>
                                 <li>
-                                    <asp:TextBox runat="server" ID="txtPassWord" placeholder="Password" TextMode="Password" CssClass="form-control"></asp:TextBox>
+                                    <asp:TextBox runat="server" ID="txtPassword" placeholder="Password" TextMode="Password" CssClass="form-control"></asp:TextBox>
                                 </li>
 
                                 <li>
-                                    <asp:Button runat="server" CssClass="btn" Text="Login" ID="btnLogin" />
+                                    <asp:Button runat="server" CssClass="btn" Text="Login" ID="btnLogin" OnClick="btnLogin_Click" />
                                 </li>
                                 <li>
                                     <asp:Button runat="server" CssClass="btn btn-primary" ID="btnSignUp" Text="Signup" data-target="#SignUpModal" data-toggle="modal" role="dialog" />
                                 </li>
                             </ul>
-                        </AnonymousTemplate>
+                    </div>
+                </div>
+                <div><asp:LoginView runat="server" ViewStateMode="Disabled">
                         <RoleGroups>
                             <asp:RoleGroup Roles="Admin">
                                 <ContentTemplate>
-                                    <ul>
-                                        <li>Account</li>
-                                        <li>Enable</li>
-                                        <li>Disable</li>
+                                    <ul class="nav nav-justified">
+                                        <li><a href="#" runat="server">Account</a></li>
+                                        <li><a href="#" runat="server">Enable</a></li>
+                                        <li><a href="#" runat="server">Disable</a></li>
                                     </ul>
                                 </ContentTemplate>
                             </asp:RoleGroup>
                             <asp:RoleGroup Roles="User">
                                 <ContentTemplate>
-                                    <ul>
-                                        <li>My Account</li>
-                                        <li>Send Money</li>
-                                        <li>Money Trnasfer</li>
-                                        <li>Statement</li>
-                                        <li>Analytics</li>
-                                        <li>Internal Mail</li>
-                                        <li>History</li>
-                                        <li>Settings</li>
+                                    <ul class="nav nav-justified">
+                                        <li><a href="#" role="button" runat="server"> My Account</a></li>
+                                        <li><a href="#" role="button" runat="server">Send Money</a></li>
+                                        <li><a href="#" role="button" runat="server">Money Trnasfer</a></li>
+                                        <li><a href="#" role="button" runat="server">Statement </a></li>
+                                        <li><a href="#" role="button" runat="server">Analytics</a></li>
+                                        <li><a href="#" role="button" runat="server">Internal Mail</a></li>
+                                        <li><a href="#" role="button" runat="server">History</a></li>
+                                        <li><a href="#" role="button" runat="server">Settings</a></li>
                                     </ul>
                                 </ContentTemplate>
                             </asp:RoleGroup>
@@ -100,24 +100,8 @@
                             </ul>
                         </LoggedInTemplate>
                     </asp:LoginView>
+
                 </div>
-            </div>
-            <%--<asp:LoginView runat="server" ViewStateMode="Disabled">
-                        <AnonymousTemplate>
-                            <ul class="nav">
-                                <li><a runat="server" href="~/Account/Register" class="btn btn-sm">Register</a></li>
-                                <li><a runat="server" href="~/Account/Login" class="btn btn-sm btn-primary">Log in</a></li>
-                            </ul>
-                        </AnonymousTemplate>
-                        <LoggedInTemplate>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
-                                <li>
-                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
-                                </li>
-                            </ul>
-                        </LoggedInTemplate>
-                    </asp:LoginView>--%>
         </header>
         <asp:ContentPlaceHolder ID="MainContent" runat="server">
         </asp:ContentPlaceHolder>
