@@ -80,6 +80,7 @@ namespace Varopay
             {
                 FillCaptcha();
             }
+            
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
@@ -142,16 +143,27 @@ namespace Varopay
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            ApplicationUser user = manager.Find(txtUsername.Text, txtPassword.Text);
+
+           TextBox username;
+            TextBox pwd;
+            var ErrorMessage = (PlaceHolder)LoginView1.FindControl("ErrorMessage");
+            var FailureText = (Literal)LoginView1.FindControl("FailureText");
+            username = (TextBox)LoginView1.FindControl("txtUsername");
+            pwd = (TextBox)LoginView1.FindControl("txtPassword");
+
+            Session["username"] = username.Text;
+            Session["pwd"] = pwd.Text;
+            ApplicationUser user = manager.Find(username.Text, pwd.Text);
             if (user != null)
             {
                 IdentityHelper.SignIn(manager, user, isPersistent:false);
-                IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+               
+               IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
             }
                 else
                 {
-                   // FailureText.Text = "Invalid username or password.";
-                   // ErrorMessage.Visible = true;
+                    FailureText.Text = "Invalid username or password.";
+                    ErrorMessage.Visible = true;
                 }
             }
         }

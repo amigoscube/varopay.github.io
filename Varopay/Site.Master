@@ -37,18 +37,24 @@
             </Scripts>
         </asp:ScriptManager>
         <header id="Header">
-            <div class="row">
-                <div class="col-md-6">
-                    <ul class="nav nav-justified">
-                        <li class="vertical-center"><a href="/" runat="server" class="varopay-Logo" role="button"></a></li>
-                        <li><a href="~/About.aspx" runat="server" role="button">About Us</a></li>
-                        <li><a href="~/FeeStructure.aspx" runat="server" role="button">Fee Structure</a></li>
-                        <li><a href="~/Contact.aspx" runat="server" role="button">Contact</a></li>
-                        <li><a href="#" runat="server" role="button">Help</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-6">
+
+            <asp:LoginView runat="server" ID="LoginView1">
+                <AnonymousTemplate>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul class="nav nav-justified">
+                                <li class="vertical-center"><a href="/" runat="server" class="varopay-Logo" role="button"></a></li>
+                                <li><a href="~/About.aspx" runat="server" role="button">About Us</a></li>
+                                <li><a href="~/FeeStructure.aspx" runat="server" role="button">Fee Structure</a></li>
+                                <li><a href="~/Contact.aspx" runat="server" role="button">Contact</a></li>
+                                <li><a href="#" runat="server" role="button">Help</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
                             <ul class=" nav nav-pills">
+                                <asp:PlaceHolder ID="ErrorMessage" runat="server" Visible="false">
+                                    <p class ="text-danger">  <asp:Literal ID="FailureText" runat="server"></asp:Literal></p>
+                                </asp:PlaceHolder>
                                 <li>
                                     <asp:TextBox runat="server" ID="txtUsername" placeholder="Username" CssClass="form-control"></asp:TextBox></li>
                                 <li>
@@ -62,46 +68,90 @@
                                     <asp:Button runat="server" CssClass="btn btn-primary" ID="btnSignUp" Text="Signup" data-target="#SignUpModal" data-toggle="modal" role="dialog" />
                                 </li>
                             </ul>
+                        </div>
                     </div>
-                </div>
-                <div><asp:LoginView runat="server" ViewStateMode="Disabled">
-                        <RoleGroups>
-                            <asp:RoleGroup Roles="Admin">
-                                <ContentTemplate>
+
+                </AnonymousTemplate>
+                <RoleGroups>
+                    <asp:RoleGroup Roles="Administrator">
+                        <ContentTemplate>
+                            <div class="container">
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <a href="/" runat="server" class="varopay-Logo logo-role-mrgn" role="button"></a>
+                                </div>
+                                <div class="col-md-3 ">
+                                    <ul class="nav nav-justified float-right">
+                                        <li><a runat="server" href="~/Default2.aspx" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
+                                        <li>
+                                            <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
                                     <ul class="nav nav-justified">
                                         <li><a href="#" runat="server">Account</a></li>
                                         <li><a href="#" runat="server">Enable</a></li>
                                         <li><a href="#" runat="server">Disable</a></li>
                                     </ul>
-                                </ContentTemplate>
-                            </asp:RoleGroup>
-                            <asp:RoleGroup Roles="User">
-                                <ContentTemplate>
-                                    <ul class="nav nav-justified">
-                                        <li><a href="#" role="button" runat="server"> My Account</a></li>
-                                        <li><a href="#" role="button" runat="server">Send Money</a></li>
-                                        <li><a href="#" role="button" runat="server">Money Trnasfer</a></li>
-                                        <li><a href="#" role="button" runat="server">Statement </a></li>
-                                        <li><a href="#" role="button" runat="server">Analytics</a></li>
-                                        <li><a href="#" role="button" runat="server">Internal Mail</a></li>
-                                        <li><a href="#" role="button" runat="server">History</a></li>
-                                        <li><a href="#" role="button" runat="server">Settings</a></li>
-                                    </ul>
-                                </ContentTemplate>
-                            </asp:RoleGroup>
-                        </RoleGroups>
-                        <LoggedInTemplate>
+                                </div>
+                                <div class="col-md-6"></div>
+                            </div>
+                                </div>
+                        </ContentTemplate>
+                    </asp:RoleGroup>
+                    <asp:RoleGroup Roles="User">
+                        <ContentTemplate>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <a href="/" runat="server" class="varopay-Logo logo-role-mrgn" role="button"></a>
+                                    </div>
+                                    <div class="col-md-3 ">
+                                        <ul class="nav nav-justified float-right">
+                                            <li><a runat="server" href="~/Default2.aspx" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
+                                            <li>
+                                                <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <ul class="nav nav-justified">
+                                            <li><a href="#" role="button" runat="server">My Account</a></li>
+                                            <li><a href="#" role="button" runat="server">Send Money</a></li>
+                                            <li><a href="#" role="button" runat="server">Money Trnasfer</a></li>
+                                            <li><a href="#" role="button" runat="server">Statement </a></li>
+                                            <li><a href="#" role="button" runat="server">Analytics</a></li>
+                                            <li><a href="#" role="button" runat="server">Internal Mail</a></li>
+                                            <li><a href="#" role="button" runat="server">History</a></li>
+                                            <li><a href="#" role="button" runat="server">Settings</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
 
-                            <ul class="nav navbar-nav navbar-right nav-pills">
-                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
-                                <li>
-                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
-                                </li>
-                            </ul>
-                        </LoggedInTemplate>
-                    </asp:LoginView>
+                            </div>
+                        </ContentTemplate>
 
-                </div>
+                    </asp:RoleGroup>
+
+                </RoleGroups>
+
+                <LoggedInTemplate>
+                    <ul class="nav navbar-nav navbar-right nav-pills">
+                        <li><a runat="server" href="~/Default2" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
+                        <li>
+                            <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="/Account/Login" OnLoggingOut="Unnamed_LoggingOut" />
+                        </li>
+                    </ul>
+                </LoggedInTemplate>
+
+
+            </asp:LoginView>
+
         </header>
         <asp:ContentPlaceHolder ID="MainContent" runat="server">
         </asp:ContentPlaceHolder>
@@ -181,8 +231,6 @@
                                     <asp:RequiredFieldValidator ID="rfvRegisterConfirmPassword" runat="server" CssClass="text-warning" ControlToValidate="txtRegisterConfirmPassword" ErrorMessage="Confirm Password field is required"></asp:RequiredFieldValidator>
                                     <asp:CompareValidator ID="cmpPassword" runat="server" ControlToCompare="txtRegisterPassword" ControlToValidate="txtRegisterConfirmPassword" ErrorMessage="The password and Confirm Password do not match" Display="Dynamic" CssClass="text-warning"></asp:CompareValidator>
                                 </td>
-                            </tr>
-                            <tr>
                             </tr>
                             <tr>
                                 <td>
