@@ -14,6 +14,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Owin;
 using Varopay.Account;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Net;
+using System.Net.Mail;
 
 namespace Varopay
 {
@@ -80,7 +82,6 @@ namespace Varopay
             {
                 FillCaptcha();
             }
-            
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
@@ -120,14 +121,32 @@ namespace Varopay
 
                 if (result.Succeeded)
                 {
-                    var roleresult = manager.AddToRole(user.Id, role);
-                    IdentityHelper.SignIn(manager, user, isPersistent: false);
+                    //string activationcode = Guid.NewGuid().ToString();
+                    //var roleresult = manager.AddToRole(user.Id, role);
+                    //SmtpClient client = new SmtpClient();
+                    //client.EnableSsl = true;
+                    //client.Host = "smtp.gmail.com";
+                    //client.Port = 587;
+                    //client.UseDefaultCredentials = false;
+                    //client.Credentials = new NetworkCredential("divya.kandhadi@amigoscube.com", "tejaramm@1");
+                    //MailMessage msg = new MailMessage();
+                    //msg.To.Add(new MailAddress(txtRegisterEmail.Text));
+                    //msg.From = new MailAddress("divya.kandhadi@amigoscube.com");
+                    //string body = "Hello" + txtRegisterUsername.Text.Trim();
+                    //body += "<br/><br/> Please click the following link to activate your account";
+                    //body += "<br/><a href='" + Request.Url.AbsoluteUri.Replace("defualt.aspx", "Login.aspx?ActivationCode="+activationcode) + "'></a>";
+                    //msg.Body = body;
+                    //msg.Subject = "Confirmation Mail";
+                    //msg.Priority = MailPriority.Normal;
+                    //client.Send(msg);
+                    //Response.Write("Please check your mail");
+                   // IdentityHelper.SignIn(manager, user, isPersistent: false);
 
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                    //string code = manager.GenerateEmailConfirmationToken(user.Id);
-                    //string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id);
-                    //manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>.");
-                    IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+                   string code = manager.GenerateEmailConfirmationToken(user.Id);
+                   string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id);
+                   manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>.");
+                  //  IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
                 }
                 else
                 {
@@ -140,6 +159,7 @@ namespace Varopay
             FillCaptcha();
         }
 
+
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
@@ -150,15 +170,15 @@ namespace Varopay
             var FailureText = (Literal)LoginView1.FindControl("FailureText");
             username = (TextBox)LoginView1.FindControl("txtUsername");
             pwd = (TextBox)LoginView1.FindControl("txtPassword");
-
-            Session["username"] = username.Text;
-            Session["pwd"] = pwd.Text;
             ApplicationUser user = manager.Find(username.Text, pwd.Text);
-            if (user != null)
+            if (user != null&& user.EmailConfirmed)
             {
+                string sessionId;
+                sessionId = Context.Session.SessionID;
+                Session["username"] = username.Text;
+                Session["pwd"] = pwd.Text;
                 IdentityHelper.SignIn(manager, user, isPersistent:false);
-               
-               IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+                IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
             }
                 else
                 {

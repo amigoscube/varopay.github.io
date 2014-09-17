@@ -11,6 +11,8 @@ using System.Threading;
 using System.Web;
 using System;
 using System.Text;
+using System.Net.Mail;
+using System.Net;
 
 namespace Varopay
 {
@@ -67,8 +69,12 @@ namespace Varopay
     {
         public Task SendAsync(IdentityMessage message)
         {
-            // Plug in your email service here to send an email.
-            return Task.FromResult(0);
+            MailMessage mail = new MailMessage("divya.kandhadi@amigoscube.com","txtRegisterEmail.Text");
+            mail.Body = message.Body;
+            mail.Subject = message.Subject;
+            mail.IsBodyHtml = true;
+            var client = new SmtpClient("smtp.gmail.com", 587) { Credentials = new NetworkCredential("divya.kandhadi@amigoscube.com","tejaramm@1"), EnableSsl=true };
+            return client.SendMailAsync(mail);
         }
     }
 

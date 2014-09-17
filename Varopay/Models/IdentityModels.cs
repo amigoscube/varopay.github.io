@@ -35,7 +35,6 @@ namespace Varopay.Models
         {
         }
         public DbSet<RegisterUser> RegisteredUsers { get; set; }
-
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

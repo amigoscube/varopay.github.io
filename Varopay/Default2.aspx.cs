@@ -7,8 +7,8 @@ using System.Web.UI.WebControls;
 
 namespace Varopay
 {
-    public partial class Default2 : System.Web.UI.Page
-    {
+    public partial class Default2 : System.Web.UI.Page    
+    {        
         protected void Page_Load(object sender, EventArgs e)
         {
                 //string strPreviousPage = "";
