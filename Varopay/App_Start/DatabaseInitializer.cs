@@ -9,7 +9,6 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Varopay.Models;
 using System.Data.Entity;
-using System.Linq;
 using System.Threading;
 using System.Text;
 
@@ -45,6 +44,7 @@ namespace Varopay.App_Start
             if (adminresult.Succeeded)
             {
                 var result = UserManager.AddToRole(User.Id, AdminRole);
+                User.EmailConfirmed = true;
             }
         }
     }

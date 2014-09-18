@@ -69,12 +69,13 @@ namespace Varopay
     {
         public Task SendAsync(IdentityMessage message)
         {
-            MailMessage mail = new MailMessage("divya.kandhadi@amigoscube.com","txtRegisterEmail.Text");
+            MailMessage mail = new MailMessage("divya.kandhadi@amigoscube.com",message.Destination);
             mail.Body = message.Body;
             mail.Subject = message.Subject;
             mail.IsBodyHtml = true;
             var client = new SmtpClient("smtp.gmail.com", 587) { Credentials = new NetworkCredential("divya.kandhadi@amigoscube.com","tejaramm@1"), EnableSsl=true };
-            return client.SendMailAsync(mail);
+            client.SendMailAsync(mail);
+            return Task.FromResult(true);
         }
     }
 

@@ -212,6 +212,7 @@
     <Content Include="Security.aspx" />
     <Content Include="ServiceCenter.aspx" />
     <Content Include="SiteMap.aspx" />
+    <Content Include="Verfication.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -420,6 +421,13 @@
       <DependentUpon>SiteMap.aspx</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="Verfication.aspx.cs">
+      <DependentUpon>Verfication.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Verfication.aspx.designer.cs">
+      <DependentUpon>Verfication.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

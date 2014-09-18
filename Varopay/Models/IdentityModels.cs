@@ -14,6 +14,11 @@ namespace Varopay.Models
     // You can add User data for the user by adding more properties to your User class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
+        public string City{ get; set; }
+        public string Zipcode { get; set; }
+        public string Country{ get; set; }
+        public string  Address { get; set; }
+        public string AccountType { get; set; }
         public Task<ClaimsIdentity> GenerateUserIdentityAsync(ApplicationUserManager manager)
         {
             return Task.FromResult(GenerateUserIdentity(manager));
@@ -83,7 +88,7 @@ namespace Varopay
 
         public static string GetUserConfirmationRedirectUrl(string code, string userId)
         {
-            return "/Account/Confirm?" + CodeKey + "=" + HttpUtility.UrlEncode(code) + "&" + UserIdKey + "=" + HttpUtility.UrlEncode(userId);
+            return "Account/Confirm?" + CodeKey + "=" + HttpUtility.UrlEncode(code) + "&" + UserIdKey + "=" + HttpUtility.UrlEncode(userId);
         }
 
         private static bool IsLocalUrl(string url)

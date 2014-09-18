@@ -18,9 +18,6 @@ namespace Varopay
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            var confirmCode = !string.IsNullOrEmpty(Request.QueryString["activationcode"]) ? Request.QueryString["activationcode"] : Guid.Empty.ToString();
-            if (confirmCode != null)
             {
                 
             }

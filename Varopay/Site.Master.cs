@@ -122,7 +122,7 @@ namespace Varopay
                 if (result.Succeeded)
                 {
                     //string activationcode = Guid.NewGuid().ToString();
-                    //var roleresult = manager.AddToRole(user.Id, role);
+                    var roleresult = manager.AddToRole(user.Id, role);
                     //SmtpClient client = new SmtpClient();
                     //client.EnableSsl = true;
                     //client.Host = "smtp.gmail.com";
@@ -140,19 +140,21 @@ namespace Varopay
                     //msg.Priority = MailPriority.Normal;
                     //client.Send(msg);
                     //Response.Write("Please check your mail");
-                   // IdentityHelper.SignIn(manager, user, isPersistent: false);
+                    // IdentityHelper.SignIn(manager, user, isPersistent: false);
 
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                   string code = manager.GenerateEmailConfirmationToken(user.Id);
-                   string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id);
-                   manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>.");
-                  //  IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+                    string code = manager.GenerateEmailConfirmationToken(user.Id);
+                    string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id);
+                    manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + Request.Url.AbsoluteUri.Replace("Default", callbackUrl) + "\">here</a>.");
+                    //  IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
                 }
                 else
                 {
                     //ErrorMessage.Text = result.Errors.FirstOrDefault();
                 }
-        }
+            }
+       
+
 
         protected void btnRefresh_Click(object sender, EventArgs e)
         {
@@ -171,14 +173,15 @@ namespace Varopay
             username = (TextBox)LoginView1.FindControl("txtUsername");
             pwd = (TextBox)LoginView1.FindControl("txtPassword");
             ApplicationUser user = manager.Find(username.Text, pwd.Text);
-            if (user != null&& user.EmailConfirmed)
+            if (user != null&& user.EmailConfirmed==true)
             {
                 string sessionId;
                 sessionId = Context.Session.SessionID;
                 Session["username"] = username.Text;
                 Session["pwd"] = pwd.Text;
-                IdentityHelper.SignIn(manager, user, isPersistent:false);
-                IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+                Response.Redirect("~/Verification.aspx");
+                //IdentityHelper.SignIn(manager, user, isPersistent:false);
+                //IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
             }
                 else
                 {
