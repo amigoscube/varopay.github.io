@@ -20,13 +20,13 @@ namespace Varopay
             //{
             //    Response.Redirect("Default.aspx");
             //}
-            if (Page.User.IsInRole("Administrator "))
+            if (Page.User.IsInRole("Administrator"))
             {
                 Response.Redirect("Default2.aspx");
             }
             else
             {
-                Response.Redirect("Default.aspx");
+                Response.Redirect("~/");
             }
         }
     }

@@ -6,8 +6,10 @@
        </div>
    </div> 
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
             <asp:TextBox runat="server" ID="txtVerificationCode" CssClass="form-control"></asp:TextBox>
+            </div>
+        <div class="col-md-6">
             <asp:Button runat="server" ID="btnSubmit" Text="Submit"  OnClick="btnSubmit_Click"/>
         </div>
     </div>

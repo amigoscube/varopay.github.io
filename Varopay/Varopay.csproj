@@ -374,6 +374,15 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201409150751577_InitialCreate.cs" />
+    <Compile Include="Migrations\201409150751577_InitialCreate.Designer.cs">
+      <DependentUpon>201409150751577_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201409191148023_InitialDb.cs" />
+    <Compile Include="Migrations\201409191148023_InitialDb.Designer.cs">
+      <DependentUpon>201409191148023_InitialDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\GuidSessionIdManager.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\RegisterUser.cs" />
@@ -438,6 +447,14 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201409150751577_InitialCreate.resx">
+      <DependentUpon>201409150751577_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409191148023_InitialDb.resx">
+      <DependentUpon>201409191148023_InitialDb.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

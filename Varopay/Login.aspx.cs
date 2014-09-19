@@ -8,7 +8,6 @@ using Owin;
 using Varopay.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
-using Owin;
 using Varopay.Account;
 using Microsoft.AspNet.Identity.EntityFramework;
 

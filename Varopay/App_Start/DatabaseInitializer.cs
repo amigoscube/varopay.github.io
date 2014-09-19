@@ -15,7 +15,7 @@ using System.Text;
 
 namespace Varopay.App_Start
 {
-    public class DatabaseInitializer :DropCreateDatabaseIfModelChanges<ApplicationDbContext> 
+    public class DatabaseInitializer :DropCreateDatabaseAlways<ApplicationDbContext>
     {
         protected override void Seed(ApplicationDbContext context)
         {
@@ -29,6 +29,7 @@ namespace Varopay.App_Start
             string username = "admin";
             string Password = "Admin@123";
             string AdminRole = "Administrator";
+            string EmailId = "divya.kandhadi@amigoscube.com";
 
             RoleManager.Create(new IdentityRole(AdminRole));
             //UserManager.Create(new ApplicationUser() { UserName = username });
@@ -40,6 +41,7 @@ namespace Varopay.App_Start
 
             var User = new ApplicationUser();
             User.UserName = username;
+            User.Email = EmailId;
             var adminresult = UserManager.Create(User, Password);
             if (adminresult.Succeeded)
             {

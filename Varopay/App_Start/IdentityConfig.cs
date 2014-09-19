@@ -42,6 +42,10 @@ namespace Varopay
                 RequireLowercase = true,
                 RequireUppercase = true,
             };
+            manager.UserLockoutEnabledByDefault = true;
+            manager.DefaultAccountLockoutTimeSpan = TimeSpan.FromMinutes(5);
+            manager.MaxFailedAccessAttemptsBeforeLockout = 5;
+
             // Register two factor authentication providers. This application uses Phone and Emails as a step of receiving a code for verifying the user. 
             // For more information on using two-factor authentication please see http://go.microsoft.com/fwlink/?LinkID=391935
             // You can write your own provider and plug in here.

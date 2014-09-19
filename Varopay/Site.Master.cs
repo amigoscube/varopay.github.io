@@ -16,6 +16,7 @@ using Varopay.Account;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Net;
 using System.Net.Mail;
+using Microsoft.Owin.Security;
 
 namespace Varopay
 {
@@ -24,7 +25,6 @@ namespace Varopay
         private const string AntiXsrfTokenKey = "__AntiXsrfToken";
         private const string AntiXsrfUserNameKey = "__AntiXsrfUserName";
         private string _antiXsrfTokenValue;
-
         protected void Page_Init(object sender, EventArgs e)
         {
             // The code below helps to protect against XSRF attacks
@@ -56,7 +56,6 @@ namespace Varopay
 
             Page.PreLoad += master_Page_PreLoad;
         }
-
         protected void master_Page_PreLoad(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -75,7 +74,6 @@ namespace Varopay
                 }
             }
         }
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -83,12 +81,10 @@ namespace Varopay
                 FillCaptcha();
             }
         }
-
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
         {
             Context.GetOwinContext().Authentication.SignOut();
         }
-
         protected void FillCaptcha()
         {
             try
@@ -106,7 +102,6 @@ namespace Varopay
                 throw;
             }
         }
-
         protected void btnRegister_Click(object sender, EventArgs e)
         {
                 var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
@@ -121,47 +116,24 @@ namespace Varopay
 
                 if (result.Succeeded)
                 {
-                    //string activationcode = Guid.NewGuid().ToString();
                     var roleresult = manager.AddToRole(user.Id, role);
-                    //SmtpClient client = new SmtpClient();
-                    //client.EnableSsl = true;
-                    //client.Host = "smtp.gmail.com";
-                    //client.Port = 587;
-                    //client.UseDefaultCredentials = false;
-                    //client.Credentials = new NetworkCredential("divya.kandhadi@amigoscube.com", "tejaramm@1");
-                    //MailMessage msg = new MailMessage();
-                    //msg.To.Add(new MailAddress(txtRegisterEmail.Text));
-                    //msg.From = new MailAddress("divya.kandhadi@amigoscube.com");
-                    //string body = "Hello" + txtRegisterUsername.Text.Trim();
-                    //body += "<br/><br/> Please click the following link to activate your account";
-                    //body += "<br/><a href='" + Request.Url.AbsoluteUri.Replace("defualt.aspx", "Login.aspx?ActivationCode="+activationcode) + "'></a>";
-                    //msg.Body = body;
-                    //msg.Subject = "Confirmation Mail";
-                    //msg.Priority = MailPriority.Normal;
-                    //client.Send(msg);
-                    //Response.Write("Please check your mail");
                     // IdentityHelper.SignIn(manager, user, isPersistent: false);
 
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     string code = manager.GenerateEmailConfirmationToken(user.Id);
                     string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id);
-                    manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + Request.Url.AbsoluteUri.Replace("Default", callbackUrl) + "\">here</a>.");
+                    manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + Request.Url.AbsoluteUri.Replace("default.aspx", callbackUrl) + "\">here</a>.");
                     //  IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
                 }
                 else
                 {
                     //ErrorMessage.Text = result.Errors.FirstOrDefault();
                 }
-            }
-       
-
-
+            }       
         protected void btnRefresh_Click(object sender, EventArgs e)
         {
             FillCaptcha();
         }
-
-
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
@@ -179,7 +151,12 @@ namespace Varopay
                 sessionId = Context.Session.SessionID;
                 Session["username"] = username.Text;
                 Session["pwd"] = pwd.Text;
-                Response.Redirect("~/Verification.aspx");
+                string verify =  manager.GenerateTwoFactorToken(user.Id, "EmailCode");
+                Session["VerificationCode"] = verify;
+                VerificationCode(verify);
+                manager.SendEmail(user.Id,"Verification Code","Your Verification code is:"+verify+"");
+                SetTwoFactorAuthCookie(user.Id);
+                Response.Redirect("~/Verfication.aspx");
                 //IdentityHelper.SignIn(manager, user, isPersistent:false);
                 //IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
             }
@@ -189,6 +166,20 @@ namespace Varopay
                     ErrorMessage.Visible = true;
                 }
             }
+        private void SetTwoFactorAuthCookie(string userId)
+        {
+            ClaimsIdentity identity = new ClaimsIdentity(DefaultAuthenticationTypes.TwoFactorCookie);
+            identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, userId));
+            IAuthenticationManager authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
+            authenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
+            //var identity = manager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
+            authenticationManager.SignIn(identity);
+        }
+        private void VerificationCode(string verify)
+        {
+            Session["VerificationCode"] = verify;
+            return Session["VerificationCode"];
+        }
         }
     }
 
