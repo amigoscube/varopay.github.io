@@ -9,7 +9,7 @@ namespace Varopay.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
             ContextKey = "Varopay.Models.ApplicationDbContext";
         }
 

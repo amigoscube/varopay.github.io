@@ -15,7 +15,7 @@ using System.Text;
 
 namespace Varopay.App_Start
 {
-    public class DatabaseInitializer :DropCreateDatabaseAlways<ApplicationDbContext>
+    public class DatabaseInitializer :DropCreateDatabaseIfModelChanges<ApplicationDbContext>
     {
         protected override void Seed(ApplicationDbContext context)
         {

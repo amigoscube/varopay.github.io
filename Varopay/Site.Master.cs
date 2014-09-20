@@ -78,6 +78,7 @@ namespace Varopay
         {
             if (!IsPostBack)
             {
+                btnRegister.Enabled = false;
                 FillCaptcha();
             }
         }
@@ -94,8 +95,8 @@ namespace Varopay
                 StringBuilder captcha = new StringBuilder();
                 for (int i = 0; i < 6; i++)
                     captcha.Append(combination[random.Next(combination.Length)]);
-               Session["captcha"] = captcha.ToString();
-               imgCaptcha.ImageUrl = "GenerateCaptcha.aspx?" + DateTime.Now.Ticks.ToString();
+                Session["captcha"] = captcha.ToString();
+                imgCaptcha.ImageUrl = "GenerateCaptcha.aspx?" + DateTime.Now.Ticks.ToString();
             }
             catch
             {
@@ -104,32 +105,32 @@ namespace Varopay
         }
         protected void btnRegister_Click(object sender, EventArgs e)
         {
-                var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-                var user = new ApplicationUser() { UserName = txtRegisterUsername.Text, Email = txtRegisterEmail.Text };
-                IdentityResult result = manager.Create(user, txtRegisterPassword.Text);
-                string role = "User";
-                var RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>());
-                if (!RoleManager.RoleExists(role))
-                {
-                    var userrole = RoleManager.Create(new IdentityRole(role));
-                }
+            var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            var user = new ApplicationUser() { UserName = txtRegisterUsername.Text, Email = txtRegisterEmail.Text, PhoneNumber = txtPhoneNumber.Text, City = txtRegisterCity.Text, Address = txtRegisterAddress.Text, Country = ddlCountry.Text };
+            IdentityResult result = manager.Create(user, txtRegisterPassword.Text);
+            string role = "User";
+            var RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>());
+            if (!RoleManager.RoleExists(role))
+            {
+                var userrole = RoleManager.Create(new IdentityRole(role));
+            }
 
-                if (result.Succeeded)
-                {
-                    var roleresult = manager.AddToRole(user.Id, role);
-                    // IdentityHelper.SignIn(manager, user, isPersistent: false);
+            if (result.Succeeded)
+            {
+                var roleresult = manager.AddToRole(user.Id, role);
+                // IdentityHelper.SignIn(manager, user, isPersistent: false);
 
-                    // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                    string code = manager.GenerateEmailConfirmationToken(user.Id);
-                    string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id);
-                    manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + Request.Url.AbsoluteUri.Replace("default.aspx", callbackUrl) + "\">here</a>.");
-                    //  IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
-                }
-                else
-                {
-                    //ErrorMessage.Text = result.Errors.FirstOrDefault();
-                }
-            }       
+                // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
+                string code = manager.GenerateEmailConfirmationToken(user.Id);
+                string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id);
+                manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + Request.Url.AbsoluteUri.Replace("default.aspx", callbackUrl) + "\">here</a>.");
+                //  IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+            }
+            else
+            {
+                //ErrorMessage.Text = result.Errors.FirstOrDefault();
+            }
+        }
         protected void btnRefresh_Click(object sender, EventArgs e)
         {
             FillCaptcha();
@@ -138,49 +139,49 @@ namespace Varopay
         {
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
 
-           TextBox username;
+            TextBox username;
             TextBox pwd;
             var ErrorMessage = (PlaceHolder)LoginView1.FindControl("ErrorMessage");
             var FailureText = (Literal)LoginView1.FindControl("FailureText");
             username = (TextBox)LoginView1.FindControl("txtUsername");
             pwd = (TextBox)LoginView1.FindControl("txtPassword");
             ApplicationUser user = manager.Find(username.Text, pwd.Text);
-            if (user != null&& user.EmailConfirmed==true)
+            if (user != null && user.EmailConfirmed == true)
             {
                 string sessionId;
                 sessionId = Context.Session.SessionID;
                 Session["username"] = username.Text;
                 Session["pwd"] = pwd.Text;
-                string verify =  manager.GenerateTwoFactorToken(user.Id, "EmailCode");
-                Session["VerificationCode"] = verify;
-                VerificationCode(verify);
-                manager.SendEmail(user.Id,"Verification Code","Your Verification code is:"+verify+"");
+                string verify = manager.GenerateTwoFactorToken(user.Id, "EmailCode");
+                manager.SendEmail(user.Id, "Verification Code", "Your Verification code is:" + verify + "");
                 SetTwoFactorAuthCookie(user.Id);
                 Response.Redirect("~/Verfication.aspx");
-                //IdentityHelper.SignIn(manager, user, isPersistent:false);
-                //IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
             }
-                else
-                {
-                    FailureText.Text = "Invalid username or password.";
-                    ErrorMessage.Visible = true;
-                }
+            else
+            {
+                FailureText.Text = "Invalid username or password.";
+                ErrorMessage.Visible = true;
             }
+        }
         private void SetTwoFactorAuthCookie(string userId)
         {
             ClaimsIdentity identity = new ClaimsIdentity(DefaultAuthenticationTypes.TwoFactorCookie);
             identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, userId));
+
             IAuthenticationManager authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
             authenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
-            //var identity = manager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
             authenticationManager.SignIn(identity);
         }
-        private void VerificationCode(string verify)
+
+        protected void chkAgree_CheckedChanged(object sender, EventArgs e)
         {
-            Session["VerificationCode"] = verify;
-            return Session["VerificationCode"];
-        }
-        }
+            if(btnRegister.Enabled){
+                btnRegister.Enabled = false;
+            }else{
+                btnRegister.Enabled = true;
+            }
+        }        
     }
+}
 
 

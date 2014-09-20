@@ -1,6 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Verfication.aspx.cs" Inherits="Varopay.Verfication" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Verfication.aspx.cs" Inherits="Varopay.Verfication" Async="true" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-   <div class="row">
+    <div class="container">
+          <div class="row">
        <div class="col-md-12">
        <h3>Please enter the verification code.Check your mail</h3>
        </div>
@@ -13,5 +14,5 @@
             <asp:Button runat="server" ID="btnSubmit" Text="Submit"  OnClick="btnSubmit_Click"/>
         </div>
     </div>
-
+    </div>
 </asp:Content>

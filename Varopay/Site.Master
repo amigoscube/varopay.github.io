@@ -35,9 +35,8 @@
                 <asp:ScriptReference Name="WebFormsBundle" />--%>
                 <%--Site Scripts--%>
             </Scripts>
-        </asp:ScriptManager>
+        </asp:ScriptManager>     
         <header id="Header">
-
             <asp:LoginView runat="server" ID="LoginView1">
                 <AnonymousTemplate>
                     <div class="row">
@@ -53,7 +52,8 @@
                         <div class="col-md-6">
                             <ul class=" nav nav-pills">
                                 <asp:PlaceHolder ID="ErrorMessage" runat="server" Visible="false">
-                                    <p class ="text-danger">  <asp:Literal ID="FailureText" runat="server"></asp:Literal></p>
+                                    <p class="text-danger">
+                                        <asp:Literal ID="FailureText" runat="server"></asp:Literal></p>
                                 </asp:PlaceHolder>
                                 <li>
                                     <asp:TextBox runat="server" ID="txtUsername" placeholder="Username" CssClass="form-control"></asp:TextBox></li>
@@ -76,30 +76,30 @@
                     <asp:RoleGroup Roles="Administrator">
                         <ContentTemplate>
                             <div class="container">
-                            <div class="row">
-                                <div class="col-md-9">
-                                    <a href="/" runat="server" class="varopay-Logo logo-role-mrgn" role="button"></a>
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <a href="/" runat="server" class="varopay-Logo logo-role-mrgn" role="button"></a>
+                                    </div>
+                                    <div class="col-md-3 ">
+                                        <ul class="nav nav-justified float-right">
+                                            <li><a runat="server" href="~/Default2.aspx" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
+                                            <li>
+                                                <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
-                                <div class="col-md-3 ">
-                                    <ul class="nav nav-justified float-right">
-                                        <li><a runat="server" href="~/Default2.aspx" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
-                                        <li>
-                                            <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
-                                        </li>
-                                    </ul>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <ul class="nav nav-justified">
+                                            <li><a href="#" runat="server">Account</a></li>
+                                            <li><a href="#" runat="server">Enable</a></li>
+                                            <li><a href="#" runat="server">Disable</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6"></div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <ul class="nav nav-justified">
-                                        <li><a href="#" runat="server">Account</a></li>
-                                        <li><a href="#" runat="server">Enable</a></li>
-                                        <li><a href="#" runat="server">Disable</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-6"></div>
-                            </div>
-                                </div>
                         </ContentTemplate>
                     </asp:RoleGroup>
                     <asp:RoleGroup Roles="User">
@@ -236,7 +236,7 @@
                                 </td>
                                 <td>
                                     <asp:DropDownList runat="server" ID="ddlCountry"></asp:DropDownList>
-                                <%--    <asp:RequiredFieldValidator runat="server" ID="rqvRegisterCountry" ControlToValidate="ddlCountry" CssClass="text-warning" ErrorMessage="Country field cannot be empty"></asp:RequiredFieldValidator>--%>
+                                    <%--    <asp:RequiredFieldValidator runat="server" ID="rqvRegisterCountry" ControlToValidate="ddlCountry" CssClass="text-warning" ErrorMessage="Country field cannot be empty"></asp:RequiredFieldValidator>--%>
                                 </td>
                             </tr>
                             <tr>
@@ -288,7 +288,6 @@
                                     </asp:RadioButtonList>
                                 </td>
                             </tr>
-                            
                             <tr>
                                 <td>
                                     <asp:UpdatePanel ID="upCaptcha" runat="server">
@@ -317,10 +316,11 @@
                                 </td>
                             </tr>
                         </table>
-                        <p><asp:CheckBox ID="chkAgree" runat="server" />I Agree to the Terms and Conditions</p>
+                        <p>
+                            <asp:CheckBox ID="chkAgree" runat="server" Text="I Agree to the Terms and Conditions" TextAlign="Right" OnCheckedChanged="chkAgree_CheckedChanged"/></p>
                         <div class="modal-footer" runat="server">
-                                    <asp:Button Text="Register" runat="server" ID="btnRegister" CssClass="btn btn-primary" OnClick="btnRegister_Click"/>
-                                     <asp:Button Text="Cancel" runat="server" data-dismiss="modal" CssClass="btn btn-primary" ID="btnCancel" />
+                            <asp:Button Text="Register" runat="server" ID="btnRegister" CssClass="btn btn-primary" OnClick="btnRegister_Click" />
+                            <asp:Button Text="Cancel" runat="server" data-dismiss="modal" CssClass="btn btn-primary" ID="btnCancel" />
                         </div>
                     </div>
                 </div>
@@ -428,6 +428,6 @@
                 </div>
             </div>
         </div>
-    </form>
+    </form>    
 </body>
 </html>
