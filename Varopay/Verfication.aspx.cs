@@ -11,6 +11,7 @@ using Microsoft.Owin;
 using Microsoft.AspNet.Identity.Owin;
 using Varopay.Models;
 using System.Threading.Tasks;
+using System.Web.Security;
 
 namespace Varopay
 {
@@ -59,7 +60,19 @@ namespace Varopay
             if (manager.VerifyTwoFactorToken(user.Id, "EmailCode", pin))
             {
                 IdentityHelper.SignIn(manager, user, isPersistent: false);
-                IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+
+                if (manager.IsInRole(user.Id,"Administrator"))
+                {
+                    Response.Redirect("~/Admin/admin.aspx",false);
+                }
+                else if (manager.IsInRole(user.Id, "User"))
+                {
+                    Response.Redirect("~/User/user.aspx",false);
+                }
+                else
+                {
+                    IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+                }
             }
             else
             {

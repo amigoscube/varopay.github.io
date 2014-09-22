@@ -6,8 +6,18 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using Owin;
 using Varopay.Models;
 using System.Data.Entity;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Security.Claims;
+
 
 namespace Varopay.Models
 {
@@ -38,11 +48,14 @@ namespace Varopay.Models
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
-        }        
+        }
+        public DbSet<Account> Account { get; set; }
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
         }
+       
+
     }
 }
 
@@ -106,6 +119,18 @@ namespace Varopay
                 response.Redirect("~/",false);
             }
         }
+            /// <summary>
+        /// create Account Creates a Default Account whenever an Account is Created
+        /// </summary>
+        /// <param name="currency">Default Currency</param>
+        /// <param name="UserId">User Id of the User</param>
+        public static void createAccount(String currency, String UserId)
+        {
+            var account = new Varopay.Models.Account();
+
+            account.Currency = currency;
+            account.UserID = UserId;
+        }       
     }
 }
 #endregion

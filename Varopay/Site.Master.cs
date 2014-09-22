@@ -86,6 +86,12 @@ namespace Varopay
         {
             Context.GetOwinContext().Authentication.SignOut();
         }
+      enum Currency
+        {
+            USD,
+            EUR
+        };
+
         protected void FillCaptcha()
         {
             try
@@ -119,11 +125,11 @@ namespace Varopay
             {
                 var roleresult = manager.AddToRole(user.Id, role);
                 // IdentityHelper.SignIn(manager, user, isPersistent: false);
-
                 // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                 string code = manager.GenerateEmailConfirmationToken(user.Id);
                 string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id);
                 manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + Request.Url.AbsoluteUri.Replace("default.aspx", callbackUrl) + "\">here</a>.");
+                IdentityHelper.createAccount("EUR",user.Id);
                 //  IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
             }
             else
@@ -171,16 +177,7 @@ namespace Varopay
             IAuthenticationManager authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
             authenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
             authenticationManager.SignIn(identity);
-        }
-
-        protected void chkAgree_CheckedChanged(object sender, EventArgs e)
-        {
-            if(btnRegister.Enabled){
-                btnRegister.Enabled = false;
-            }else{
-                btnRegister.Enabled = true;
-            }
-        }        
+        }     
     }
 }
 

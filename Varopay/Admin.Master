@@ -5,12 +5,48 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+     <link href="Content/bootstrap.css" rel="stylesheet" type="text/css" />
+      <link href="Content/Site.css" rel="stylesheet" type="text/css" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
+        <asp:ScriptManager runat="server">
+        <Scripts>
+            <asp:ScriptReference Name="jquery" />
+            <asp:ScriptReference Name="bootstrap" />
+            <asp:ScriptReference Name="respond" />
+        </Scripts>
+    </asp:ScriptManager>
+        <header >
+            <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <a href="/" runat="server" class="varopay-Logo logo-role-mrgn" role="button"></a>
+                </div>
+                <div class="col-md-3 ">
+                    <ul class="nav nav-justified float-right">
+                        <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
+                        <li>
+                            <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="nav nav-justified">
+                        <li><a href="#" runat="server">Account</a></li>
+                        <li><a href="#" runat="server">Enable</a></li>
+                        <li><a href="#" runat="server">Disable</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6"></div>
+            </div>
+        </div>
+        </header>
+        <div>
         <asp:ContentPlaceHolder ID="MainContent" runat="server">
         
         </asp:ContentPlaceHolder>

@@ -155,6 +155,7 @@
     <Content Include="Account\RegisterExternalLogin.aspx" />
     <Content Include="Account\ResetPassword.aspx" />
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
+    <Content Include="admin.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -171,6 +172,7 @@
     <Content Include="Images\white.jpg" />
     <Content Include="License.txt" />
     <Content Include="Login.aspx" />
+    <Content Include="MyAccount.aspx" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -212,6 +214,7 @@
     <Content Include="Security.aspx" />
     <Content Include="ServiceCenter.aspx" />
     <Content Include="SiteMap.aspx" />
+    <Content Include="user.aspx" />
     <Content Include="Verfication.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config">
@@ -225,6 +228,7 @@
     <Content Include="Site.Mobile.Master" />
     <Content Include="Site.Master" />
     <Content Include="Admin.Master" />
+    <Content Include="User.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -295,6 +299,13 @@
     </Compile>
     <Compile Include="Account\ResetPasswordConfirmation.aspx.designer.cs">
       <DependentUpon>ResetPasswordConfirmation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin.aspx.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin.aspx.designer.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
@@ -386,10 +397,26 @@
     <Compile Include="Migrations\201409200514231_ASPNetUsers.Designer.cs">
       <DependentUpon>201409200514231_ASPNetUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201409220949246_DatabaseInitializer.cs" />
+    <Compile Include="Migrations\201409220949246_DatabaseInitializer.Designer.cs">
+      <DependentUpon>201409220949246_DatabaseInitializer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201409221150161_Account.cs" />
+    <Compile Include="Migrations\201409221150161_Account.Designer.cs">
+      <DependentUpon>201409221150161_Account.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\GuidSessionIdManager.cs" />
+    <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\Currency.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\RegisterUser.cs" />
+    <Compile Include="Models\Payee.cs" />
+    <Compile Include="MyAccount.aspx.cs">
+      <DependentUpon>MyAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MyAccount.aspx.designer.cs">
+      <DependentUpon>MyAccount.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security.aspx.cs">
       <DependentUpon>Security.aspx</DependentUpon>
@@ -434,6 +461,20 @@
       <DependentUpon>SiteMap.aspx</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="user.aspx.cs">
+      <DependentUpon>user.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user.aspx.designer.cs">
+      <DependentUpon>user.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User.Master.cs">
+      <DependentUpon>User.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User.Master.designer.cs">
+      <DependentUpon>User.Master</DependentUpon>
+    </Compile>
     <Compile Include="Verfication.aspx.cs">
       <DependentUpon>Verfication.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -461,6 +502,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201409200514231_ASPNetUsers.resx">
       <DependentUpon>201409200514231_ASPNetUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409220949246_DatabaseInitializer.resx">
+      <DependentUpon>201409220949246_DatabaseInitializer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409221150161_Account.resx">
+      <DependentUpon>201409221150161_Account.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
