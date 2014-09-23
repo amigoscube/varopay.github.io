@@ -126,10 +126,9 @@ namespace Varopay
                 var roleresult = manager.AddToRole(user.Id, role);
                 // IdentityHelper.SignIn(manager, user, isPersistent: false);
                 // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                string code = manager.GenerateEmailConfirmationToken(user.Id);
-                string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id);
-                manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + Request.Url.AbsoluteUri.Replace("default.aspx", callbackUrl) + "\">here</a>.");
-                IdentityHelper.createAccount("EUR",user.Id);
+                IdentityHelper.SendConfirmationMail(user.Id,Context,Request);
+                Response.Redirect("~/Registered.aspx");
+                IdentityHelper.createAccount("EUR" ,user.Id);
                 //  IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
             }
             else
@@ -162,6 +161,10 @@ namespace Varopay
                 manager.SendEmail(user.Id, "Verification Code", "Your Verification code is:" + verify + "");
                 SetTwoFactorAuthCookie(user.Id);
                 Response.Redirect("~/Verfication.aspx");
+            }
+            else if(user!=null && user.EmailConfirmed==false)
+            {
+                Response.Redirect("~/NotConfirmed.aspx");
             }
             else
             {

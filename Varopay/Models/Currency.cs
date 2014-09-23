@@ -8,9 +8,9 @@ namespace Varopay.Models
 {
     public class Currency
     {
-        [ScaffoldColumn(false)]
-        public string CurrencyID { get; set; }
-        public string Currency { get; set; }
-        public virtual Account Currency{ get; set; }
+        public Guid CurrencyID { get; set; }
+
+        [DataType(DataType.Currency)]
+        public string CurrencyName { get; set; }
     }
 }

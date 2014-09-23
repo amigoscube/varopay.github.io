@@ -173,12 +173,14 @@
     <Content Include="License.txt" />
     <Content Include="Login.aspx" />
     <Content Include="MyAccount.aspx" />
+    <Content Include="NotConfirmed.aspx" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Registered.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -385,31 +387,13 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201409150751577_InitialCreate.cs" />
-    <Compile Include="Migrations\201409150751577_InitialCreate.Designer.cs">
-      <DependentUpon>201409150751577_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201409191148023_InitialDb.cs" />
-    <Compile Include="Migrations\201409191148023_InitialDb.Designer.cs">
-      <DependentUpon>201409191148023_InitialDb.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201409200514231_ASPNetUsers.cs" />
-    <Compile Include="Migrations\201409200514231_ASPNetUsers.Designer.cs">
-      <DependentUpon>201409200514231_ASPNetUsers.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201409220949246_DatabaseInitializer.cs" />
-    <Compile Include="Migrations\201409220949246_DatabaseInitializer.Designer.cs">
-      <DependentUpon>201409220949246_DatabaseInitializer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201409221150161_Account.cs" />
-    <Compile Include="Migrations\201409221150161_Account.Designer.cs">
-      <DependentUpon>201409221150161_Account.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Currency.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Log.cs" />
     <Compile Include="Models\Payee.cs" />
+    <Compile Include="Models\Transaction.cs" />
+    <Compile Include="Models\TransactionType.cs" />
     <Compile Include="MyAccount.aspx.cs">
       <DependentUpon>MyAccount.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -417,7 +401,21 @@
     <Compile Include="MyAccount.aspx.designer.cs">
       <DependentUpon>MyAccount.aspx</DependentUpon>
     </Compile>
+    <Compile Include="NotConfirmed.aspx.cs">
+      <DependentUpon>NotConfirmed.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NotConfirmed.aspx.designer.cs">
+      <DependentUpon>NotConfirmed.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registered.aspx.cs">
+      <DependentUpon>Registered.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registered.aspx.designer.cs">
+      <DependentUpon>Registered.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Security.aspx.cs">
       <DependentUpon>Security.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -492,23 +490,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201409150751577_InitialCreate.resx">
-      <DependentUpon>201409150751577_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201409191148023_InitialDb.resx">
-      <DependentUpon>201409191148023_InitialDb.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201409200514231_ASPNetUsers.resx">
-      <DependentUpon>201409200514231_ASPNetUsers.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201409220949246_DatabaseInitializer.resx">
-      <DependentUpon>201409220949246_DatabaseInitializer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201409221150161_Account.resx">
-      <DependentUpon>201409221150161_Account.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

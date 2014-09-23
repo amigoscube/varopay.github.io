@@ -5,10 +5,11 @@ using System.Web;
 
 namespace Varopay.Models
 {
-    public class Payee
+    public class Payees
     {
-        public string PayeeID { get; set; }
+        public Guid PayeesID { get; set; }
         public string Payee { get; set; }
         public string Payer { get; set; }
+        public virtual Account Payment { get; set; }
     }
 }

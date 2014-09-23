@@ -9,14 +9,15 @@ using Microsoft.Owin.Security;
 using Owin;
 using Varopay.Models;
 using System.Data.Entity;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Security.Claims;
+using System.Net;
+using System.Net.Mail;
+using System.Security.Principal;
+using System.Text;
 
 
 namespace Varopay.Models
@@ -50,6 +51,11 @@ namespace Varopay.Models
         {
         }
         public DbSet<Account> Account { get; set; }
+        public DbSet<Currency> Currencies { get; set; }
+        public DbSet<Log> Logs { get; set; }
+        public DbSet<Payees> Payees { get; set; }
+        public DbSet<Transaction> Transactions { get; set; }
+        public DbSet<TransactionType> TransactionTypes { get; set; }
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
@@ -119,17 +125,29 @@ namespace Varopay
                 response.Redirect("~/",false);
             }
         }
+        /// <summary>
+        /// Sends Confirmation mail to the user
+        /// </summary>
+        /// <param name="UserID">User's Id</param>
+        /// <param name="Context">Http Context</param>
+        /// <param name="Request">Http Request</param>
+        public static void SendConfirmationMail(string UserID,HttpContext Context,HttpRequest Request)
+        {
+            var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            string code = manager.GenerateEmailConfirmationToken(UserID);
+            string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, UserID);
+            manager.SendEmail(UserID, "Confirm your account", "Please confirm your account by clicking <a href=\"" + Request.Url.AbsoluteUri.Replace("default.aspx", callbackUrl) + "\">here</a>.");
+        }
             /// <summary>
         /// create Account Creates a Default Account whenever an Account is Created
         /// </summary>
         /// <param name="currency">Default Currency</param>
         /// <param name="UserId">User Id of the User</param>
-        public static void createAccount(String currency, String UserId)
+        public static void createAccount(string currency, String UserId)
         {
+            var Currency = new Varopay.Models.Currency() { CurrencyName = currency };
             var account = new Varopay.Models.Account();
 
-            account.Currency = currency;
-            account.UserID = UserId;
         }       
     }
 }

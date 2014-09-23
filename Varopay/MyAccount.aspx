@@ -11,6 +11,14 @@
             <div class="col-md-6">
                 <div class="row">
                     <h3>My Accounts</h3>
+                    <asp:GridView runat="server" ID=" gdvAccount">
+                        <Columns>
+                            <asp:TemplateField>
+                                <ItemTemplate>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
+                    </asp:GridView>
                 </div>
                 <div class="row">
                     <h3>Promotions</h3>
