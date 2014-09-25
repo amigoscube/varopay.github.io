@@ -1,0 +1,63 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="User.Master.cs" Inherits="Varopay.USER.User" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+      <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
+      <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+         <asp:ScriptManager runat="server">
+        <Scripts>
+            <asp:ScriptReference Name="jquery" />
+            <asp:ScriptReference Name="bootstrap" />
+            <asp:ScriptReference Name="respond" />
+        </Scripts>
+    </asp:ScriptManager>
+        <header id ="UserHeader">
+            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <a href="/" runat="server" class="varopay-Logo logo-role-mrgn" role="button"></a>
+                                    </div>
+                                    <div class="col-md-3 ">
+                                        <ul class="nav nav-justified float-right">
+                                            <li><a runat="server" href="~/Default2.aspx" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
+                                            <li>
+                                                <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" />
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <ul class="nav nav-justified">
+                                            <li><a href="~/USER/User/MyAccount.aspx" role="button" runat="server">My Account</a></li>
+                                            <li><a href="~/USER/User/" role="button" runat="server">Send Money</a></li>
+                                            <li><a href="~/USER/User/" role="button" runat="server">Currency Exchange</a></li>
+                                            <li><a href="~/USER/User/" role="button" runat="server">Deposit</a></li>
+                                            <li><a href="~/USER/User" runat="server" role="button">Withdraw</a></li>
+                                            <li><a href="~/USER/User" role="button" runat="server">Statement </a></li>
+                                            <li><a href="~/USER/User" role="button" runat="server">Analytics</a></li>
+                                            <li><a href="~/USER/User" role="button" runat="server">Internal Mail</a></li>
+                                            <li><a href="~/USER/User" role="button" runat="server">History</a></li>
+                                            <li><a href="~/USER/User" role="button" runat="server">Settings</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+        </header>
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>

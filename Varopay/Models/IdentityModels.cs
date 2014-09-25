@@ -143,11 +143,17 @@ namespace Varopay
         /// </summary>
         /// <param name="currency">Default Currency</param>
         /// <param name="UserId">User Id of the User</param>
-        public static void createAccount(string currency, String UserId)
+        public static void createAccount(string UserId)
         {
-            var Currency = new Varopay.Models.Currency() { CurrencyName = currency };
+            ApplicationDbContext db = new ApplicationDbContext();
+            var Cur = new Currency();
+            var user = new ApplicationUser();
             var account = new Varopay.Models.Account();
-
+            account.AccountID = Guid.NewGuid();
+            account.MyAccount.Id = user.Id;
+            account.Currency.CurrencyID = Cur.CurrencyID;
+            db.Account.Add(account);
+            db.SaveChanges();
         }       
     }
 }

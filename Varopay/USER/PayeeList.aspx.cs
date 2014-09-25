@@ -7,15 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace Varopay
 {
-    public partial class User : System.Web.UI.MasterPage
+    public partial class PayeeList : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
-        }
-        protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
-        {
-            Context.GetOwinContext().Authentication.SignOut();
         }
     }
 }

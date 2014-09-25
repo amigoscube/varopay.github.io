@@ -15,7 +15,7 @@ body {
 input[type="text"],
 input[type="password"],
 input[type="email"] {
-    max-width: 280px;
+    /*max-width: 280px;*/
 }
 
 /* Responsive: Portrait tablets and up */

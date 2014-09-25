@@ -7,18 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Varopay {
+namespace Varopay.USER {
     
     
-    public partial class MyAccount {
+    public partial class SendMoney {
         
         /// <summary>
-        ///  gdvAccount control.
+        /// gdvAccount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView  gdvAccount;
+        protected global::System.Web.UI.WebControls.GridView gdvAccount;
     }
 }

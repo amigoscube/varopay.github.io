@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User.Master" AutoEventWireup="true" CodeBehind="MyAccount.aspx.cs" Inherits="Varopay.MyAccount" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/USER/User.Master" AutoEventWireup="true" CodeBehind="MyAccount.aspx.cs" Inherits="Varopay.USER.MyAccount" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -13,7 +13,7 @@
                     <h3>My Accounts</h3>
                     <asp:GridView runat="server" ID=" gdvAccount">
                         <Columns>
-                            <asp:TemplateField>
+                            <asp:TemplateField HeaderText="Account">
                                 <ItemTemplate>
                                 </ItemTemplate>
                             </asp:TemplateField>

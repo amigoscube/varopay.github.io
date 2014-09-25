@@ -86,12 +86,6 @@ namespace Varopay
         {
             Context.GetOwinContext().Authentication.SignOut();
         }
-      enum Currency
-        {
-            USD,
-            EUR
-        };
-
         protected void FillCaptcha()
         {
             try
@@ -112,7 +106,7 @@ namespace Varopay
         protected void btnRegister_Click(object sender, EventArgs e)
         {
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            var user = new ApplicationUser() { UserName = txtRegisterUsername.Text, Email = txtRegisterEmail.Text, PhoneNumber = txtPhoneNumber.Text, City = txtRegisterCity.Text, Address = txtRegisterAddress.Text, Country = ddlCountry.Text };
+            var user = new ApplicationUser() { UserName = txtRegisterUsername.Text, Email = txtRegisterEmail.Text, PhoneNumber = txtPhoneNumber.Text, City = txtRegisterCity.Text, Address = txtRegisterAddress.Text, Country = ddlCountry.Text,Zipcode=txtZipcode.Text };
             IdentityResult result = manager.Create(user, txtRegisterPassword.Text);
             string role = "User";
             var RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>());
@@ -124,12 +118,13 @@ namespace Varopay
             if (result.Succeeded)
             {
                 var roleresult = manager.AddToRole(user.Id, role);
-                // IdentityHelper.SignIn(manager, user, isPersistent: false);
-                // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                 IdentityHelper.SendConfirmationMail(user.Id,Context,Request);
+                var cur = new Varopay.Models.Currency();
+                foreach (CurrencyName c in Enum.GetValues(typeof(CurrencyName)))
+                {
+                    IdentityHelper.createAccount(user.Id);
+                }
                 Response.Redirect("~/Registered.aspx");
-                IdentityHelper.createAccount("EUR" ,user.Id);
-                //  IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
             }
             else
             {
@@ -153,10 +148,6 @@ namespace Varopay
             ApplicationUser user = manager.Find(username.Text, pwd.Text);
             if (user != null && user.EmailConfirmed == true)
             {
-                string sessionId;
-                sessionId = Context.Session.SessionID;
-                Session["username"] = username.Text;
-                Session["pwd"] = pwd.Text;
                 string verify = manager.GenerateTwoFactorToken(user.Id, "EmailCode");
                 manager.SendEmail(user.Id, "Verification Code", "Your Verification code is:" + verify + "");
                 SetTwoFactorAuthCookie(user.Id);
@@ -166,10 +157,15 @@ namespace Varopay
             {
                 Response.Redirect("~/NotConfirmed.aspx");
             }
+            //else if (user != null)
+            //{
+            //    Response.Redirect("~/Account/Forgot.aspx");
+            //}
             else
             {
                 FailureText.Text = "Invalid username or password.";
                 ErrorMessage.Visible = true;
+                Response.Redirect("~/Account/Forgot.aspx");
             }
         }
         private void SetTwoFactorAuthCookie(string userId)
