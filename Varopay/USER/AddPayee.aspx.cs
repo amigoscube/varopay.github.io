@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Varopay
+namespace Varopay.USER
 {
     public partial class Payee : System.Web.UI.Page
     {

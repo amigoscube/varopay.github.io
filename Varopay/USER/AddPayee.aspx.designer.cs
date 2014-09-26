@@ -31,6 +31,15 @@ namespace Varopay.USER {
         protected global::System.Web.UI.WebControls.TextBox txtPayeeAccount;
         
         /// <summary>
+        /// rqvPayeeAccount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqvPayeeAccount;
+        
+        /// <summary>
         /// lblPayee control.
         /// </summary>
         /// <remarks>
@@ -47,6 +56,15 @@ namespace Varopay.USER {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPayee;
+        
+        /// <summary>
+        /// rqvPayee control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqvPayee;
         
         /// <summary>
         /// lblEmail control.
@@ -67,6 +85,15 @@ namespace Varopay.USER {
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
         
         /// <summary>
+        /// rqvEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqvEmail;
+        
+        /// <summary>
         /// lblPhoneNumber control.
         /// </summary>
         /// <remarks>
@@ -83,6 +110,15 @@ namespace Varopay.USER {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPhoneNumber;
+        
+        /// <summary>
+        /// rqvPhonenumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqvPhonenumber;
         
         /// <summary>
         /// btnSubmit control.

@@ -13,12 +13,21 @@ namespace Varopay.USER {
     public partial class MyAccount {
         
         /// <summary>
-        ///  gdvAccount control.
+        /// gdvLog control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView  gdvAccount;
+        protected global::System.Web.UI.WebControls.GridView gdvLog;
+        
+        /// <summary>
+        /// gdvAccount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gdvAccount;
     }
 }

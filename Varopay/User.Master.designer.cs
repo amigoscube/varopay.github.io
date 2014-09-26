@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Varopay.USER {
+namespace Varopay {
     
     
     public partial class User {

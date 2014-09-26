@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/USER/User.Master" AutoEventWireup="true" CodeBehind="MyAccount.aspx.cs" Inherits="Varopay.USER.MyAccount" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User.Master" AutoEventWireup="true" CodeBehind="MyAccount.aspx.cs" Inherits="Varopay.USER.MyAccount" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -7,11 +7,20 @@
             <div class="col-md-6">
                 <h2>Member Area</h2>
                 <p>Welcome to your account <%: Context.User.Identity.GetUserName() %></p>
+                <asp:GridView ID="gdvLog" runat="server">
+                    <Columns>
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:Label ID="lbl"
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                </asp:GridView> 
             </div>
             <div class="col-md-6">
                 <div class="row">
                     <h3>My Accounts</h3>
-                    <asp:GridView runat="server" ID=" gdvAccount">
+                    <asp:GridView runat="server" ID="gdvAccount">
                         <Columns>
                             <asp:TemplateField HeaderText="Account">
                                 <ItemTemplate>

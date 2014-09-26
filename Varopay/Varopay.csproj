@@ -158,6 +158,8 @@
     <Content Include="ADMIN\admin.aspx" />
     <Content Include="ADMIN\Disable.aspx" />
     <Content Include="ADMIN\Enable.aspx" />
+    <Content Include="Images\delete.jpg" />
+    <Content Include="Images\Edit.jpg" />
     <Content Include="USER\Analytics.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
@@ -229,6 +231,8 @@
     <Content Include="SiteMap.aspx" />
     <Content Include="USER\Statement.aspx" />
     <Content Include="USER\user.aspx" />
+    <Content Include="USER\ViewStatement.aspx" />
+    <Content Include="USER\WebForm1.aspx" />
     <Content Include="Verfication.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config">
@@ -242,7 +246,7 @@
     <Content Include="Site.Mobile.Master" />
     <Content Include="Site.Master" />
     <Content Include="ADMIN\Admin.Master" />
-    <Content Include="USER\User.Master" />
+    <Content Include="User.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -548,12 +552,26 @@
     <Compile Include="USER\user.aspx.designer.cs">
       <DependentUpon>user.aspx</DependentUpon>
     </Compile>
-    <Compile Include="USER\User.Master.cs">
+    <Compile Include="User.Master.cs">
       <DependentUpon>User.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="USER\User.Master.designer.cs">
+    <Compile Include="User.Master.designer.cs">
       <DependentUpon>User.Master</DependentUpon>
+    </Compile>
+    <Compile Include="USER\ViewStatement.aspx.cs">
+      <DependentUpon>ViewStatement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="USER\ViewStatement.aspx.designer.cs">
+      <DependentUpon>ViewStatement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="USER\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="USER\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Verfication.aspx.cs">
       <DependentUpon>Verfication.aspx</DependentUpon>

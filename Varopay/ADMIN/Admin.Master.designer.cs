@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Varopay {
+namespace Varopay.ADMIN {
     
     
-    public partial class Site1 {
+    public partial class Admin {
         
         /// <summary>
         /// head control.

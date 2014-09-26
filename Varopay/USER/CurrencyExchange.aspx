@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/USER/User.Master" AutoEventWireup="true" CodeBehind="CurrencyExchange.aspx.cs" Inherits="Varopay.USER.CreditExchange" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User.Master" AutoEventWireup="true" CodeBehind="CurrencyExchange.aspx.cs" Inherits="Varopay.USER.CreditExchange" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -22,6 +22,7 @@
                         </td>
                         <td>
                             <asp:TextBox runat="server" ID="txtAmount" CssClass="form-control"></asp:TextBox>
+                            <asp:RequiredFieldValidator runat="server" ID="rqvAmount" ControlToValidate="txtAmount" CssClass="text-danger" ErrorMessage="Field is required"></asp:RequiredFieldValidator>
                         </td>
                     </tr>
                     <tr>
@@ -40,6 +41,11 @@
                             <asp:TextBox ID="txtTotal" runat="server" CssClass="form-control"></asp:TextBox>
                         </td>
                     </tr>
+                    <tr>
+                        <td colspan="2">
+                            <asp:Button runat="server" ID="btnConvert" Text="Convert" CssClass="text-center" />
+                        </td>
+                    </tr>
                 </table>
             </div>
             <div class="col-md-6">
@@ -47,14 +53,19 @@
                     <h3>My Accounts</h3>
                     <asp:GridView ID="gdvAccounts" runat="server">
                         <Columns>
+                            <asp:TemplateField>
+                                <EditItemTemplate>
+                                    <asp:HyperLink runat="server" Text='<%#Eval("Account") %>' NavigateUrl="~/"></asp:HyperLink>
+                                </EditItemTemplate>
+                            </asp:TemplateField>
                         </Columns>
                     </asp:GridView>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <asp:Chart runat="server">
+                        <%--<asp:Chart runat="server">
 
-                        </asp:Chart>
+                        </asp:Chart>--%>
                     </div>
                 </div>
             </div>

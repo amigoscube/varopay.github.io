@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/USER/User.Master" AutoEventWireup="true" CodeBehind="SendMoney.aspx.cs" Inherits="Varopay.USER.SendMoney" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User.Master" AutoEventWireup="true" CodeBehind="SendMoney.aspx.cs" Inherits="Varopay.USER.SendMoney" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -9,6 +9,7 @@
                 <Columns>
                     <asp:TemplateField>
                         <ItemTemplate>
+                            <asp:HyperLink runat="server" NavigateUrl="~/" Text='<%#Eval("Account") %>'></asp:HyperLink>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

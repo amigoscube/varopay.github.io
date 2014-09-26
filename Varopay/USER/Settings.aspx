@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/USER/User.Master" AutoEventWireup="true" CodeBehind="Settings.aspx.cs" Inherits="Varopay.USER.Settings" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User.Master" AutoEventWireup="true" CodeBehind="Settings.aspx.cs" Inherits="Varopay.USER.Settings" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -13,7 +13,7 @@
                                 <asp:Label runat="server" ID="lblUserName" Text="Username"></asp:Label>
                             </td>
                             <td>
-                                <asp:TextBox runat="server" ID="txtUsername" CssClass="form-control" Text=""></asp:TextBox>
+                                <asp:TextBox runat="server" ID="txtUsername" CssClass="form-control"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
@@ -66,18 +66,10 @@
                             </td>
                         </tr>
                         <tr>
-                    </table>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
-                <div class="row">
-                    <table runat="server">
-                        <tr>
-                            <td>
-                                <asp:Label runat="server" ID="lblCurrentPassword" ></asp:Label>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
         </div>
     </div>
 </asp:Content>

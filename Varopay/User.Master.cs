@@ -17,5 +17,10 @@ namespace Varopay
         //{
         //    Context.GetOwinContext().Authentication.SignOut();
         //}
+
+        protected void Unnamed_LoggingOut1(object sender, LoginCancelEventArgs e)
+        {
+            Context.GetOwinContext().Authentication.SignOut();
+        }
     }
 }
