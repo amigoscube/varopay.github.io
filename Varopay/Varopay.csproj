@@ -155,31 +155,31 @@
     <Content Include="Account\RegisterExternalLogin.aspx" />
     <Content Include="Account\ResetPassword.aspx" />
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
-    <Content Include="ADMIN\admin.aspx" />
-    <Content Include="ADMIN\Disable.aspx" />
-    <Content Include="ADMIN\Enable.aspx" />
+    <Content Include="Admin\admin.aspx" />
+    <Content Include="Admin\Disable.aspx" />
+    <Content Include="Admin\Enable.aspx" />
     <Content Include="Images\delete.jpg" />
     <Content Include="Images\Edit.jpg" />
-    <Content Include="USER\Analytics.aspx" />
+    <Content Include="User\Analytics.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="USER\CurrencyExchange.aspx" />
-    <Content Include="USER\Deposit.aspx" />
+    <Content Include="User\CurrencyExchange.aspx" />
+    <Content Include="User\Deposit.aspx" />
     <Content Include="Developers.aspx" />
     <Content Include="Exchangers.aspx" />
     <Content Include="FeeStructure.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Functionality.aspx" />
     <Content Include="GenerateCaptcha.aspx" />
-    <Content Include="USER\History.aspx" />
+    <Content Include="User\History.aspx" />
     <Content Include="Images\footer-bg.jpg" />
     <Content Include="Images\VaroPayLogoSmall.png" />
     <Content Include="Images\white.jpg" />
-    <Content Include="USER\InternalMail.aspx" />
+    <Content Include="User\InternalMail.aspx" />
     <Content Include="License.txt" />
-    <Content Include="USER\MyAccount.aspx" />
+    <Content Include="User\MyAccount.aspx" />
     <Content Include="NotConfirmed.aspx" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -187,8 +187,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
     <Content Include="Content\countries.json" />
-    <Content Include="USER\AddPayee.aspx" />
-    <Content Include="USER\PayeeList.aspx" />
+    <Content Include="User\AddPayee.aspx" />
+    <Content Include="User\PayeeList.aspx" />
     <Content Include="Scripts\countries.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Registered.aspx" />
@@ -225,14 +225,13 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Security.aspx" />
-    <Content Include="USER\SendMoney.aspx" />
+    <Content Include="User\SendMoney.aspx" />
     <Content Include="ServiceCenter.aspx" />
-    <Content Include="USER\Settings.aspx" />
+    <Content Include="User\Settings.aspx" />
     <Content Include="SiteMap.aspx" />
-    <Content Include="USER\Statement.aspx" />
-    <Content Include="USER\user.aspx" />
-    <Content Include="USER\ViewStatement.aspx" />
-    <Content Include="USER\WebForm1.aspx" />
+    <Content Include="User\Statement.aspx" />
+    <Content Include="User\user.aspx" />
+    <Content Include="User\ViewStatement.aspx" />
     <Content Include="Verfication.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config">
@@ -245,7 +244,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Site.Mobile.Master" />
     <Content Include="Site.Master" />
-    <Content Include="ADMIN\Admin.Master" />
+    <Content Include="Admin\Admin.Master" />
     <Content Include="User.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -318,32 +317,32 @@
     <Compile Include="Account\ResetPasswordConfirmation.aspx.designer.cs">
       <DependentUpon>ResetPasswordConfirmation.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ADMIN\admin.aspx.cs">
+    <Compile Include="Admin\admin.aspx.cs">
       <DependentUpon>admin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ADMIN\admin.aspx.designer.cs">
+    <Compile Include="Admin\admin.aspx.designer.cs">
       <DependentUpon>admin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ADMIN\Disable.aspx.cs">
+    <Compile Include="Admin\Disable.aspx.cs">
       <DependentUpon>Disable.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ADMIN\Disable.aspx.designer.cs">
+    <Compile Include="Admin\Disable.aspx.designer.cs">
       <DependentUpon>Disable.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ADMIN\Enable.aspx.cs">
+    <Compile Include="Admin\Enable.aspx.cs">
       <DependentUpon>Enable.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ADMIN\Enable.aspx.designer.cs">
+    <Compile Include="Admin\Enable.aspx.designer.cs">
       <DependentUpon>Enable.aspx</DependentUpon>
     </Compile>
-    <Compile Include="USER\Analytics.aspx.cs">
+    <Compile Include="User\Analytics.aspx.cs">
       <DependentUpon>Analytics.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="USER\Analytics.aspx.designer.cs">
+    <Compile Include="User\Analytics.aspx.designer.cs">
       <DependentUpon>Analytics.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -365,11 +364,11 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="USER\CurrencyExchange.aspx.cs">
+    <Compile Include="User\CurrencyExchange.aspx.cs">
       <DependentUpon>CurrencyExchange.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="USER\CurrencyExchange.aspx.designer.cs">
+    <Compile Include="User\CurrencyExchange.aspx.designer.cs">
       <DependentUpon>CurrencyExchange.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
@@ -379,11 +378,11 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="USER\Deposit.aspx.cs">
+    <Compile Include="User\Deposit.aspx.cs">
       <DependentUpon>Deposit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="USER\Deposit.aspx.designer.cs">
+    <Compile Include="User\Deposit.aspx.designer.cs">
       <DependentUpon>Deposit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Developers.aspx.cs">
@@ -424,18 +423,18 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="USER\History.aspx.cs">
+    <Compile Include="User\History.aspx.cs">
       <DependentUpon>History.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="USER\History.aspx.designer.cs">
+    <Compile Include="User\History.aspx.designer.cs">
       <DependentUpon>History.aspx</DependentUpon>
     </Compile>
-    <Compile Include="USER\InternalMail.aspx.cs">
+    <Compile Include="User\InternalMail.aspx.cs">
       <DependentUpon>InternalMail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="USER\InternalMail.aspx.designer.cs">
+    <Compile Include="User\InternalMail.aspx.designer.cs">
       <DependentUpon>InternalMail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\Account.cs" />
@@ -445,11 +444,11 @@
     <Compile Include="Models\Payee.cs" />
     <Compile Include="Models\Transaction.cs" />
     <Compile Include="Models\TransactionType.cs" />
-    <Compile Include="USER\MyAccount.aspx.cs">
+    <Compile Include="User\MyAccount.aspx.cs">
       <DependentUpon>MyAccount.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="USER\MyAccount.aspx.designer.cs">
+    <Compile Include="User\MyAccount.aspx.designer.cs">
       <DependentUpon>MyAccount.aspx</DependentUpon>
     </Compile>
     <Compile Include="NotConfirmed.aspx.cs">
@@ -459,18 +458,18 @@
     <Compile Include="NotConfirmed.aspx.designer.cs">
       <DependentUpon>NotConfirmed.aspx</DependentUpon>
     </Compile>
-    <Compile Include="USER\AddPayee.aspx.cs">
+    <Compile Include="User\AddPayee.aspx.cs">
       <DependentUpon>AddPayee.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="USER\AddPayee.aspx.designer.cs">
+    <Compile Include="User\AddPayee.aspx.designer.cs">
       <DependentUpon>AddPayee.aspx</DependentUpon>
     </Compile>
-    <Compile Include="USER\PayeeList.aspx.cs">
+    <Compile Include="User\PayeeList.aspx.cs">
       <DependentUpon>PayeeList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="USER\PayeeList.aspx.designer.cs">
+    <Compile Include="User\PayeeList.aspx.designer.cs">
       <DependentUpon>PayeeList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -488,11 +487,11 @@
     <Compile Include="Security.aspx.designer.cs">
       <DependentUpon>Security.aspx</DependentUpon>
     </Compile>
-    <Compile Include="USER\SendMoney.aspx.cs">
+    <Compile Include="User\SendMoney.aspx.cs">
       <DependentUpon>SendMoney.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="USER\SendMoney.aspx.designer.cs">
+    <Compile Include="User\SendMoney.aspx.designer.cs">
       <DependentUpon>SendMoney.aspx</DependentUpon>
     </Compile>
     <Compile Include="ServiceCenter.aspx.cs">
@@ -502,11 +501,11 @@
     <Compile Include="ServiceCenter.aspx.designer.cs">
       <DependentUpon>ServiceCenter.aspx</DependentUpon>
     </Compile>
-    <Compile Include="USER\Settings.aspx.cs">
+    <Compile Include="User\Settings.aspx.cs">
       <DependentUpon>Settings.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="USER\Settings.aspx.designer.cs">
+    <Compile Include="User\Settings.aspx.designer.cs">
       <DependentUpon>Settings.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
@@ -523,11 +522,11 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
-    <Compile Include="ADMIN\Admin.Master.cs">
+    <Compile Include="Admin\Admin.Master.cs">
       <DependentUpon>Admin.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ADMIN\Admin.Master.designer.cs">
+    <Compile Include="Admin\Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
     </Compile>
     <Compile Include="SiteMap.aspx.cs">
@@ -538,18 +537,18 @@
       <DependentUpon>SiteMap.aspx</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
-    <Compile Include="USER\Statement.aspx.cs">
+    <Compile Include="User\Statement.aspx.cs">
       <DependentUpon>Statement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="USER\Statement.aspx.designer.cs">
+    <Compile Include="User\Statement.aspx.designer.cs">
       <DependentUpon>Statement.aspx</DependentUpon>
     </Compile>
-    <Compile Include="USER\user.aspx.cs">
+    <Compile Include="User\user.aspx.cs">
       <DependentUpon>user.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="USER\user.aspx.designer.cs">
+    <Compile Include="User\user.aspx.designer.cs">
       <DependentUpon>user.aspx</DependentUpon>
     </Compile>
     <Compile Include="User.Master.cs">
@@ -559,19 +558,12 @@
     <Compile Include="User.Master.designer.cs">
       <DependentUpon>User.Master</DependentUpon>
     </Compile>
-    <Compile Include="USER\ViewStatement.aspx.cs">
+    <Compile Include="User\ViewStatement.aspx.cs">
       <DependentUpon>ViewStatement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="USER\ViewStatement.aspx.designer.cs">
+    <Compile Include="User\ViewStatement.aspx.designer.cs">
       <DependentUpon>ViewStatement.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="USER\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="USER\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Verfication.aspx.cs">
       <DependentUpon>Verfication.aspx</DependentUpon>

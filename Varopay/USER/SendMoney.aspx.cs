@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Varopay.USER
+namespace Varopay.User
 {
     public partial class SendMoney : System.Web.UI.Page
     {

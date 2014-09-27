@@ -10,7 +10,34 @@
 namespace Varopay.User {
     
     
-    public partial class History {
+    public partial class Statement {
+        
+        /// <summary>
+        /// lsvAccountsStmt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView lsvAccountsStmt;
+        
+        /// <summary>
+        /// lblBatch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblBatch;
+        
+        /// <summary>
+        /// txtBatch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBatch;
         
         /// <summary>
         /// lblFromDate control.
@@ -31,6 +58,15 @@ namespace Varopay.User {
         protected global::System.Web.UI.WebControls.TextBox txtFromDate;
         
         /// <summary>
+        /// lblToDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblToDate;
+        
+        /// <summary>
         /// txtToDate control.
         /// </summary>
         /// <remarks>
@@ -40,31 +76,40 @@ namespace Varopay.User {
         protected global::System.Web.UI.WebControls.TextBox txtToDate;
         
         /// <summary>
-        /// lblAccount control.
+        /// lblAccountFrom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAccount;
+        protected global::System.Web.UI.WebControls.Label lblAccountFrom;
         
         /// <summary>
-        /// txtFromAccount control.
+        /// txtAccountFrom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFromAccount;
+        protected global::System.Web.UI.WebControls.TextBox txtAccountFrom;
         
         /// <summary>
-        /// txtToAccount control.
+        /// lblAccountTo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtToAccount;
+        protected global::System.Web.UI.WebControls.Label lblAccountTo;
+        
+        /// <summary>
+        /// txtAccountTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAccountTo;
         
         /// <summary>
         /// lblAction control.
@@ -85,30 +130,30 @@ namespace Varopay.User {
         protected global::System.Web.UI.WebControls.DropDownList ddlAction;
         
         /// <summary>
-        /// lblObject control.
+        /// btnSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblObject;
+        protected global::System.Web.UI.WebControls.Button btnSearch;
         
         /// <summary>
-        /// ddlObject control.
+        /// lblInvoice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlObject;
+        protected global::System.Web.UI.WebControls.Label lblInvoice;
         
         /// <summary>
-        /// gdvHistory control.
+        /// txtInvoice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gdvHistory;
+        protected global::System.Web.UI.WebControls.TextBox txtInvoice;
     }
 }

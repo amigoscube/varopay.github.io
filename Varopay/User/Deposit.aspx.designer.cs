@@ -10,6 +10,15 @@
 namespace Varopay.User {
     
     
-    public partial class InternalMail {
+    public partial class Deposit {
+        
+        /// <summary>
+        /// ddlTransaction control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlTransaction;
     }
 }

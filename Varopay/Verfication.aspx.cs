@@ -67,7 +67,7 @@ namespace Varopay
                 }
                 else if (manager.IsInRole(user.Id, "User"))
                 {
-                    Response.Redirect("~/USER/User/user.aspx",false);
+                    Response.Redirect("~/User/user.aspx",false);
                 }
                 else
                 {

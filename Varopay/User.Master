@@ -37,15 +37,15 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <ul class="nav nav-justified">
-                                            <li><a href="~/USER/MyAccount.aspx" role="button" runat="server">My Account</a></li>
-                                            <li><a href="~/USER/SendMoney.aspx" role="button" runat="server">Send Money</a></li>
-                                            <li><a href="~/USER/CurrencyExchange.aspx" role="button" runat="server">Currency Exchange</a></li>
-                                            <li><a href="~/USER/Deposit.aspx" role="button" runat="server">Money Transfer</a></li>
-                                            <li><a href="~/USER/Statement.aspx" role="button" runat="server">Statement </a></li>
-                                            <li><a href="~/USER/Analytics.aspx" role="button" runat="server">Analytics</a></li>
-                                            <li><a href="~/USER/InternalMail.aspx" role="button" runat="server">Internal Mail</a></li>
-                                            <li><a href="~/USER/History.aspx" role="button" runat="server">History</a></li>
-                                            <li><a href="~/USER/Settings.aspx" role="button" runat="server">Settings</a></li>
+                                            <li><a href="~/User/MyAccount.aspx" role="button" runat="server">My Account</a></li>
+                                            <li><a href="~/User/SendMoney.aspx" role="button" runat="server">Send Money</a></li>
+                                            <li><a href="~/User/CurrencyExchange.aspx" role="button" runat="server">Currency Exchange</a></li>
+                                            <li><a href="~/User/Deposit.aspx" role="button" runat="server">Money Transfer</a></li>
+                                            <li><a href="~/User/Statement.aspx" role="button" runat="server">Statement </a></li>
+                                            <li><a href="~/User/Analytics.aspx" role="button" runat="server">Analytics</a></li>
+                                            <li><a href="~/User/InternalMail.aspx" role="button" runat="server">Internal Mail</a></li>
+                                            <li><a href="~/User/History.aspx" role="button" runat="server">History</a></li>
+                                            <li><a href="~/User/Settings.aspx" role="button" runat="server">Settings</a></li>
                                         </ul>
                                     </div>
                                 </div>
