@@ -10,7 +10,7 @@
 namespace Varopay {
     
     
-    public partial class User {
+    public partial class UserMaster {
         
         /// <summary>
         /// head control.

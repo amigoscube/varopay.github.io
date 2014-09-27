@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Varopay.Admin
 {
-    public partial class Disable : System.Web.UI.Page
+    public partial class Account : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

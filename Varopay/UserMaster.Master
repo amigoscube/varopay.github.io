@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="User.Master.cs" Inherits="Varopay.User" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="UserMaster.Master.cs" Inherits="Varopay.UserMaster" %>
 
 <!DOCTYPE html>
 
@@ -27,7 +27,7 @@
                                     </div>
                                     <div class="col-md-3 ">
                                         <ul class="nav nav-justified float-right">
-                                            <li><a runat="server" href="~/Default2.aspx" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
+                                            <li><a runat="server" href="~/Account/Manage.aspx" title="Manage your account">Hello, <%: HttpContext.Current.User.Identity.GetUserName()  %> !</a></li>
                                             <li>
                                                 <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut1"/>
                                             </li>
@@ -57,6 +57,30 @@
         
         </asp:ContentPlaceHolder>
     </div>
+        <div class="footer-wrapper">
+            <div class="container">
+                <div class="row">
+                     <div class="col-md-6 side-border">
+                        <ul class="footer-nav float-left pad-zero">
+                            <li><a href="~/SiteMap.aspx" runat="server">SiteMap</a></li>
+                            <li><a href="~/Developers.aspx" runat="server">Developers</a></li>
+                            <li><a href="#" data-target="#FeedBackModal" runat="server" data-toggle="modal" role="dialog">Feedback</a></li>
+                        </ul>
+                        <footer class="clear-both">
+                            <p class="footer-text">&copy; <%: DateTime.Now.Year %> - Varopay All Rights Reserved</p>
+                        </footer>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="footer-link-font nav-pills footer-nav float-right">
+                            <li><a href="#" data-target="#FAQModal" data-toggle="modal" role="dialog">F.A.Qs</a></li>
+                            <li><a href="#" data-target="#TermsAndConditionsModal" data-toggle="modal" role="dialog">Terms &amp; Conditions</a></li>
+                            <li><a href="#" data-target="#PrivacyPolicyModal" data-toggle="modal" role="dialog">Privacy Policy</a></li>
+                            <li><a href="#" data-target="#LegalNoticeModal" data-toggle="modal" role="dialog">Legal Notice</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </form>
 </body>
 </html>

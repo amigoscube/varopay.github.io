@@ -7,9 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Varopay.ADMIN {
+namespace Varopay.Admin {
     
     
-    public partial class admin {
+    public partial class Account {
     }
 }

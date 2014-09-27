@@ -63,11 +63,11 @@ namespace Varopay
 
                 if (manager.IsInRole(user.Id,"Administrator"))
                 {
-                    Response.Redirect("~/Admin/admin.aspx",false);
+                    Response.Redirect("~/Admin/Account.aspx",false);
                 }
                 else if (manager.IsInRole(user.Id, "User"))
                 {
-                    Response.Redirect("~/User/user.aspx",false);
+                    Response.Redirect("~/User/MyAccount.aspx",false);
                 }
                 else
                 {

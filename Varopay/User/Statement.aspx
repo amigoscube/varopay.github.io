@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User.Master" AutoEventWireup="true" CodeBehind="Statement.aspx.cs" Inherits="Varopay.User.Statement" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UserMaster.Master" AutoEventWireup="true" CodeBehind="Statement.aspx.cs" Inherits="Varopay.User.Statement" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -71,7 +71,7 @@
                             </td>
                             <td>
                                 <asp:DropDownList ID="ddlAction" CssClass="form-control" runat="server">
-                                    <asp:ListItem Value="0"></asp:ListItem>
+                                    <asp:ListItem Value=""></asp:ListItem>
                                     <asp:ListItem Value="1">Deposit</asp:ListItem>
                                     <asp:ListItem Value="2">Withdraw</asp:ListItem>
                                 </asp:DropDownList>
@@ -92,6 +92,27 @@
                             </td>
                             <td>
                                 <asp:TextBox ID="txtInvoice" runat="server" CssClass="form-control"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:Label ID="lblDateFrom" runat="server" Text="From Date"></asp:Label>
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtFrom" runat="server" CssClass="form-control"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:Label ID="lblDateTo" runat="server" Text="To Date"></asp:Label>
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtTo" runat="server" CssClass="form-control"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="text-centers">
+                                <asp:Button ID="btnInvoiceSearch" runat="server" CssClass="btn btn-default" Text="Search" />
                             </td>
                         </tr>
                     </table>

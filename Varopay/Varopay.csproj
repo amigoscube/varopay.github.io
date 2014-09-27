@@ -155,7 +155,7 @@
     <Content Include="Account\RegisterExternalLogin.aspx" />
     <Content Include="Account\ResetPassword.aspx" />
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
-    <Content Include="Admin\admin.aspx" />
+    <Content Include="Admin\Account.aspx" />
     <Content Include="Admin\Disable.aspx" />
     <Content Include="Admin\Enable.aspx" />
     <Content Include="Images\delete.jpg" />
@@ -165,6 +165,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="User\ComposeTicket.aspx" />
     <Content Include="User\CurrencyExchange.aspx" />
     <Content Include="User\Deposit.aspx" />
     <Content Include="Developers.aspx" />
@@ -179,6 +180,7 @@
     <Content Include="Images\white.jpg" />
     <Content Include="User\InternalMail.aspx" />
     <Content Include="License.txt" />
+    <Content Include="User\MailHistory.aspx" />
     <Content Include="User\MyAccount.aspx" />
     <Content Include="NotConfirmed.aspx" />
     <Content Include="packages.config" />
@@ -190,6 +192,10 @@
     <Content Include="User\AddPayee.aspx" />
     <Content Include="User\PayeeList.aspx" />
     <Content Include="Scripts\countries.json" />
+    <None Include="Properties\PublishProfiles\varopay - FTP %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\varopay - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\varopay - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\varopay - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Registered.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -244,8 +250,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Site.Mobile.Master" />
     <Content Include="Site.Master" />
-    <Content Include="Admin\Admin.Master" />
-    <Content Include="User.Master" />
+    <Content Include="Admin\AdminMaster.Master" />
+    <Content Include="UserMaster.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -317,12 +323,12 @@
     <Compile Include="Account\ResetPasswordConfirmation.aspx.designer.cs">
       <DependentUpon>ResetPasswordConfirmation.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\admin.aspx.cs">
-      <DependentUpon>admin.aspx</DependentUpon>
+    <Compile Include="Admin\Account.aspx.cs">
+      <DependentUpon>Account.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\admin.aspx.designer.cs">
-      <DependentUpon>admin.aspx</DependentUpon>
+    <Compile Include="Admin\Account.aspx.designer.cs">
+      <DependentUpon>Account.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Disable.aspx.cs">
       <DependentUpon>Disable.aspx</DependentUpon>
@@ -363,6 +369,13 @@
     </Compile>
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\ComposeTicket.aspx.cs">
+      <DependentUpon>ComposeTicket.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\ComposeTicket.aspx.designer.cs">
+      <DependentUpon>ComposeTicket.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\CurrencyExchange.aspx.cs">
       <DependentUpon>CurrencyExchange.aspx</DependentUpon>
@@ -444,6 +457,13 @@
     <Compile Include="Models\Payee.cs" />
     <Compile Include="Models\Transaction.cs" />
     <Compile Include="Models\TransactionType.cs" />
+    <Compile Include="User\MailHistory.aspx.cs">
+      <DependentUpon>MailHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\MailHistory.aspx.designer.cs">
+      <DependentUpon>MailHistory.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\MyAccount.aspx.cs">
       <DependentUpon>MyAccount.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -522,12 +542,12 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Admin.Master.cs">
-      <DependentUpon>Admin.Master</DependentUpon>
+    <Compile Include="Admin\AdminMaster.Master.cs">
+      <DependentUpon>AdminMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\Admin.Master.designer.cs">
-      <DependentUpon>Admin.Master</DependentUpon>
+    <Compile Include="Admin\AdminMaster.Master.designer.cs">
+      <DependentUpon>AdminMaster.Master</DependentUpon>
     </Compile>
     <Compile Include="SiteMap.aspx.cs">
       <DependentUpon>SiteMap.aspx</DependentUpon>
@@ -551,12 +571,12 @@
     <Compile Include="User\user.aspx.designer.cs">
       <DependentUpon>user.aspx</DependentUpon>
     </Compile>
-    <Compile Include="User.Master.cs">
-      <DependentUpon>User.Master</DependentUpon>
+    <Compile Include="UserMaster.Master.cs">
+      <DependentUpon>UserMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="User.Master.designer.cs">
-      <DependentUpon>User.Master</DependentUpon>
+    <Compile Include="UserMaster.Master.designer.cs">
+      <DependentUpon>UserMaster.Master</DependentUpon>
     </Compile>
     <Compile Include="User\ViewStatement.aspx.cs">
       <DependentUpon>ViewStatement.aspx</DependentUpon>

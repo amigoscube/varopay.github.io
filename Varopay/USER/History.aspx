@@ -1,10 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User.Master" AutoEventWireup="true" CodeBehind="History.aspx.cs" Inherits="Varopay.User.History" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UserMaster.Master" AutoEventWireup="true" CodeBehind="History.aspx.cs" Inherits="Varopay.User.History" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
             <h4>You can retrieve all transaction history of your account</h4>
             <table runat="server">
                 <tr>
@@ -34,8 +34,9 @@
                         <asp:Label runat="server" ID="lblAction" Text="Action"></asp:Label>
                     </td>
                     <td>
-                        <asp:DropDownList runat="server" ID="ddlAction" CssClass="form-control" OnSelectedIndexChanged="ddlAction_SelectedIndexChanged">
-                            <asp:ListItem Value="0">Login</asp:ListItem>
+                        <asp:DropDownList runat="server" ID="ddlAction" CssClass="form-control">
+                            <asp:ListItem></asp:ListItem>
+                            <asp:ListItem>Login</asp:ListItem>
                             <asp:ListItem>Logout</asp:ListItem>
                             <asp:ListItem>Create</asp:ListItem>
                             <asp:ListItem>Make</asp:ListItem>
@@ -52,7 +53,7 @@
                     </td>
                     <td>
                         <asp:DropDownList ID="ddlObject" CssClass="form-control" runat="server">
-                            <asp:ListItem Value="0"></asp:ListItem>
+                            <asp:ListItem></asp:ListItem>
                             <asp:ListItem>User</asp:ListItem>
                             <asp:ListItem>Account</asp:ListItem>
                             <asp:ListItem>Deposit</asp:ListItem>
@@ -60,6 +61,11 @@
                             <asp:ListItem>Mail</asp:ListItem>
                             <asp:ListItem>Security</asp:ListItem>
                         </asp:DropDownList>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="text-center">
+                        <asp:Button runat="server" ID="btnSearch" CssClass="btn btn-default" Text="Search"/>
                     </td>
                 </tr>
             </table>

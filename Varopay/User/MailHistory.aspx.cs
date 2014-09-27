@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Varopay.ADMIN
+namespace Varopay.User
 {
-    public partial class admin : System.Web.UI.Page
+    public partial class MailHistory : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
