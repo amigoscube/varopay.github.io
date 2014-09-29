@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UserMaster.Master" AutoEventWireup="true" CodeBehind="Statement.aspx.cs" Inherits="Varopay.User.Statement" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -38,7 +39,7 @@
                                 <asp:Label runat="server" ID="lblFromDate" Text="From Date"></asp:Label>
                             </td>
                             <td>
-                                <asp:TextBox runat="server" ID="txtFromDate" CssClass="form-control"></asp:TextBox>
+                                <asp:TextBox runat="server" ID="txtFromDate" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
@@ -46,7 +47,7 @@
                                 <asp:Label runat="server" ID="lblToDate" Text="ToDate"></asp:Label>
                             </td>
                             <td>
-                                <asp:TextBox runat="server" ID="txtToDate" CssClass="form-control"></asp:TextBox>
+                                <asp:TextBox runat="server" ID="txtToDate" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
@@ -79,10 +80,10 @@
                         </tr>
                         <tr>
                             <td colspan="2" class="text-center">
-                                <asp:Button runat="server" ID="btnSearch" Text="Search"  CssClass="btn btn-default"/>
+                                <asp:Button runat="server" ID="btnSearch" Text="Search" CssClass="btn btn-default" />
                             </td>
                         </tr>
-                    </table> 
+                    </table>
                 </div>
                 <div class="row">
                     <table runat="server">

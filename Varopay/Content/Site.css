@@ -198,3 +198,9 @@ tr
     margin-top:2%;
     margin-bottom:2%;
 }
+.btn-srch-mrgn {
+    margin-top:5%;
+}
+#Settings a {
+color:blueviolet;
+}

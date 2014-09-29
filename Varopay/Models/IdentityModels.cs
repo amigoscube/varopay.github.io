@@ -60,6 +60,8 @@ namespace Varopay.Models
         {
             return new ApplicationDbContext();
         }
+
+        //public System.Data.Entity.DbSet<Varopay.Models.ApplicationUser> ApplicationUsers { get; set; }
        
 
     }
@@ -150,7 +152,7 @@ namespace Varopay
             var user = new ApplicationUser();
             var account = new Varopay.Models.Account();
             account.AccountID = Guid.NewGuid();
-            account.MyAccount.Id = user.Id;
+            account.MyAccount.Id = UserId;
             account.Currency.CurrencyID = Cur.CurrencyID;
             db.Account.Add(account);
             db.SaveChanges();

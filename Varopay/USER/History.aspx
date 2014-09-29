@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4">
             <h4>You can retrieve all transaction history of your account</h4>
             <table runat="server">
                 <tr>
@@ -12,10 +12,10 @@
                         <asp:Label runat="server" ID="lblFromDate" Text="Date"></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox runat="server" ID="txtFromDate" CssClass="form-control" placeholder="From"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtFromDate" CssClass="form-control" placeholder="From" ClientIDMode="Static"></asp:TextBox>
                     </td>
                      <td>
-                        <asp:TextBox runat="server" ID="txtToDate" placeholder="To" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="txtToDate" placeholder="To" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -65,10 +65,12 @@
                 </tr>
                 <tr>
                     <td colspan="2" class="text-center">
-                        <asp:Button runat="server" ID="btnSearch" CssClass="btn btn-default" Text="Search"/>
+                        <asp:Button runat="server" ID="btnSearch" CssClass="btn btn-primary btn-srch-mrgn" Text="Search"/>
                     </td>
                 </tr>
             </table>
+        </div>
+        <div class="col-md-8"></div>
         </div>
         <div class="row">
             <div class="col-md-12">
@@ -103,6 +105,5 @@
                 </asp:GridView>
             </div>
         </div>
-    </div>
     </div>
 </asp:Content>

@@ -106,7 +106,7 @@ namespace Varopay
         protected void btnRegister_Click(object sender, EventArgs e)
         {
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            var user = new ApplicationUser() { UserName = txtRegisterUsername.Text, Email = txtRegisterEmail.Text, PhoneNumber = txtPhoneNumber.Text, City = txtRegisterCity.Text, Address = txtRegisterAddress.Text, Country = ddlCountry.Text,Zipcode=txtZipcode.Text };
+            var user = new ApplicationUser() { UserName = txtRegisterUsername.Text, Email = txtRegisterEmail.Text, PhoneNumber = txtPhoneNumber.Text, City = txtRegisterCity.Text, Address = txtRegisterAddress.Text, Country = ddlCountry.SelectedValue,Zipcode=txtZipcode.Text };
             IdentityResult result = manager.Create(user, txtRegisterPassword.Text);
             string role = "User";
             var RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>());

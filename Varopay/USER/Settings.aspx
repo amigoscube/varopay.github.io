@@ -5,8 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
-                <div class="row">
+            <div class="col-md-4" id="Settings">
                     <table runat="server">
                         <tr>
                             <td>
@@ -66,10 +65,15 @@
                             </td>
                         </tr>
                         <tr>
-                            </tr>
+                            <td colspan="2" class="text-center">
+                                <asp:Button runat="server" ID="btnSubmit" CssClass="btn btn-primary" Text="Submit" />
+                            </td>
+                        </tr>
                         </table>
+                <a href="#" runat="server">Change Password</a>
                     </div>
+            <div class="col-md-8"></div>
                 </div>
-        </div>
+
     </div>
 </asp:Content>

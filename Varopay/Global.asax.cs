@@ -12,6 +12,7 @@ using Owin;
 using Varopay.Models;
 using System.Data.Entity;
 using Varopay.App_Start;
+using System.Web.Http;
 
 namespace Varopay
 {
@@ -23,6 +24,7 @@ namespace Varopay
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             Database.SetInitializer<ApplicationDbContext>(new DatabaseInitializer());
+            GlobalConfiguration.Configure(WebApiConfig.Register);
         }
     }
 }

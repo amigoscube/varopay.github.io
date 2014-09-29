@@ -28,21 +28,33 @@
                             <asp:ListItem>Deposit</asp:ListItem>
                         </asp:DropDownList> 
                     </td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>
                         <asp:Label ID="lblFromDate" runat="server" Text="From"></asp:Label>
                     </td>
                     <td>
-                       <asp:TextBox ID="txtFromDate" runat="server" CssClass="form-control"></asp:TextBox>
+                       <asp:TextBox ID="txtFromDate" runat="server" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtToDate" runat="server" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <asp:Label ID="lblToDate" runat="server" Text="To"></asp:Label>
+                        <asp:Label ID="lblAmount" runat="server" Text="Amount"></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox ID="txtToDate" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox ID="txtFromAmount" runat="server" CssClass="form-control"></asp:TextBox>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtToAmount" runat="server" CssClass="form-control"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <asp:Button ID="btnSearch" runat="server" CssClass="btn btn-default" Text="Search" />
                     </td>
                 </tr>
             </table>

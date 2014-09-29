@@ -9,10 +9,11 @@
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
-    <%--    <webopt:BundleReference runat="server" Path="~/Content/css" />--%>
+<%--        <webopt:BundleReference runat="server" Path="~/Content/css" />--%>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link href="Content/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="Content/Site.css" rel="stylesheet" type="text/css" />
+        <link href="Content/datepicker3.css" rel="stylesheet" />
 </head>
 <body>
     <form runat="server">
@@ -66,7 +67,7 @@
                                 <li><a href="~/About.aspx" runat="server" role="button">About Us</a></li>
                                 <li><a href="~/FeeStructure.aspx" runat="server" role="button">Fee Structure</a></li>
                                 <li><a href="~/Contact.aspx" runat="server" role="button">Contact</a></li>
-                                <li><a href="#" runat="server" role="button">Help</a></li>
+                                <li><a href="~/Help.aspx" runat="server" role="button">Help</a></li>
                             </ul>
                         </div>
                         <div class="col-md-6">
