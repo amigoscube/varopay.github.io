@@ -10,24 +10,33 @@
 namespace Varopay.User {
     
     
-    public partial class MyAccount {
+    public partial class AddAccount {
         
         /// <summary>
-        /// gdvLog control.
+        /// lblAccount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gdvLog;
+        protected global::System.Web.UI.WebControls.Label lblAccount;
         
         /// <summary>
-        /// lsvAccount control.
+        /// ddlAccount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lsvAccount;
+        protected global::System.Web.UI.WebControls.DropDownList ddlAccount;
+        
+        /// <summary>
+        /// btnAdd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAdd;
     }
 }

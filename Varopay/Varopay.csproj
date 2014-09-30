@@ -176,6 +176,7 @@
     <Content Include="Images\delete.jpg" />
     <Content Include="Images\Edit.jpg" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
+    <Content Include="User\AddAccount.aspx" />
     <Content Include="User\Analytics.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
@@ -370,6 +371,13 @@
     </Compile>
     <Compile Include="Help.aspx.designer.cs">
       <DependentUpon>Help.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\AddAccount.aspx.cs">
+      <DependentUpon>AddAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\AddAccount.aspx.designer.cs">
+      <DependentUpon>AddAccount.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Analytics.aspx.cs">
       <DependentUpon>Analytics.aspx</DependentUpon>

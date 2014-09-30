@@ -18,6 +18,8 @@ using System.Net;
 using System.Net.Mail;
 using System.Security.Principal;
 using System.Text;
+using System.Net.Http;
+using System.Net.Http.Headers;
 
 
 namespace Varopay.Models
@@ -145,18 +147,32 @@ namespace Varopay
         /// </summary>
         /// <param name="currency">Default Currency</param>
         /// <param name="UserId">User Id of the User</param>
-        public static void createAccount(string UserId)
+        public static void createAccount(string UserId, CurrencyName c)
         {
             ApplicationDbContext db = new ApplicationDbContext();
-            var Cur = new Currency();
-            var user = new ApplicationUser();
-            var account = new Varopay.Models.Account();
-            account.AccountID = Guid.NewGuid();
-            account.MyAccount.Id = UserId;
-            account.Currency.CurrencyID = Cur.CurrencyID;
-            db.Account.Add(account);
+            var cId = db.Currencies.Single(s => s.CurrencyName == c.ToString()).CurrencyID;
+            var Id = db.Users.Single(u => u.Id == UserId).Id;
+            Currency cur = db.Currencies.Find(cId);
+            ApplicationUser us = db.Users.Find(Id);
+            Varopay.Models.Account ac = new Varopay.Models.Account();
+            ac.AccountID = Guid.NewGuid();
+            ac.MyAccount = us;
+            ac.Currency = cur;
+
+            db.Account.Add(ac);
             db.SaveChanges();
-        }       
+        }
+        public static void CreatePayee(string Payee,string Payer)
+        {
+            ApplicationDbContext db = new ApplicationDbContext();
+            var uId = db.Users.Single(u => u.UserName == Payee).Id;
+            Varopay.Models.Account acc = db.Account.Find(uId);
+            Varopay.Models.Payees Pay = new Varopay.Models.Payees();
+            Pay.PayeesID = Guid.NewGuid();
+            Pay.Payee = Payee;
+            Pay.Payer = Payer;
+            Pay.Payment = acc;
+        }
     }
 }
 #endregion

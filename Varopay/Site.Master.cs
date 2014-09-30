@@ -122,7 +122,7 @@ namespace Varopay
                 var cur = new Varopay.Models.Currency();
                 foreach (CurrencyName c in Enum.GetValues(typeof(CurrencyName)))
                 {
-                    IdentityHelper.createAccount(user.Id);
+                    IdentityHelper.createAccount(user.Id, c);
                 }
                 Response.Redirect("~/Registered.aspx");
             }
