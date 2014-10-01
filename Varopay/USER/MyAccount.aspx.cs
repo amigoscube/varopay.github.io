@@ -11,6 +11,7 @@ using Owin;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Net;
 
 namespace Varopay.User
 {
@@ -26,12 +27,14 @@ namespace Varopay.User
             var user = Context.User.Identity.GetUserId();
             HttpClient client = new HttpClient();
             var host = Request.Url.AbsoluteUri;
-            client.BaseAddress = new Uri(host);
+           int i = host.IndexOf("/", 8);
+           var newhost = host.Substring(0, i);
+            client.BaseAddress = new Uri(newhost);
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            HttpResponseMessage response = await client.GetAsync("api/Accounts/" +user);
+            HttpResponseMessage response = await client.GetAsync("/api/Accounts/");
             if (response.IsSuccessStatusCode)
             {
-                var acc = await response.Content.ReadAsAsync<List<Varopay.Models.Account>>();
+                var acc = await response.Content.ReadAsAsync<Varopay.Models.Account>();
                 lsvAccount.DataSource = acc;
                 lsvAccount.DataBind();
             }

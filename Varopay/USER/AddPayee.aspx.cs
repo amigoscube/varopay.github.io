@@ -16,16 +16,19 @@ namespace Varopay.User
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //ddlPayeeAccount.DataSource = Enum.GetNames(typeof(CurrencyName));
+            //ddlPayeeAccount.DataBind();
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            var payer = Context.User.Identity.GetUserId();
             ApplicationUser user = manager.FindByName(txtPayee.Text);
             if (user != null && user.EmailConfirmed)
             {
-                IdentityHelper.CreatePayee();
+                IdentityHelper.createPayee(user.Id,payer,txtPayeeAccount.Text);
+                Response.Redirect("~/User/SendMoney.aspx");
             }
         }
     }

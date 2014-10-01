@@ -372,6 +372,15 @@
     <Compile Include="Help.aspx.designer.cs">
       <DependentUpon>Help.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201409241010104_InitialCreate.cs" />
+    <Compile Include="Migrations\201409241010104_InitialCreate.Designer.cs">
+      <DependentUpon>201409241010104_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201410010835383_Account.cs" />
+    <Compile Include="Migrations\201410010835383_Account.Designer.cs">
+      <DependentUpon>201410010835383_Account.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="User\AddAccount.aspx.cs">
       <DependentUpon>AddAccount.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -638,6 +647,14 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201409241010104_InitialCreate.resx">
+      <DependentUpon>201409241010104_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201410010835383_Account.resx">
+      <DependentUpon>201410010835383_Account.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

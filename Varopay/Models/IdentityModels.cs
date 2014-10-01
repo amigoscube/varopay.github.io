@@ -158,20 +158,43 @@ namespace Varopay
             ac.AccountID = Guid.NewGuid();
             ac.MyAccount = us;
             ac.Currency = cur;
-
+            ac.CurAcc = IdentityHelper.CreateId(c);
             db.Account.Add(ac);
             db.SaveChanges();
         }
-        public static void CreatePayee(string Payee,string Payer)
+        /// <summary>
+        ///Create Payee Adds Payee to the User
+        /// </summary>
+        /// <param name="Payee">Payee Name</param>
+        /// <param name="Payer">User Name</param>
+        /// <param name="c">Id of the User Account</param>
+        public static void createPayee(string Payee,string Payer,String cuac)
         {
             ApplicationDbContext db = new ApplicationDbContext();
-            var uId = db.Users.Single(u => u.UserName == Payee).Id;
-            Varopay.Models.Account acc = db.Account.Find(uId);
-            Varopay.Models.Payees Pay = new Varopay.Models.Payees();
-            Pay.PayeesID = Guid.NewGuid();
-            Pay.Payee = Payee;
-            Pay.Payer = Payer;
-            Pay.Payment = acc;
+            var Id = db.Users.Single(u => u.Id == Payee).Id;
+            var aId = db.Account.Single(a => (a.CurAcc==cuac)).AccountID;
+            Varopay.Models.Account acc = db.Account.Find(aId);
+            Varopay.Models.Payees pay = new Varopay.Models.Payees();
+            pay.PayeesID = Guid.NewGuid();
+            pay.Payee = Payee;
+            pay.Payer = Payer;
+            pay.Payment = acc;
+
+            db.Payees.Add(pay);
+            db.SaveChanges();
+        }
+        public static string CreateId(CurrencyName cur)
+        {
+            Random random = new Random();
+            string num = "0123456789";
+            String st = cur.ToString(); 
+            StringBuilder ID = new StringBuilder();
+            for (int i = 0; i < 7; i++)
+            {
+                    ID.Append(num[random.Next(num.Length)]);
+            }
+            string s = st.FirstOrDefault() + ID.ToString();
+            return s ;
         }
     }
 }
