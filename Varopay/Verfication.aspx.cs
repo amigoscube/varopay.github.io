@@ -53,7 +53,8 @@ namespace Varopay
 
             if(userid == null || string.IsNullOrEmpty(pin))
             {
-                Response.Redirect("~/Error.aspx");
+                lblIncorrect.Text = "Incorrect Verification code.Please verify your mail and re-enter the code";
+                //Response.Redirect("~/Error.aspx");
             }
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var user = await manager.FindByIdAsync(userid);
@@ -76,7 +77,7 @@ namespace Varopay
             }
             else
             {
-               
+                lblIncorrect.Text = "Incorrect Verification code.Please verify your mail and re-enter the code";
             }
         }
     }

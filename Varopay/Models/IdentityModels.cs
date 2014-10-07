@@ -175,13 +175,16 @@ namespace Varopay
             var aId = db.Account.Single(a => (a.CurAcc==cuac)).AccountID;
             Varopay.Models.Account acc = db.Account.Find(aId);
             Varopay.Models.Payees pay = new Varopay.Models.Payees();
-            pay.PayeesID = Guid.NewGuid();
-            pay.Payee = Payee;
-            pay.Payer = Payer;
-            pay.Payment = acc;
+            if (pay.Payment != acc)
+            {
+                pay.PayeesID = Guid.NewGuid();
+                pay.Payee = Payee;
+                pay.Payer = Payer;
+                pay.Payment = acc;
 
-            db.Payees.Add(pay);
-            db.SaveChanges();
+                db.Payees.Add(pay);
+                db.SaveChanges();
+            }
         }
         public static string CreateId(CurrencyName cur)
         {

@@ -172,9 +172,13 @@
     <Content Include="Admin\Disable.aspx" />
     <Content Include="Admin\Enable.aspx" />
     <Content Include="Content\datepicker3.css" />
+    <Content Include="Error.aspx" />
     <Content Include="Help.aspx" />
     <Content Include="Images\delete.jpg" />
     <Content Include="Images\Edit.jpg" />
+    <Content Include="Images\loader.gif" />
+    <Content Include="Images\Pageload.gif" />
+    <Content Include="Images\pageloader.gif" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="User\AddAccount.aspx" />
     <Content Include="User\Analytics.aspx" />
@@ -253,6 +257,7 @@
     <Content Include="User\Settings.aspx" />
     <Content Include="SiteMap.aspx" />
     <Content Include="User\Statement.aspx" />
+    <Content Include="User\TransferToAccount.aspx" />
     <Content Include="User\user.aspx" />
     <Content Include="User\ViewStatement.aspx" />
     <Content Include="Verfication.aspx" />
@@ -365,6 +370,13 @@
     <Compile Include="Api\CurrenciesController.cs" />
     <Compile Include="Api\PayeesController.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Help.aspx.cs">
       <DependentUpon>Help.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -607,6 +619,13 @@
     </Compile>
     <Compile Include="User\Statement.aspx.designer.cs">
       <DependentUpon>Statement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\TransferToAccount.aspx.cs">
+      <DependentUpon>TransferToAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\TransferToAccount.aspx.designer.cs">
+      <DependentUpon>TransferToAccount.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\user.aspx.cs">
       <DependentUpon>user.aspx</DependentUpon>

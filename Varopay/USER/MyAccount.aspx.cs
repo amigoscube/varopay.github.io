@@ -23,6 +23,7 @@ namespace Varopay.User
         }
         public async void lsvAccountBind()
         {
+            
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var user = Context.User.Identity.GetUserId();
             HttpClient client = new HttpClient();
@@ -31,10 +32,10 @@ namespace Varopay.User
            var newhost = host.Substring(0, i);
             client.BaseAddress = new Uri(newhost);
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            HttpResponseMessage response = await client.GetAsync("/api/Accounts/");
+            HttpResponseMessage response = await client.GetAsync("/api/Accounts");
             if (response.IsSuccessStatusCode)
             {
-                var acc = await response.Content.ReadAsAsync<Varopay.Models.Account>();
+                var acc = await response.Content.ReadAsAsync<List<Varopay.Models.Account>>();
                 lsvAccount.DataSource = acc;
                 lsvAccount.DataBind();
             }

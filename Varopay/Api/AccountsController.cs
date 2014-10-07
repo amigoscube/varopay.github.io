@@ -19,7 +19,8 @@ namespace Varopay.Api
         // GET: api/Accounts
         public IQueryable<Varopay.Models.Account> GetAccount()
         {
-            return db.Account;
+            var accs = db.Account;
+            return accs;
         }
 
         // GET: api/Accounts/5

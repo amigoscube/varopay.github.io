@@ -105,8 +105,13 @@ namespace Varopay
         }
         protected void btnRegister_Click(object sender, EventArgs e)
         {
+            string gcaptcha = Convert.ToString(Session["captcha"]); 
+            if(gcaptcha!=txtCaptcha.Text)
+            {
+                lblCaptcha.Text = "Invalid Captcha";
+            }
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            var user = new ApplicationUser() { UserName = txtRegisterUsername.Text, Email = txtRegisterEmail.Text, PhoneNumber = txtPhoneNumber.Text, City = txtRegisterCity.Text, Address = txtRegisterAddress.Text, Country = ddlCountry.SelectedValue,Zipcode=txtZipcode.Text };
+            var user = new ApplicationUser() { UserName = txtRegisterUsername.Text, Email = txtRegisterEmail.Text, PhoneNumber = txtPhoneNumber.Text, City = txtRegisterCity.Text, Address = txtRegisterAddress.Text,Country = ddlCountry.SelectedValue.ToString(),Zipcode=txtZipcode.Text };
             IdentityResult result = manager.Create(user, txtRegisterPassword.Text);
             string role = "User";
             var RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>());
@@ -128,7 +133,7 @@ namespace Varopay
             }
             else
             {
-                //ErrorMessage.Text = result.Errors.FirstOrDefault();
+                ltrError.Text = result.Errors.FirstOrDefault();
             }
         }
         protected void btnRefresh_Click(object sender, EventArgs e)
@@ -146,25 +151,28 @@ namespace Varopay
             username = (TextBox)LoginView1.FindControl("txtUsername");
             pwd = (TextBox)LoginView1.FindControl("txtPassword");
             ApplicationUser user = manager.Find(username.Text, pwd.Text);
-            if (user != null && user.EmailConfirmed == true)
+            if (user != null && user.EmailConfirmed == true && manager.SupportsUserLockout && manager.GetAccessFailedCount(user.Id)>0 )
             {
                 string verify = manager.GenerateTwoFactorToken(user.Id, "EmailCode");
                 manager.SendEmail(user.Id, "Verification Code", "Your Verification code is:" + verify + "");
                 SetTwoFactorAuthCookie(user.Id);
+                manager.ResetAccessFailedCount(user.Id);
                 Response.Redirect("~/Verfication.aspx");
             }
             else if(user!=null && user.EmailConfirmed==false)
             {
+                SetTwoFactorAuthCookie(user.Id);
                 Response.Redirect("~/NotConfirmed.aspx");
             }
             //else if (user != null)
             //{
             //    Response.Redirect("~/Account/Forgot.aspx");
             //}
-            else
+            else if(manager.SupportsUserLockout && manager.GetLockoutEnabled(user.Id))
             {
-                FailureText.Text = "Invalid username or password.";
-                ErrorMessage.Visible = true;
+                //FailureText.Text = "Invalid username or password.";
+                //ErrorMessage.Visible = true;
+                manager.AccessFailed(user.Id);
                 Response.Redirect("~/Account/Forgot.aspx");
             }
         }

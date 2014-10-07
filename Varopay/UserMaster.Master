@@ -31,6 +31,17 @@
                 $('#txtToDate').datepicker();
             });
         </script>
+        <script>
+            $.fn.SetOverlayHeightWidth = function () {
+                $(this).height($(document).height());
+                $(this).width($(document).width());
+            };
+            $(document).ready(function () {
+                $(".overlayforaddnote").show().SetOverlayHeightWidth();
+                $('#PageLoader').delay(4000).fadeOut("slow");
+                setTimeout(function () { $(".overlayforaddnote").hide() }, 4000);
+            });
+        </script>
         <header id="UserHeader">
             <div class="container">
                 <div class="row">

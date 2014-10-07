@@ -204,3 +204,15 @@ tr
 #Settings a {
 color:blueviolet;
 }
+ #PageLoader
+        {
+            background: url(../Images/Pageload.gif) no-repeat center center;
+            height: 200px;
+            width: 200px;
+            position: absolute;
+            z-index: 99;
+            left: 50%;
+            top: 50%;
+            margin: -25px 0 0 -25px;
+            background-color:white;
+        }        

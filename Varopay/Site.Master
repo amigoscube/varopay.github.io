@@ -136,6 +136,8 @@
                 </div>
             </div>
         </div>
+        <asp:UpdatePanel ID="upRegister" runat="server">
+            <ContentTemplate>
         <div class="modal fade" id="SignUpModal" tabindex="-1" role="dialog" aria-labelledby="SignUpModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -144,6 +146,7 @@
                         <h1 class="modal-title" id="SignUpModalLabel">Sign Up</h1>
                     </div>
                     <div class="modal-body">
+                        <h4 class="text-danger"><asp:Literal ID="ltrError" runat="server"></asp:Literal></h4>
                         <table runat="server">
                             <tr>
                                 <td>
@@ -241,22 +244,22 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>
-                                    <asp:UpdatePanel ID="upCaptcha" runat="server">
+                               <td>
+                                   <%--<asp:UpdatePanel ID="upCaptcha" runat="server">
                                         <ContentTemplate>
                                             <table>
-                                                <tr>
+                                                <tr>--%>
                                                     <td>
                                                         <asp:Image ID="imgCaptcha" runat="server" />
                                                     </td>
                                                     <td>
-                                                       <%-- <asp:Button ID="btnRefresh" runat="server" Text="Refresh" OnClick="btnRefresh_Click" />--%>
-                                                        <button type="button" id="btn" runat="server" onclick="btnRefresh_Click()" class="btn btn-default"><span class="glyphicon glyphicon-refresh"></span></button>
+                                                       
+                                                        <button type="button" id="btn" runat="server" onserverclick="btnRefresh_Click" class="btn btn-default"><span class="glyphicon glyphicon-refresh"></span></button>
                                                     </td>
-                                                </tr>
+                                                <%--</tr>
                                             </table>
                                         </ContentTemplate>
-                                    </asp:UpdatePanel>
+                                    </asp:UpdatePanel>--%>
                                 </td>
                                 <td>
                                     <asp:TextBox runat="server" placeholder="Enter the Captcha" ID="txtCaptcha" CssClass="form-control"></asp:TextBox>
@@ -273,13 +276,15 @@
                             <asp:CheckBox ID="chkAgree" runat="server" Text="I Agree to the Terms and Conditions" TextAlign="Right" onchange="enable();" />
                         </p>
                         <div class="modal-footer" runat="server">
-                            <asp:Button Text="Register" runat="server" ID="btnRegister" CssClass="btn btn-primary" OnClick="btnRegister_Click" Enabled="false" />
+                            <asp:Button Text="Register" runat="server" ID="btnRegister" CssClass="btn btn-primary" OnClick="btnRegister_Click" OnClientClick="return false;"  ClientIDMode="Static"  Enabled="false" />
                             <asp:Button Text="Cancel" runat="server" data-dismiss="modal" CssClass="btn btn-primary" ID="btnCancel" />
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+                </ContentTemplate>
+            </asp:UpdatePanel>
         <div class="modal fade" id="FAQModal">
             <div class="modal-dialog">
                 <div class="modal-content">

@@ -21,5 +21,6 @@
                 </tr>
             </table>
         </div>
+        <div id="PageLoader"></div>
     </div>
 </asp:Content>
