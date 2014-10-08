@@ -16,7 +16,7 @@ namespace Varopay.Models
         public string Amount{ get; set; }
         public string Status { get; set; }
         public string Type { get; set; }
-        public virtual Account AccountTransaction { get; set; }
+        public virtual Accounts AccountTransaction { get; set; }
         public virtual TransactionType TransactionType { get; set; }
 
     }

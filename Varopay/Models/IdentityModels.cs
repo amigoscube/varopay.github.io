@@ -52,7 +52,7 @@ namespace Varopay.Models
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
-        public DbSet<Account> Account { get; set; }
+        public DbSet<Accounts> Account { get; set; }
         public DbSet<Currency> Currencies { get; set; }
         public DbSet<Log> Logs { get; set; }
         public DbSet<Payees> Payees { get; set; }
@@ -154,10 +154,14 @@ namespace Varopay
             var Id = db.Users.Single(u => u.Id == UserId).Id;
             Currency cur = db.Currencies.Find(cId);
             ApplicationUser us = db.Users.Find(Id);
-            Varopay.Models.Account ac = new Varopay.Models.Account();
-            ac.AccountID = Guid.NewGuid();
-            ac.MyAccount = us;
-            ac.Currency = cur;
+            IEnumerable<ApplicationUser> usr = new List<ApplicationUser>();
+            List<Currency> cu = new List<Currency>();
+            var usId = usr.Select(i =>us);
+            var cuId = cu.Select(ci => cur);
+            Varopay.Models.Accounts ac = new Varopay.Models.Accounts();
+            ac.AccountsID = Guid.NewGuid();
+            ac.MyAccount = usId.ToList();
+            ac.Currency = cuId.ToList();
             ac.CurAcc = IdentityHelper.CreateId(c);
             db.Account.Add(ac);
             db.SaveChanges();
@@ -172,8 +176,8 @@ namespace Varopay
         {
             ApplicationDbContext db = new ApplicationDbContext();
             var Id = db.Users.Single(u => u.Id == Payee).Id;
-            var aId = db.Account.Single(a => (a.CurAcc==cuac)).AccountID;
-            Varopay.Models.Account acc = db.Account.Find(aId);
+            var aId = db.Account.Single(a => (a.CurAcc==cuac)).AccountsID;
+            Varopay.Models.Accounts acc = db.Account.Find(aId);
             Varopay.Models.Payees pay = new Varopay.Models.Payees();
             if (pay.Payment != acc)
             {

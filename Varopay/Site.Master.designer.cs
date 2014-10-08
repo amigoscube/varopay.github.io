@@ -301,6 +301,15 @@ namespace Varopay {
         protected global::System.Web.UI.WebControls.RadioButtonList rblAccountType;
         
         /// <summary>
+        /// upCaptcha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel upCaptcha;
+        
+        /// <summary>
         /// imgCaptcha control.
         /// </summary>
         /// <remarks>

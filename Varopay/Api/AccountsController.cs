@@ -17,40 +17,39 @@ namespace Varopay.Api
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: api/Accounts
-        public IQueryable<Varopay.Models.Account> GetAccount()
+        public IQueryable<Accounts> GetAccount()
         {
-            var accs = db.Account;
-            return accs;
+            return db.Account;
         }
 
         // GET: api/Accounts/5
-        [ResponseType(typeof(Varopay.Models.Account))]
-        public IHttpActionResult GetAccount(Guid id)
+        [ResponseType(typeof(Accounts))]
+        public IHttpActionResult GetAccounts(Guid id)
         {
-            Varopay.Models.Account account = db.Account.Find(id);
-            if (account == null)
+            Accounts accounts = db.Account.Find(id);
+            if (accounts == null)
             {
                 return NotFound();
             }
 
-            return Ok(account);
+            return Ok(accounts);
         }
 
         // PUT: api/Accounts/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutAccount(Guid id, Varopay.Models.Account account)
+        public IHttpActionResult PutAccounts(Guid id, Accounts accounts)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != account.AccountID)
+            if (id != accounts.AccountsID)
             {
                 return BadRequest();
             }
 
-            db.Entry(account).State = EntityState.Modified;
+            db.Entry(accounts).State = EntityState.Modified;
 
             try
             {
@@ -58,7 +57,7 @@ namespace Varopay.Api
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!AccountExists(id))
+                if (!AccountsExists(id))
                 {
                     return NotFound();
                 }
@@ -72,15 +71,15 @@ namespace Varopay.Api
         }
 
         // POST: api/Accounts
-        [ResponseType(typeof(Varopay.Models.Account))]
-        public IHttpActionResult PostAccount(Varopay.Models.Account account)
+        [ResponseType(typeof(Accounts))]
+        public IHttpActionResult PostAccounts(Accounts accounts)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Account.Add(account);
+            db.Account.Add(accounts);
 
             try
             {
@@ -88,7 +87,7 @@ namespace Varopay.Api
             }
             catch (DbUpdateException)
             {
-                if (AccountExists(account.AccountID))
+                if (AccountsExists(accounts.AccountsID))
                 {
                     return Conflict();
                 }
@@ -98,23 +97,23 @@ namespace Varopay.Api
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = account.AccountID }, account);
+            return CreatedAtRoute("DefaultApi", new { id = accounts.AccountsID }, accounts);
         }
 
         // DELETE: api/Accounts/5
-        [ResponseType(typeof(Varopay.Models.Account))]
-        public IHttpActionResult DeleteAccount(Guid id)
+        [ResponseType(typeof(Accounts))]
+        public IHttpActionResult DeleteAccounts(Guid id)
         {
-            Varopay.Models.Account account = db.Account.Find(id);
-            if (account == null)
+            Accounts accounts = db.Account.Find(id);
+            if (accounts == null)
             {
                 return NotFound();
             }
 
-            db.Account.Remove(account);
+            db.Account.Remove(accounts);
             db.SaveChanges();
 
-            return Ok(account);
+            return Ok(accounts);
         }
 
         protected override void Dispose(bool disposing)
@@ -126,9 +125,9 @@ namespace Varopay.Api
             base.Dispose(disposing);
         }
 
-        private bool AccountExists(Guid id)
+        private bool AccountsExists(Guid id)
         {
-            return db.Account.Count(e => e.AccountID == id) > 0;
+            return db.Account.Count(e => e.AccountsID == id) > 0;
         }
     }
 }

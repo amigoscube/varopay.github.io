@@ -21,8 +21,7 @@ namespace Varopay.App_Start
         {
             InitializeIdentityForEf(context);
 
-            List<Currency> curs = new List<Currency>();
-            curs.Add(new Currency(){ CurrencyName = "EUR", CurrencyID = Guid.NewGuid() });
+            List<Currency> curs = new List<Currency>();            
             curs.Add(new Currency() { CurrencyName = "USD", CurrencyID = Guid.NewGuid() });
 
             foreach(Currency cur in curs)

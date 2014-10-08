@@ -15,8 +15,7 @@ namespace Varopay.Models
     }
 
     public enum CurrencyName
-    {
-        EUR,
+    {        
         USD
     }
 }

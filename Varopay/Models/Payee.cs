@@ -10,6 +10,6 @@ namespace Varopay.Models
         public Guid PayeesID { get; set; }
         public string Payee { get; set; }
         public string Payer { get; set; }
-        public virtual Account Payment { get; set; }
+        public virtual Accounts Payment { get; set; }
     }
 }

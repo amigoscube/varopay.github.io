@@ -136,17 +136,17 @@
                 </div>
             </div>
         </div>
-        <asp:UpdatePanel ID="upRegister" runat="server">
-            <ContentTemplate>
         <div class="modal fade" id="SignUpModal" tabindex="-1" role="dialog" aria-labelledby="SignUpModalLabel" aria-hidden="true">
             <div class="modal-dialog">
+                <asp:UpdatePanel ID="upRegister" runat="server">
+            <ContentTemplate>
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                         <h1 class="modal-title" id="SignUpModalLabel">Sign Up</h1>
                     </div>
                     <div class="modal-body">
-                        <h4 class="text-danger"><asp:Literal ID="ltrError" runat="server"></asp:Literal></h4>
+                        <h5 class="text-danger"><asp:Literal ID="ltrError" runat="server"></asp:Literal></h5>
                         <table runat="server">
                             <tr>
                                 <td>
@@ -209,7 +209,7 @@
                                 </td>
                                 <td>
                                     <asp:TextBox runat="server" ID="txtPhoneNumber" CssClass="form-control"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="rqvPhoneNumber" runat="server" ControlToValidate="txtPhoneNumber" CssClass="text-danger" ErrorMessage="Mobile number is required"></asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator ID="rqvPhoneNumber" runat="server" ControlToValidate="txtPhoneNumber" CssClass="text-warning" ErrorMessage="Mobile number is required"></asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -237,7 +237,7 @@
                                     <asp:Label ID="lblAccountType" runat="server" Text="Account Type"></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:RadioButtonList runat="server" ID="rblAccountType">
+                                    <asp:RadioButtonList runat="server" ID="rblAccountType" class="form-horizontal">
                                         <asp:ListItem>Personal</asp:ListItem>
                                         <asp:ListItem>Business</asp:ListItem>
                                     </asp:RadioButtonList>
@@ -245,21 +245,21 @@
                             </tr>
                             <tr>
                                <td>
-                                   <%--<asp:UpdatePanel ID="upCaptcha" runat="server">
+                                   <asp:UpdatePanel ID="upCaptcha" runat="server">
                                         <ContentTemplate>
                                             <table>
-                                                <tr>--%>
+                                                <tr>
                                                     <td>
                                                         <asp:Image ID="imgCaptcha" runat="server" />
                                                     </td>
                                                     <td>
                                                        
-                                                        <button type="button" id="btn" runat="server" onserverclick="btnRefresh_Click" class="btn btn-default"><span class="glyphicon glyphicon-refresh"></span></button>
-                                                    </td>
-                                                <%--</tr>
+                                                        <button type="button" id="btn" runat="server" onserverclick="btnRefresh_Click"  class="btn btn-default"><span class="glyphicon glyphicon-refresh"></span></button>
+                                                   </td>
+                                                </tr>
                                             </table>
                                         </ContentTemplate>
-                                    </asp:UpdatePanel>--%>
+                                    </asp:UpdatePanel>
                                 </td>
                                 <td>
                                     <asp:TextBox runat="server" placeholder="Enter the Captcha" ID="txtCaptcha" CssClass="form-control"></asp:TextBox>
@@ -276,15 +276,15 @@
                             <asp:CheckBox ID="chkAgree" runat="server" Text="I Agree to the Terms and Conditions" TextAlign="Right" onchange="enable();" />
                         </p>
                         <div class="modal-footer" runat="server">
-                            <asp:Button Text="Register" runat="server" ID="btnRegister" CssClass="btn btn-primary" OnClick="btnRegister_Click" OnClientClick="return false;"  ClientIDMode="Static"  Enabled="false" />
+                            <asp:Button Text="Register" runat="server" ID="btnRegister" CssClass="btn btn-primary" OnClick="btnRegister_Click" ClientIDMode="Static"  Enabled="false" />
                             <asp:Button Text="Cancel" runat="server" data-dismiss="modal" CssClass="btn btn-primary" ID="btnCancel" />
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
                 </ContentTemplate>
             </asp:UpdatePanel>
+            </div>
+        </div>
         <div class="modal fade" id="FAQModal">
             <div class="modal-dialog">
                 <div class="modal-content">

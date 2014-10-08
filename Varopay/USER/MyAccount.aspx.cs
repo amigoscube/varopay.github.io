@@ -35,7 +35,7 @@ namespace Varopay.User
             HttpResponseMessage response = await client.GetAsync("/api/Accounts");
             if (response.IsSuccessStatusCode)
             {
-                var acc = await response.Content.ReadAsAsync<List<Varopay.Models.Account>>();
+                var acc = await response.Content.ReadAsAsync<List<Varopay.Models.Accounts>>();
                 lsvAccount.DataSource = acc;
                 lsvAccount.DataBind();
             }

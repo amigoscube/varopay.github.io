@@ -95,7 +95,7 @@ namespace Varopay
                 StringBuilder captcha = new StringBuilder();
                 for (int i = 0; i < 6; i++)
                     captcha.Append(combination[random.Next(combination.Length)]);
-                Session["captcha"] = captcha.ToString();
+                this.Session["captcha"] = captcha.ToString();
                 imgCaptcha.ImageUrl = "GenerateCaptcha.aspx?" + DateTime.Now.Ticks.ToString();
             }
             catch
@@ -105,8 +105,8 @@ namespace Varopay
         }
         protected void btnRegister_Click(object sender, EventArgs e)
         {
-            string gcaptcha = Convert.ToString(Session["captcha"]); 
-            if(gcaptcha!=txtCaptcha.Text)
+            string st = Convert.ToString(this.Session["captcha"]);
+            if(st!=this.txtCaptcha.Text)
             {
                 lblCaptcha.Text = "Invalid Captcha";
             }
@@ -168,7 +168,7 @@ namespace Varopay
             //{
             //    Response.Redirect("~/Account/Forgot.aspx");
             //}
-            else if(manager.SupportsUserLockout && manager.GetLockoutEnabled(user.Id))
+            else if(user!=null && manager.SupportsUserLockout && manager.GetLockoutEnabled(user.Id))
             {
                 //FailureText.Text = "Invalid username or password.";
                 //ErrorMessage.Visible = true;
