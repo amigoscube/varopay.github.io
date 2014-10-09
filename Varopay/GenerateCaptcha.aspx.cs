@@ -16,18 +16,23 @@ namespace Varopay
         {
             Response.Clear();
             int height = 30;
-            int width = 100;
+            int width = 200;
             Bitmap bmp = new Bitmap(width, height);
 
             RectangleF rectf = new RectangleF(10, 5, 0, 0);
+            HatchBrush hBrush = new HatchBrush(HatchStyle.SmallConfetti, Color.LightGray, Color.Black);
 
             Graphics g = Graphics.FromImage(bmp);
             g.Clear(Color.White);
-            g.SmoothingMode = SmoothingMode.AntiAlias;
+            g.SmoothingMode = SmoothingMode.HighQuality;
             g.InterpolationMode = InterpolationMode.HighQualityBicubic;
             g.PixelOffsetMode = PixelOffsetMode.HighQuality;
-            g.DrawString(Session["captcha"].ToString(), new Font("Thaoma", 12, FontStyle.Italic), Brushes.Green, rectf);
-            g.DrawRectangle(new Pen(Color.Red), 1, 1, width - 2, height - 2);
+            float x = 10;
+            float y = 1;
+            PointF pt = new PointF(x,y);
+            g.DrawString(Session["captcha"].ToString(), new Font("Thaoma", 20, FontStyle.Italic),hBrush,pt);
+            g.DrawRectangle(new Pen(Color.White), 1, 1, width - 2, height - 2);
+            g.RotateTransform(-5);
             g.Flush();
             Response.ContentType = "image/jpeg";
             bmp.Save(Response.OutputStream, ImageFormat.Jpeg);

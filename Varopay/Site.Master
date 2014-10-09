@@ -86,10 +86,10 @@
                                     <asp:TextBox runat="server" ID="txtPassword" placeholder="Password" TextMode="Password" CssClass="form-control"></asp:TextBox>
                                 </li>
                                 <li>
-                                    <asp:Button runat="server" CssClass="btn signup" Text="Login" ID="btnLogin" OnClick="btnLogin_Click" />
+                                    <asp:Button runat="server" CssClass="btn signup" Text="Login" ID="btnLogin" CausesValidation="false" OnClick="btnLogin_Click" />
                                 </li>
                                 <li>
-                                    <asp:Button runat="server" CssClass="btn btn-primary" ID="btnSignUp" Text="Signup" data-target="#SignUpModal" data-toggle="modal" role="dialog" />
+                                    <asp:Button runat="server" CssClass="btn btn-primary" CausesValidation="false" ID="btnSignUp" Text="Signup" data-target="#SignUpModal" data-toggle="modal" role="dialog" />
                                 </li>
                             </ul>
                         </div>
@@ -254,7 +254,7 @@
                                                     </td>
                                                     <td>
                                                        
-                                                        <button type="button" id="btn" runat="server" onserverclick="btnRefresh_Click"  class="btn btn-default"><span class="glyphicon glyphicon-refresh"></span></button>
+                                                        <button type="button" id="btn" runat="server" onserverclick="btnRefresh_Click" causesvalidation="false" class="btn btn-default"><span class="glyphicon glyphicon-refresh"></span></button>
                                                    </td>
                                                 </tr>
                                             </table>

@@ -15,8 +15,10 @@ namespace Varopay.User
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            System.Threading.Thread.Sleep(5000);
             ddlAccount.DataSource = Enum.GetNames(typeof(CurrencyName));
             ddlAccount.DataBind();
+           
         }
 
         protected void btnAdd_Click(object sender, EventArgs e)

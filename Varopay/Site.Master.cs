@@ -76,6 +76,9 @@ namespace Varopay
         }
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Response.Flush();
+            //A long process is going on here
+            //System.Threading.Thread.Sleep(5000);
             if (!IsPostBack)
             {
                 btnRegister.Enabled = false;
