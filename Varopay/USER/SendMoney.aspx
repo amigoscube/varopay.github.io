@@ -5,11 +5,11 @@
     <div class="container">
         <div class="row">
             <h4>Select the account to send money</h4>
-            <asp:GridView runat="server" ID="gdvAccount">
+            <asp:GridView runat="server" ID="gdvAccount" DataKeyNames="AccountsID" ItemType="Varopay.Models.Accounts" SelectMethod="gdvAccount_GetData">
                 <Columns>
                     <asp:TemplateField>
                         <ItemTemplate>
-                            <asp:HyperLink runat="server" NavigateUrl="~/" Text='<%#Eval("Account") %>'></asp:HyperLink>
+                            <asp:HyperLink runat="server" NavigateUrl="~/" Text="<%# Item.CurAcc %>"></asp:HyperLink>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

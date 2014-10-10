@@ -20,7 +20,7 @@ namespace Varopay
             Bitmap bmp = new Bitmap(width, height);
 
             RectangleF rectf = new RectangleF(10, 5, 0, 0);
-            HatchBrush hBrush = new HatchBrush(HatchStyle.SmallConfetti, Color.LightGray, Color.Black);
+            HatchBrush hBrush = new HatchBrush(HatchStyle.SmallConfetti, Color.Gray, Color.Black);
 
             Graphics g = Graphics.FromImage(bmp);
             g.Clear(Color.White);

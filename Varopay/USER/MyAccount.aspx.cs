@@ -40,5 +40,22 @@ namespace Varopay.User
                 lsvAccount.DataBind();
             }
         }
+
+        // The return type can be changed to IEnumerable, however to support
+        // paging and sorting, the following parameters must be added:
+        //     int maximumRows
+        //     int startRowIndex
+        //     out int totalRowCount
+        //     string sortByExpression
+        public IQueryable<Varopay.Models.Accounts> lsvAccount_GetData()
+        {
+            ApplicationDbContext db = new ApplicationDbContext();
+            var user = Context.User.Identity.GetUserId();
+            //var query =from a in db.Account
+                      // where a.MyAccount = user.ToList();
+
+           // return db.Account;
+            return null;
+        }
     }
 }

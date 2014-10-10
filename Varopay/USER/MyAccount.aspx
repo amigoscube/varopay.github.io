@@ -20,9 +20,15 @@
             <div class="col-md-6">
                 <div class="row">
                     <h3>My Accounts</h3>
-                    <asp:ListView runat="server" ID="lsvAccount">
+                    <asp:ListView runat="server" ID="lsvAccount" ItemType="Varopay.Models.Accounts" DataKeyNames="AccountsID" SelectMethod="lsvAccount_GetData">
                         <ItemTemplate>
-
+                            <table>
+                                <tr>
+                                    <td>
+                                        <asp:Label runat="server" ID="lblAccount" Text="<%# Item.CurAcc %>"></asp:Label>
+                                    </td>
+                                </tr>
+                            </table>
                         </ItemTemplate>
                     </asp:ListView>
                     <a href="~/User/AddAccount.aspx" runat="server">Add Account</a>
