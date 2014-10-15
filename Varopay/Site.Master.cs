@@ -154,7 +154,7 @@ namespace Varopay
             username = (TextBox)LoginView1.FindControl("txtUsername");
             pwd = (TextBox)LoginView1.FindControl("txtPassword");
             ApplicationUser user = manager.Find(username.Text, pwd.Text);
-            if (user != null && user.EmailConfirmed == true && manager.SupportsUserLockout && manager.GetAccessFailedCount(user.Id)>0 )
+            if (user != null && user.EmailConfirmed == true && manager.SupportsUserLockout && manager.GetAccessFailedCount(user.Id)<3 )
             {
                 string verify = manager.GenerateTwoFactorToken(user.Id, "EmailCode");
                 manager.SendEmail(user.Id, "Verification Code", "Your Verification code is:" + verify + "");
@@ -173,10 +173,17 @@ namespace Varopay
             //}
             else if(user!=null && manager.SupportsUserLockout && manager.GetLockoutEnabled(user.Id))
             {
-                //FailureText.Text = "Invalid username or password.";
-                //ErrorMessage.Visible = true;
                 manager.AccessFailed(user.Id);
                 Response.Redirect("~/Account/Forgot.aspx");
+            }
+            else if(user!=null && manager.GetAccessFailedCount(user.Id)==3)
+            {
+                Response.Redirect("~/LockedOut.aspx");
+            }
+            else
+            {
+                FailureText.Text = "Invalid username or password.";
+                ErrorMessage.Visible = true;
             }
         }
         private void SetTwoFactorAuthCookie(string userId)

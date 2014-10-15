@@ -19,7 +19,7 @@ namespace Varopay.User
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            lsvAccountBind();
+           // lsvAccountBind();
         }
         public async void lsvAccountBind()
         {
@@ -50,12 +50,12 @@ namespace Varopay.User
         public IQueryable<Varopay.Models.Accounts> lsvAccount_GetData()
         {
             ApplicationDbContext db = new ApplicationDbContext();
-            var user = Context.User.Identity.GetUserId();
+            //var user = Context.User.Identity.GetUserId();
             //var query =from a in db.Account
                       // where a.MyAccount = user.ToList();
 
            // return db.Account;
-            return null;
+            return db.Account;
         }
     }
 }

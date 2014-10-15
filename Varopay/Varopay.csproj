@@ -177,11 +177,14 @@
     <Content Include="Content\datepicker3.css" />
     <Content Include="Error.aspx" />
     <Content Include="Help.aspx" />
+    <Content Include="Images\defaultProfile.jpg" />
     <Content Include="Images\delete.jpg" />
     <Content Include="Images\Edit.jpg" />
     <Content Include="Images\loader.gif" />
     <Content Include="Images\Pageload.gif" />
     <Content Include="Images\pageloader.gif" />
+    <Content Include="Images\user-profile-image-default.png" />
+    <Content Include="LockedOut.aspx" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="User\AddAccount.aspx" />
     <Content Include="User\Analytics.aspx" />
@@ -214,6 +217,7 @@
     <Content Include="Account\Web.config" />
     <Content Include="Content\countries.json" />
     <Content Include="User\AddPayee.aspx" />
+    <Content Include="User\PasswordSettings.aspx" />
     <Content Include="User\PayeeList.aspx" />
     <Content Include="Scripts\countries.json" />
     <None Include="Properties\PublishProfiles\varopay - FTP %282%29.pubxml" />
@@ -387,6 +391,13 @@
     <Compile Include="Help.aspx.designer.cs">
       <DependentUpon>Help.aspx</DependentUpon>
     </Compile>
+    <Compile Include="LockedOut.aspx.cs">
+      <DependentUpon>LockedOut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LockedOut.aspx.designer.cs">
+      <DependentUpon>LockedOut.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\AddAccount.aspx.cs">
       <DependentUpon>AddAccount.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -535,6 +546,13 @@
     <Compile Include="User\AddPayee.aspx.designer.cs">
       <DependentUpon>AddPayee.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\PasswordSettings.aspx.cs">
+      <DependentUpon>PasswordSettings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\PasswordSettings.aspx.designer.cs">
+      <DependentUpon>PasswordSettings.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\PayeeList.aspx.cs">
       <DependentUpon>PayeeList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -660,6 +678,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
+    <Folder Include="UserProfilePics\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

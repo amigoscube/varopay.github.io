@@ -45,28 +45,29 @@
         <header id="UserHeader">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-9">
+                    <div class="col-md-8">
                         <a href="/" runat="server" class="varopay-Logo logo-role-mrgn" role="button"></a>
                     </div>
-                    <div class="col-md-3 ">
+                    <div class="col-md-4 ">
                         <ul class="nav nav-justified float-right">
-                            <li><a runat="server" href="~/Account/Manage.aspx" title="Manage your account">Hello, <%: HttpContext.Current.User.Identity.GetUserName()  %> !</a></li>
+                            <li><asp:Image  ID="imgProfilePic" ImageUrl="~/Images/defaultProfile.jpg" runat="server" CssClass="img-circle prf-img"/></li>
+                            <li><a runat="server" class="usr" href="~/Account/Manage.aspx" title="Manage your account">Hello, <%: HttpContext.Current.User.Identity.GetUserName()  %> !</a></li>
                             <li>
-                                <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut1" />
+                                <asp:LoginStatus CssClass="usr" runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut1" />
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row" id="UserAccount">
                     <div class="col-md-12">
                         <ul class="nav nav-justified">
-                            <li><a href="~/User/MyAccount.aspx" role="button" runat="server">My Account</a></li>
-                            <li><a href="~/User/SendMoney.aspx" role="button" runat="server">Send Money</a></li>
-                            <li><a href="~/User/CurrencyExchange.aspx" role="button" runat="server">Currency Exchange</a></li>
-                            <li><a href="~/User/Deposit.aspx" role="button" runat="server">Money Transfer</a></li>
+                            <li><a class="activeacc" href="~/User/MyAccount.aspx" role="button" runat="server">MyAccount</a></li>
+                            <li><a href="~/User/SendMoney.aspx" role="button" runat="server">SendMoney</a></li>
+                            <li><a href="~/User/CurrencyExchange.aspx" role="button" runat="server">CurrencyExchange</a></li>
+                            <li><a href="~/User/Deposit.aspx" role="button" runat="server">MoneyTransfer</a></li>
                             <li><a href="~/User/Statement.aspx" role="button" runat="server">Statement </a></li>
                             <li><a href="~/User/Analytics.aspx" role="button" runat="server">Analytics</a></li>
-                            <li><a href="~/User/InternalMail.aspx" role="button" runat="server">Internal Mail</a></li>
+                            <li><a href="~/User/InternalMail.aspx" role="button" runat="server">InternalMail</a></li>
                             <li><a href="~/User/History.aspx" role="button" runat="server">History</a></li>
                             <li><a href="~/User/Settings.aspx" role="button" runat="server">Settings</a></li>
                         </ul>

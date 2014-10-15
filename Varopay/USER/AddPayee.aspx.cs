@@ -26,9 +26,7 @@ namespace Varopay.User
             var payer = Context.User.Identity.GetUserId();
             ApplicationDbContext db = new ApplicationDbContext();
             ApplicationUser user = manager.FindByName(txtPayee.Text);
-            Accounts act = new Accounts();
-            var c = db.Account.Find(txtPayeeAccount.Text);
-            if (user != null && user.EmailConfirmed && c!=null)
+            if (user != null && user.EmailConfirmed)
             {
                 IdentityHelper.createPayee(user.Id,payer,txtPayeeAccount.Text);
                 Response.Redirect("~/User/SendMoney.aspx");

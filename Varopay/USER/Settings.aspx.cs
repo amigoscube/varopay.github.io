@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -12,6 +13,18 @@ namespace Varopay.User
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+
+        protected void btnUpload_Click(object sender, EventArgs e)
+        {
+
+            if (this.fupProfImg.HasFile)
+            {
+                fupProfImg.SaveAs(Server.MapPath("~/UserProfilePics/" + this.fupProfImg.FileName));
+                string fileName = Path.GetFileName(this.fupProfImg.PostedFile.FileName);
+                Session["ImagePath"] = "~/UserProfilePics/" + fileName;
+                Response.Redirect("~/User/MyAccount.aspx");
+            }
         }
     }
 }

@@ -12,7 +12,7 @@
                                 <asp:Label runat="server" ID="lblUserName" Text="Username"></asp:Label>
                             </td>
                             <td>
-                                <asp:TextBox runat="server" ID="txtUsername" CssClass="form-control"></asp:TextBox>
+                                <asp:TextBox runat="server" ID="txtUsername" CssClass="form-control" Text="<%# Context.User.Identity.GetUserName() %>"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
@@ -70,7 +70,10 @@
                             </td>
                         </tr>
                         </table>
-                <a href="#" runat="server">Change Password</a>
+                <a href="~/User/PasswordSettings.aspx" runat="server">Change Password</a>
+                <h4>Change your Profile Pic</h4>
+                <asp:FileUpload ID="fupProfImg" runat="server" />
+                <asp:Button ID="btnUpload" runat="server" Text="Upload" OnClick="btnUpload_Click"/>
                     </div>
             <div class="col-md-8"></div>
                 </div>

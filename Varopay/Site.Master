@@ -263,6 +263,7 @@
                                 </td>
                                 <td>
                                     <asp:TextBox runat="server" placeholder="Enter the Captcha" ID="txtCaptcha" CssClass="form-control"></asp:TextBox>
+                                    <asp:RequiredFieldValidator runat="server" ID="rqvCaptcha" CssClass="text-warning" ErrorMessage="Please enter the captcha" ControlToValidate="txtCaptcha"></asp:RequiredFieldValidator> 
                                 </td>
                             </tr>
                             <tr>

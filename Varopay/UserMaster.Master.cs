@@ -11,6 +11,13 @@ namespace Varopay
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(!this.IsPostBack)
+            {
+                if (Session["ImagePath"] != null)
+                {
+                    this.imgProfilePic.ImageUrl = Session["ImagePath"].ToString();
+                }
+            }
 
         }
         //protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
