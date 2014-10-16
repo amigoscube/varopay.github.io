@@ -135,12 +135,15 @@ namespace Varopay
         /// <param name="UserID">User's Id</param>
         /// <param name="Context">Http Context</param>
         /// <param name="Request">Http Request</param>
-        public static void SendConfirmationMail(string UserID,HttpContext Context,HttpRequest Request)
+        public static void SendConfirmationMail(string UserID, HttpContext Context, HttpRequest Request)
         {
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             string code = manager.GenerateEmailConfirmationToken(UserID);
             string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, UserID);
-            manager.SendEmail(UserID, "Confirm your account", "Please confirm your account by clicking <a href=\"" + Request.Url.AbsoluteUri.Replace("default.aspx", callbackUrl) + "\">here</a>.");
+            var url = Request.Url.AbsoluteUri;
+            int i = url.IndexOf("/", 8);
+            var newUrl = url.Substring(0, i);
+            manager.SendEmail(UserID, "Confirm your account", "Please confirm your account by clicking <a href=\"" + newUrl + "/" + callbackUrl + "\">here</a>.");
         }
             /// <summary>
         /// create Account Creates a Default Account whenever an Account is Created
@@ -154,14 +157,14 @@ namespace Varopay
             var Id = db.Users.Single(u => u.Id == UserId).Id;
             Currency cur = db.Currencies.Find(cId);
             ApplicationUser us = db.Users.Find(Id);
-            IEnumerable<ApplicationUser> usr = new List<ApplicationUser>();
-            List<Currency> cu = new List<Currency>();
-            var usId = usr.Select(i =>us);
-            var cuId = cu.Select(ci => cur);
+            //IEnumerable<ApplicationUser> usr = new List<ApplicationUser>();
+            //List<Currency> cu = new List<Currency>();
+            //var usId = usr.Select(i =>us);
+            //var cuId = cu.Select(ci => cur);
             Varopay.Models.Accounts ac = new Varopay.Models.Accounts();
             ac.AccountsID = Guid.NewGuid();
-            ac.MyAccount = usId.ToList();
-            ac.Currency = cuId.ToList();
+            ac.MyAccount = us;
+            ac.Currency = cur;
             ac.CurAcc = IdentityHelper.CreateId(c);
             db.Account.Add(ac);
             db.SaveChanges();
@@ -203,6 +206,14 @@ namespace Varopay
             string s = st.FirstOrDefault() + ID.ToString();
             return s ;
         }
+      //  public IQueryable<Varopay.Models.Accounts> GetAccountData(string user)
+     //   {
+        //    ApplicationDbContext db = new ApplicationDbContext();
+      //      ApplicationUser us = db.Users.Find(user);
+      //      IQueryable<Varopay.Models.Accounts> acct = db.Account.Where(a => a.MyAccount.Id.Contains(user));
+      //      return acct;
+
+       // }
     }
 }
 #endregion

@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
         <div class="row">
-            <div class="col-md-4" id="Settings">
+            <div class="col-md-6" id="Settings">
                     <table runat="server">
                         <tr>
                             <td>
@@ -71,9 +71,9 @@
                         </tr>
                         </table>
                 <a href="~/User/PasswordSettings.aspx" runat="server">Change Password</a>
-                <h4>Change your Profile Pic</h4>
-                <asp:FileUpload ID="fupProfImg" runat="server" />
-                <asp:Button ID="btnUpload" runat="server" Text="Upload" OnClick="btnUpload_Click"/>
+                <h5>Change your Profile Pic</h5>
+                <asp:FileUpload ID="fupProfImg" runat="server" CssClass="btn btn-default"/>
+                <asp:Button ID="btnUpload" runat="server" Text="Upload" OnClick="btnUpload_Click" CssClass="btn btn-default"/>
                     </div>
             <div class="col-md-8"></div>
                 </div>

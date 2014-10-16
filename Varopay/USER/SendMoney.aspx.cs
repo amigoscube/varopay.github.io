@@ -4,6 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Varopay.Models;
+using Owin;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Varopay.User
 {
@@ -20,9 +25,13 @@ namespace Varopay.User
         //     int startRowIndex
         //     out int totalRowCount
         //     string sortByExpression
-        public IQueryable<Varopay.Models.Accounts> gdvAccount_GetData()
+        public IQueryable<Varopay.Models.Accounts> lsvAccount_GetData1()
         {
-            return null;
+            ApplicationDbContext db = new ApplicationDbContext();
+            var user = Context.User.Identity.GetUserId();
+            ApplicationUser us = db.Users.Find(user);
+            IQueryable<Varopay.Models.Accounts> acct = db.Account.Where(a => a.MyAccount.Id.Contains(user));
+            return acct;
         }
     }
 }

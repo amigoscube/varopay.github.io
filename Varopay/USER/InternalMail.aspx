@@ -7,9 +7,9 @@
         <div class="row">
             <div class="col-md-12">
                 <h3>If you have any queries send us a mail</h3>
-                <a href="ComposeTicket.aspx" runat="server">Compose a New Ticket</a>
-                <a href="MailHistory.aspx" runat="server">History</a>
-                <div>
+                <h5><a href="ComposeTicket.aspx" runat="server">Compose a New Ticket</a></h5>
+                <h5><a href="MailHistory.aspx" runat="server">History</a></h5>
+               <%-- <div>
                     <asp:GridView ID="gvEmails" runat="server" AutoGenerateColumns="false">
                         <Columns>
                             <asp:BoundField HeaderText="From" DataField="From" />
@@ -17,7 +17,7 @@
                             <asp:BoundField HeaderText="Date" DataField="DateSent" />
                         </Columns>
                     </asp:GridView>
-                </div>
+                </div>--%>
             </div>
         </div>
     </div>

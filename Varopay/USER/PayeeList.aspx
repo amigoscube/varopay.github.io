@@ -6,24 +6,21 @@
         <div class="row">
             <div class="col-md-12">
                 <p>Payees in your acount are</p>
-                <asp:GridView runat="server" ID="gdvPayeeList">
+                <asp:GridView runat="server" ID="gdvPayeeList" DataKeyNames="PayeesID" ItemType="Varopay.Models.Payees" SelectMethod="gdvPayeeList_GetData" AutoGenerateColumns="false">
                     <Columns>
                         <asp:TemplateField HeaderText="Account">
-                            <EditItemTemplate>
-                                <asp:Label runat="server" ID="lblEditAccount" Text='<%#Eval("Account")%>'></asp:Label>
-                             </EditItemTemplate>
                             <ItemTemplate>
-                                <asp:Label runat="server" ID="lblAccount" Text='<%#Eval("Account")%>'></asp:Label>
+                                <asp:Label runat="server" ID="lblAccount" Text='<%# Item.Payment.CurAcc%>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Email">
                             <ItemTemplate>
-                                <asp:Label runat="server" ID="lblEmail" Text='<%#Eval("Email") %>'></asp:Label>
+                                <asp:Label runat="server" ID="lblEmail" Text='<%# Item.Payment.MyAccount.Email %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Phone Number">
                             <ItemTemplate>
-                                <asp:Label runat="server" ID="lblPhoneNumber" Text='<%#Eval("PhoneNumber") %>'></asp:Label>
+                                <asp:Label runat="server" ID="lblPhoneNumber" Text='<%# Item.Payment.MyAccount.PhoneNumber %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField>
@@ -38,7 +35,7 @@
                         </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
-                <a href="~/USER/AddPayee.aspx" runat="server" >Add Payee</a> 
+                <a href="~/User/AddPayee.aspx" runat="server" >Add Payee</a> 
             </div>
         </div>
     </div>

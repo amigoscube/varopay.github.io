@@ -55,9 +55,6 @@ namespace Varopay.User
                     break;
                 }
             }
-            gvEmails.DataSource = dtMessages;
-            gvEmails.DataBind();
-
         }
     }
 }

@@ -5,15 +5,17 @@
     <div class="container">
         <div class="row">
             <h4>Select the account to send money</h4>
-            <asp:GridView runat="server" ID="gdvAccount" DataKeyNames="AccountsID" ItemType="Varopay.Models.Accounts" SelectMethod="gdvAccount_GetData">
-                <Columns>
-                    <asp:TemplateField>
+            <asp:ListView runat="server" ID="lsvAccount" DataKeyNames="AccountsID" ItemType="Varopay.Models.Accounts" SelectMethod="lsvAccount_GetData1">
                         <ItemTemplate>
-                            <asp:HyperLink runat="server" NavigateUrl="~/" Text="<%# Item.CurAcc %>"></asp:HyperLink>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <asp:HyperLink runat="server" NavigateUrl ="~/User/TransferToAccount.aspx?AccountsID={0}" Text="<%# Item.CurAcc %>" ></asp:HyperLink>
+                                    </td>
+                                </tr>
+                            </table>
                         </ItemTemplate>
-                    </asp:TemplateField>
-                </Columns>
-            </asp:GridView>
+            </asp:ListView>
             <a href="~/User/PayeeList" runat="server">List Of Payees</a>
         </div>
     </div>

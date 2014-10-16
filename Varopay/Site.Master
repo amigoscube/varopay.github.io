@@ -189,7 +189,6 @@
                                 </td>
                                 <td>
                                     <asp:DropDownList runat="server" ID="ddlCountry" CssClass="form-control">
-                                        <asp:ListItem Value="">-- Select Country --</asp:ListItem>
                                     </asp:DropDownList>
                                     <%--    <asp:RequiredFieldValidator runat="server" ID="rqvRegisterCountry" ControlToValidate="ddlCountry" CssClass="text-warning" ErrorMessage="Country field cannot be empty"></asp:RequiredFieldValidator>--%>
                                 </td>

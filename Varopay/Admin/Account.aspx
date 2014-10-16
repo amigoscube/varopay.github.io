@@ -37,6 +37,14 @@
                             <asp:Button ID="btnDepAmt" runat="server" Text="Deposit" ClientIDMode="Static" CssClass="btn btn-default" />
                         </td>
                     </tr>
+                    <tr>
+                        <td>
+                            <h4>Disable User From LockedOut</h4>
+                        </td>
+                        <td>
+                            <asp:Button ID="btnLockedOut" runat="server" Text="Disable" CssClass="btn btn-default" ClientIDMode="Static" />
+                        </td>
+                    </tr>
                 </table>
                 </div>
             </div>

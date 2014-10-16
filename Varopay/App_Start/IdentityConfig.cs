@@ -73,12 +73,12 @@ namespace Varopay
     {
         public Task SendAsync(IdentityMessage message)
         {
-            var db = new ApplicationDbContext();
-            ApplicationUser user = new ApplicationUser();
-            IdentityUserRole role = new IdentityUserRole();
-            var temprole = (from _role in db.Roles
-                                where _role.Name=="Administrator" select _role.Id).FirstOrDefault();
-            role.RoleId= temprole;
+           // var db = new ApplicationDbContext();
+           // ApplicationUser user = new ApplicationUser();
+           //IdentityUserRole role = new IdentityUserRole();
+           //var temprole = (from _role in db.Roles
+           //                    where _role.Name=="Administrator" select _role.Id).FirstOrDefault();
+           //role.RoleId= temprole;
             MailMessage mail = new MailMessage("divya.kandhadi@amigoscube.com",message.Destination);
             mail.Body = message.Body;
             mail.Subject = message.Subject;

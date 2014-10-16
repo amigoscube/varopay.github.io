@@ -13,12 +13,12 @@ namespace Varopay.User {
     public partial class SendMoney {
         
         /// <summary>
-        /// gdvAccount control.
+        /// lsvAccount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gdvAccount;
+        protected global::System.Web.UI.WebControls.ListView lsvAccount;
     }
 }

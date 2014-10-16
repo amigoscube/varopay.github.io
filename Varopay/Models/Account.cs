@@ -10,7 +10,7 @@ namespace Varopay.Models
     {
         public Guid AccountsID { get; set; }
         public String CurAcc { get; set; }
-        public virtual IEnumerable<ApplicationUser> MyAccount { get; set; }
-        public virtual List<Currency> Currency { get; set; }
+        public virtual ApplicationUser MyAccount { get; set; }
+        public virtual Currency Currency { get; set; }
     }  
 }

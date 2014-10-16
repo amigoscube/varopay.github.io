@@ -19,43 +19,41 @@ namespace Varopay.User
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           // lsvAccountBind();
+          // lsvAccountBind();
         }
-        public async void lsvAccountBind()
-        {
+        //public async void lsvAccountBind()
+        //{
             
-            var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            var user = Context.User.Identity.GetUserId();
-            HttpClient client = new HttpClient();
-            var host = Request.Url.AbsoluteUri;
-           int i = host.IndexOf("/", 8);
-           var newhost = host.Substring(0, i);
-            client.BaseAddress = new Uri(newhost);
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            HttpResponseMessage response = await client.GetAsync("/api/Accounts");
-            if (response.IsSuccessStatusCode)
-            {
-                var acc = await response.Content.ReadAsAsync<List<Varopay.Models.Accounts>>();
-                lsvAccount.DataSource = acc;
-                lsvAccount.DataBind();
-            }
-        }
+        //    var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
+        //    var user = Context.User.Identity.GetUserId();
+        //    HttpClient client = new HttpClient();
+        //    var host = Request.Url.AbsoluteUri;
+        //   int i = host.IndexOf("/", 8);
+        //   var newhost = host.Substring(0, i);
+        //    client.BaseAddress = new Uri(newhost);
+        //    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        //    HttpResponseMessage response = await client.GetAsync("/api/Accounts");
+        //    if (response.IsSuccessStatusCode)
+        //    {
+        //        var acc = await response.Content.ReadAsAsync<List<Varopay.Models.Accounts>>();
+        //        lsvAccount.DataSource = acc;
+        //        lsvAccount.DataBind();
+        //    }
+        //}
 
-        // The return type can be changed to IEnumerable, however to support
-        // paging and sorting, the following parameters must be added:
-        //     int maximumRows
-        //     int startRowIndex
-        //     out int totalRowCount
-        //     string sortByExpression
+         //The return type can be changed to IEnumerable, however to support
+         //paging and sorting, the following parameters must be added:
+         //    int maximumRows
+         //    int startRowIndex
+         //    out int totalRowCount
+         //    string sortByExpression
         public IQueryable<Varopay.Models.Accounts> lsvAccount_GetData()
         {
             ApplicationDbContext db = new ApplicationDbContext();
-            //var user = Context.User.Identity.GetUserId();
-            //var query =from a in db.Account
-                      // where a.MyAccount = user.ToList();
-
-           // return db.Account;
-            return db.Account;
+            var user = Context.User.Identity.GetUserId();
+            ApplicationUser us = db.Users.Find(user);
+            IQueryable<Varopay.Models.Accounts> acct = db.Account.Where(a => a.MyAccount.Id.Contains(user));
+            return acct;
         }
     }
 }
