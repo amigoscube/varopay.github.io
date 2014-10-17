@@ -20,6 +20,7 @@ using System.Security.Principal;
 using System.Text;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.ComponentModel.DataAnnotations;
 
 
 namespace Varopay.Models
@@ -32,6 +33,9 @@ namespace Varopay.Models
         public string Country { get; set; }
         public string Address { get; set; }
         public string AccountType { get; set; }
+
+        [DataType(DataType.Upload)]
+        public string ProfileImg { get; set; }
         public Task<ClaimsIdentity> GenerateUserIdentityAsync(ApplicationUserManager manager)
         {
             return Task.FromResult(GenerateUserIdentity(manager));
@@ -58,6 +62,7 @@ namespace Varopay.Models
         public DbSet<Payees> Payees { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
         public DbSet<TransactionType> TransactionTypes { get; set; }
+        public DbSet<CertifiedPartner> CertifiedPartners { get; set; }
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

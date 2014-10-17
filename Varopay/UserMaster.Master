@@ -6,6 +6,7 @@
 <head runat="server">
     <title></title>
     <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/bootstrap.js" type="text/javascript"></script>
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
             <link href="Content/datepicker3.css" rel="stylesheet" />
    <%-- <script src="//code.jquery.com/jquery-1.10.2.js"></script>
