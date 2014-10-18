@@ -17,6 +17,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using System.Net;
 using System.Net.Mail;
 using Microsoft.Owin.Security;
+using System.Configuration.Provider;
 
 namespace Varopay
 {
@@ -153,32 +154,45 @@ namespace Varopay
             var FailureText = (Literal)LoginView1.FindControl("FailureText");
             username = (TextBox)LoginView1.FindControl("txtUsername");
             pwd = (TextBox)LoginView1.FindControl("txtPassword");
-            ApplicationUser user = manager.Find(username.Text, pwd.Text);
-            if (user != null && user.EmailConfirmed == true && manager.SupportsUserLockout && manager.GetAccessFailedCount(user.Id)<3 )
+            
+            
+            
+            var user = manager.FindByName(username.Text);
+            if (user != null)
             {
-                string verify = manager.GenerateTwoFactorToken(user.Id, "EmailCode");
-                manager.SendEmail(user.Id, "Verification Code", "Your Verification code is:" + verify + "");
-                SetTwoFactorAuthCookie(user.Id);
-                manager.ResetAccessFailedCount(user.Id);
-                Response.Redirect("~/Verfication.aspx");
-            }
-            else if(user!=null && user.EmailConfirmed==false)
-            {
-                SetTwoFactorAuthCookie(user.Id);
-                Response.Redirect("~/NotConfirmed.aspx");
-            }
-            //else if (user != null)
-            //{
-            //    Response.Redirect("~/Account/Forgot.aspx");
-            //}
-            else if(user!=null && manager.SupportsUserLockout && manager.GetLockoutEnabled(user.Id))
-            {
-                manager.AccessFailed(user.Id);
-                Response.Redirect("~/Account/Forgot.aspx");
-            }
-            else if(user!=null && manager.GetAccessFailedCount(user.Id)==3)
-            {
-                Response.Redirect("~/LockedOut.aspx");
+                ApplicationUser us = manager.Find(user.UserName, pwd.Text);
+                if(manager.IsLockedOut(user.Id))
+                {
+                    Response.Redirect("~/LockedOut.aspx");
+                }
+
+                else if (us!= null && us.EmailConfirmed == false)
+                {
+                    SetTwoFactorAuthCookie(user.Id);
+                    Response.Redirect("~/NotConfirmed.aspx");
+                }
+                else if (us == null && manager.SupportsUserLockout && manager.GetLockoutEnabled(user.Id))
+                {
+                    manager.AccessFailed(user.Id);
+                    if (manager.IsLockedOut(user.Id))
+                    {
+                        ApplicationDbContext db = new ApplicationDbContext();
+                        var RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>());
+                       // var ad = RoleManager.FindByName("Administrator").Id;
+                        //var adId = db.Users.Find(ad).Id;
+                        //manager.SendEmail(adId, "User LockedOut", "" + user.UserName + " is Locked out.Unlock the user to access his account");
+                        Response.Redirect("~/LockedOut.aspx");
+                    }
+                    Response.Redirect("~/Account/Forgot.aspx");
+                }
+                else if (us != null && user.EmailConfirmed == true)
+                {
+                    string verify = manager.GenerateTwoFactorToken(user.Id, "EmailCode");
+                    manager.SendEmail(user.Id, "Verification Code", "Your Verification code is:" + verify + "");
+                    SetTwoFactorAuthCookie(user.Id);
+                    manager.ResetAccessFailedCount(user.Id);
+                    Response.Redirect("~/Verfication.aspx");
+                }
             }
             else
             {

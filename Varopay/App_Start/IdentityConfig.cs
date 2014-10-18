@@ -43,7 +43,7 @@ namespace Varopay
                 RequireUppercase = true,
             };
             manager.UserLockoutEnabledByDefault = true;
-            manager.DefaultAccountLockoutTimeSpan = TimeSpan.FromMinutes(5);
+            manager.DefaultAccountLockoutTimeSpan = TimeSpan.FromHours(24);
             manager.MaxFailedAccessAttemptsBeforeLockout = 3;
 
             // Register two factor authentication providers. This application uses Phone and Emails as a step of receiving a code for verifying the user. 

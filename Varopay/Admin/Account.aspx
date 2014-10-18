@@ -42,7 +42,7 @@
                             <h4>Disable User From LockedOut</h4>
                         </td>
                         <td>
-                            <asp:Button ID="btnLockedOut" runat="server" Text="Unlock" CssClass="btn btn-default" ClientIDMode="Static" />
+                            <asp:Button ID="btnLockedOut" runat="server" Text="Unlock" CssClass="btn btn-default" ClientIDMode="Static" data-target="#UnlockUserModal" data-toggle="modal" role="dialog" />
                         </td>
                     </tr>
                 </table>
@@ -149,6 +149,7 @@
                                 <h4>Unlock User</h4>
                             </div>
                             <div class="modal-body">
+                                <asp:Literal ID="ltrUnlocked" runat="server"></asp:Literal>
                                 <table>
                                     <tr>
                                         <td>
@@ -160,7 +161,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <asp:Button ID="btnUnlock" runat="server" CssClass="btn btn-default" Text=" Unlock User" />
+                                            <asp:Button ID="btnUnlock" runat="server" CssClass="btn btn-default" Text="Unlock User" OnClick="btnUnlock_Click"/>
                                         </td>
                                     </tr>
                                 </table>

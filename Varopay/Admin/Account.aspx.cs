@@ -59,5 +59,22 @@ namespace Varopay.Admin
              //   ltrMessage.Text = result.Errors.FirstOrDefault();
             //}
         }
+
+        protected void btnUnlock_Click(object sender, EventArgs e)
+        {
+            var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            ApplicationUser usr = manager.FindByEmail(txtUser.Text);
+            if (usr != null && manager.IsLockedOut(usr.Id))
+            {
+                manager.ResetAccessFailedCount(usr.Id);
+                manager.SetLockoutEndDate(usr.Id, DateTime.UtcNow.AddMinutes(3));
+                manager.SendEmail(usr.Id, "Account Unlocked", "Dear" + usr.UserName + ",</br>Your Account has been Unlocked.You can Now Login to your VarPpay Account");
+                ltrUnlocked.Text = "User has been Unlocked";
+            }
+            else
+            {
+              ltrUnlocked.Text=  result.Errors.FirstOrDefault();
+            }
+        }
     }
 }
