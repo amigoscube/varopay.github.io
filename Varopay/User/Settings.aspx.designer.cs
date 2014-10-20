@@ -157,6 +157,15 @@ namespace Varopay.User {
         protected global::System.Web.UI.WebControls.FileUpload fupProfImg;
         
         /// <summary>
+        /// ltrMsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltrMsg;
+        
+        /// <summary>
         /// btnUpload control.
         /// </summary>
         /// <remarks>

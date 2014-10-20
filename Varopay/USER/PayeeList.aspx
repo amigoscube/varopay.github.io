@@ -6,35 +6,47 @@
         <div class="row">
             <div class="col-md-12">
                 <p>Payees in your acount are</p>
-                <asp:GridView runat="server" ID="gdvPayeeList" DataKeyNames="PayeesID" ItemType="Varopay.Models.Payees" SelectMethod="gdvPayeeList_GetData" AutoGenerateColumns="false">
-                    <Columns>
-                        <asp:TemplateField HeaderText="Account">
-                            <ItemTemplate>
-                                <asp:Label runat="server" ID="lblAccount" Text='<%# Item.Payment.CurAcc%>'></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Email">
-                            <ItemTemplate>
-                                <asp:Label runat="server" ID="lblEmail" Text='<%# Item.Payment.MyAccount.Email %>'></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Phone Number">
-                            <ItemTemplate>
-                                <asp:Label runat="server" ID="lblPhoneNumber" Text='<%# Item.Payment.MyAccount.PhoneNumber %>'></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField>
-                            <ItemTemplate>
-                                <asp:ImageButton runat="server" ID="imgEdit" ImageUrl="~/Images/Edit.jpg" ToolTip="Edit" Height="20px" Width="20px" />
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField>
-                            <ItemTemplate>
-                                <asp:ImageButton runat="server" ID="imgDelete" ImageUrl="~/Images/delete.jpg" ToolTip="Delete" Height="20px" Width="20px" />
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                    </Columns>
-                </asp:GridView>
+                <asp:ListView runat="server" ID="lsvPayeeList" DataKeyNames="PayeesID" ItemType="Varopay.Models.Payees" SelectMethod="lsvPayeeList_GetData" AutoGenerateColumns="false">
+                    <LayoutTemplate>
+                        <table>
+                            <tr>
+                                <td>
+                                    <asp:Label runat="server" ID="lblPayeeName" Text="Payee"></asp:Label>
+                                </td>
+                                <td>
+                                    <asp:Label runat="server" ID="lblAccountNo" Text="Account"></asp:Label>
+                                </td>
+                               <td>
+                                   <asp:Label runat="server" ID="lblPhoneNumber" Text="Phone Number"></asp:Label>
+                               </td>
+                                <td>
+                                    <asp:Label runat="server" ID="lblEmail" Text ="Email"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                               <asp:PlaceHolder ID="plchldPayee"  runat="server"></asp:PlaceHolder>
+                            </tr>
+                        </table>
+                    </LayoutTemplate>
+                    <ItemTemplate>
+                        <table>
+                            <tr>
+                                <td>
+                                    <asp:Label runat="server" Text="<%# Item.Payment.MyAccount.UserName %>"></asp:Label>
+                                </td>
+                                <td>
+                                    <asp:Label runat="server" Text="<%# Item.Payment.CurAcc %>"></asp:Label>
+                                </td>
+                                <td>
+                                    <asp:Label runat="server" Text="<%# Item.Payment.MyAccount.PhoneNumber %>"></asp:Label>
+                                </td>
+                                <td>
+                                    <asp:Label runat="server" Text="<%# Item.Payment.MyAccount.Email %>"></asp:Label>
+                                </td>
+                            </tr>
+                        </table>
+                    </ItemTemplate>
+                </asp:ListView>
                 <a href="~/User/AddPayee.aspx" runat="server" >Add Payee</a> 
             </div>
         </div>

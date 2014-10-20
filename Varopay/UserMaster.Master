@@ -5,8 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
-    <script src="~/Scripts/bootstrap.js" type="text/javascript"></script>
+    <script src="../Scripts/bootstrap.js" type="text/javascript"></script>
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
             <link href="Content/datepicker3.css" rel="stylesheet" />
    <%-- <script src="//code.jquery.com/jquery-1.10.2.js"></script>
@@ -43,7 +44,15 @@
                 setTimeout(function () { $(".overlayforaddnote").hide() }, 4000);
             });
         </script>
-        <%--script>
+        <script type="text/javascript">
+            $(function () {
+                $("#UserAccount li a").on("click", function () {
+                    $("#UserAccount li a.activeacc").removeClass("activeacc");
+                    $(this).addClass("activeacc");
+                });
+            });
+        </script>
+       <%-- <script>
             $(function () {
                 $('#UserAccount li a').click(function (e) {
                     e.preventDefault();
@@ -54,7 +63,7 @@
                 });
             });
         </script>--%>
-        <script>
+      <%--<script>
             (function () {
                 var nav = document.getElementById('UserAccount'),
                 anchor = nav.getElementsByTagName('li a'),
@@ -65,14 +74,14 @@
                     }
                 }
             });
-        </script>
+        </script>--%>
         <header id="UserHeader">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-6">
                         <a href="/" runat="server" class="varopay-Logo logo-role-mrgn" role="button"></a>
                     </div>
-                    <div class="col-md-4 ">
+                    <div class="col-md-6 ">
                         <ul class="nav nav-justified float-right">
                             <li><asp:Image  ID="imgProfilePic" ImageUrl="~/Images/defaultProfile.jpg" runat="server" CssClass="img-circle prf-img"/></li>
                             <li><a runat="server" class="usr" href="~/Account/Manage.aspx" title="Manage your account">Hello, <%: HttpContext.Current.User.Identity.GetUserName()  %> !</a></li>
@@ -82,7 +91,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="row" id="UserAccount">
+                <div class="row" id="UserAccount" style="margin-top:5px;">
                     <div class="col-md-12">
                         <ul class="nav nav-justified">
                             <li><a href="~/User/MyAccount.aspx" class="activeacc" role="button" runat="server">MyAccount</a></li>

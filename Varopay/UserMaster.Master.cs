@@ -4,6 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Owin;
+using Varopay.Models;
 
 namespace Varopay
 {
@@ -13,17 +18,23 @@ namespace Varopay
         {
             if(!this.IsPostBack)
             {
-                if (Session["ImagePath"] != null)
+                var user = Context.User.Identity.GetUserId();
+                if (user != null)
                 {
-                    this.imgProfilePic.ImageUrl = Session["ImagePath"].ToString();
+                    ApplicationDbContext db = new ApplicationDbContext();
+                    ApplicationUser us = db.Users.Find(user);
+                    if (us.ProfileImg != null)
+                    {
+                        imgProfilePic.ImageUrl = us.ProfileImg;
+                    }
+                    else
+                    {
+                        imgProfilePic.ImageUrl = "~/Images/defaultProfile.jpg";
+                    }
                 }
             }
 
         }
-        //protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
-        //{
-        //    Context.GetOwinContext().Authentication.SignOut();
-        //}
 
         protected void Unnamed_LoggingOut1(object sender, LoginCancelEventArgs e)
         {

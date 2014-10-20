@@ -71,8 +71,9 @@
                         </tr>
                         </table>
                 <a href="~/User/PasswordSettings.aspx" runat="server">Change Password</a>
-                <h5>Change your Profile Pic</h5>
-                <asp:FileUpload ID="fupProfImg" runat="server" CssClass="btn btn-default"/>
+                <h4>Change your Profile Pic</h4>
+                <asp:FileUpload ID="fupProfImg" runat="server" CssClass="btn btn-default form-control"/>
+                <asp:Literal runat="server" ID="ltrMsg"></asp:Literal>
                 <asp:Button ID="btnUpload" runat="server" Text="Upload" OnClick="btnUpload_Click" CssClass="btn btn-default"/>
                     </div>
             <div class="col-md-8"></div>

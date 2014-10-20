@@ -13,12 +13,12 @@ namespace Varopay.User {
     public partial class PayeeList {
         
         /// <summary>
-        /// gdvPayeeList control.
+        /// lsvPayeeList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gdvPayeeList;
+        protected global::System.Web.UI.WebControls.ListView lsvPayeeList;
     }
 }

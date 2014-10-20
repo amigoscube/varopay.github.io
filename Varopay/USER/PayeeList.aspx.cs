@@ -18,14 +18,13 @@ namespace Varopay.User
         {
 
         }
-
         // The return type can be changed to IEnumerable, however to support
         // paging and sorting, the following parameters must be added:
         //     int maximumRows
         //     int startRowIndex
         //     out int totalRowCount
         //     string sortByExpression
-        public IQueryable<Varopay.Models.Payees> gdvPayeeList_GetData()
+        public IQueryable<Varopay.Models.Payees> lsvPayeeList_GetData()
         {
             var user = Context.User.Identity.GetUserId();
             ApplicationDbContext db = new ApplicationDbContext();
