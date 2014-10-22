@@ -180,10 +180,9 @@
     <Content Include="Images\defaultProfile.jpg" />
     <Content Include="Images\delete.jpg" />
     <Content Include="Images\Edit.jpg" />
+    <Content Include="Images\favicon.ico" />
     <Content Include="Images\loader.gif" />
     <Content Include="Images\Pageload.gif" />
-    <Content Include="Images\pageloader.gif" />
-    <Content Include="Images\user-profile-image-default.png" />
     <Content Include="LockedOut.aspx" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="User\AddAccount.aspx" />

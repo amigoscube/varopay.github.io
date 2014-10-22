@@ -31,7 +31,7 @@ namespace Varopay.Admin
                 string fileName = Path.GetFileName(this.fupPartner.PostedFile.FileName);
                  Session["ImagePath"] = "~/CertifiedPartnerImages/"+fileName;
             }
-            //CertifiedPartner cr = db.CertifiedPartners.Find(txtPartnerName.Text);
+            var cr = db.CertifiedPartners.Find(txtPartnerName.Text);
             var partr = new CertifiedPartner() { 
                 CertifiedPartnerID  = Guid.NewGuid(),
                 PartnerName = txtPartnerName.Text,
@@ -44,8 +44,7 @@ namespace Varopay.Admin
             db.SaveChanges();
 
             ltrError.Text = "Certified Partner is Successfully Created";
-        }
-
+            }
         protected void btnRemove_Click(object sender, EventArgs e)
         {            
            // var pnr = db.CertifiedPartners.Find(cp);

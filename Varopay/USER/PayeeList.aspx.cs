@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 
+
 namespace Varopay.User
 {
     public partial class PayeeList : System.Web.UI.Page
@@ -28,7 +29,7 @@ namespace Varopay.User
         {
             var user = Context.User.Identity.GetUserId();
             ApplicationDbContext db = new ApplicationDbContext();
-            ApplicationUser us = db.Users.Find(user);
+            //ApplicationUser us = db.Users.Find(user);
             IQueryable<Varopay.Models.Payees> Paye = db.Payees.Where(p => p.Payer.Contains(user));
             return Paye;
         }

@@ -109,11 +109,11 @@ namespace Varopay
         }
         protected void btnRegister_Click(object sender, EventArgs e)
         {
-            string st = Convert.ToString(this.Session["captcha"]);
-            if(st!=this.txtCaptcha.Text)
-            {
-                lblCaptcha.Text = "Invalid Captcha";
-            }
+            //string st = Convert.ToString(this.Session["captcha"]);
+            //if(st!=this.txtCaptcha.Text)
+            //{
+            //    lblCaptcha.Text = "Invalid Captcha";
+            //}
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var user = new ApplicationUser() { UserName = txtRegisterUsername.Text, Email = txtRegisterEmail.Text, PhoneNumber = txtPhoneNumber.Text, City = txtRegisterCity.Text, Address = txtRegisterAddress.Text,Country = ddlCountry.SelectedValue.ToString(),Zipcode=txtZipcode.Text };
             IdentityResult result = manager.Create(user, txtRegisterPassword.Text);
@@ -150,10 +150,10 @@ namespace Varopay
 
             TextBox username;
             TextBox pwd;
-            var ErrorMessage = (PlaceHolder)LoginView1.FindControl("ErrorMessage");
-            var FailureText = (Literal)LoginView1.FindControl("FailureText");
-            username = (TextBox)LoginView1.FindControl("txtUsername");
-            pwd = (TextBox)LoginView1.FindControl("txtPassword");
+            var ErrorMessage = (PlaceHolder)Header.FindControl("ErrorMessage");
+            var FailureText = (Literal)Header.FindControl("FailureText");
+            username = (TextBox)Header.FindControl("txtUsername");
+            pwd = (TextBox)Header.FindControl("txtPassword");
             
             
             
@@ -208,7 +208,27 @@ namespace Varopay
             IAuthenticationManager authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
             authenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
             authenticationManager.SignIn(identity);
-        }     
+        }
+
+        //protected void cstCaptcha_ServerValidate(object source, ServerValidateEventArgs args)
+        //{
+        //    if (Session["captcha"] != null)
+        //{
+        //    if (txtCaptcha.Text != Session["captcha"].ToString())
+        //    {               
+        //        FillCaptcha();
+        //        args.IsValid = false;
+        //        return;
+        //    }
+        //}
+        //else
+        //{          
+        //   FillCaptcha();
+        //    args.IsValid = false;
+        //    return;
+        //}
+     
+        //}     
     }
 }
 

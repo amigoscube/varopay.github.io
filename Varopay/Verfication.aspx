@@ -11,7 +11,7 @@
             <asp:TextBox runat="server" ID="txtVerificationCode" CssClass="form-control"></asp:TextBox>
             </div>
         <div class="col-md-6">
-            <asp:Button runat="server" ID="btnSubmit" Text="Submit"  OnClick="btnSubmit_Click"/>
+            <asp:Button runat="server" ID="btnSubmit" Text="Submit" CausesValidation="false" OnClick="btnSubmit_Click" CssClass="btn btn-default"/>
         </div>
     </div>
         <div class="row">

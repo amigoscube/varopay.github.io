@@ -15,8 +15,14 @@
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <script>
+        $(window).load(function () {
+            $(".loader").delay(1000).fadeOut("slow");
+        })
+    </script>
 </head>
 <body>
+    <div class="loader"></div>
     <form id="form1" runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
@@ -94,7 +100,7 @@
                 <div class="row" id="UserAccount" style="margin-top:5px;">
                     <div class="col-md-12">
                         <ul class="nav nav-justified">
-                            <li><a href="~/User/MyAccount.aspx" class="activeacc" role="button" runat="server">MyAccount</a></li>
+                            <li><a href="~/User/MyAccount.aspx" class="activeacc pad-left-0" role="button" runat="server">MyAccount</a></li>
                             <li><a href="~/User/SendMoney.aspx" role="button" runat="server">SendMoney</a></li>
                             <li><a href="~/User/CurrencyExchange.aspx" role="button" runat="server">CurrencyExchange</a></li>
                             <li><a href="~/User/Deposit.aspx" role="button" runat="server">MoneyTransfer</a></li>

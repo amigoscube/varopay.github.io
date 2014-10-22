@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-12">
                 <p>Payees in your acount are</p>
-                <asp:ListView runat="server" ID="lsvPayeeList" DataKeyNames="PayeesID" ItemType="Varopay.Models.Payees" SelectMethod="lsvPayeeList_GetData" AutoGenerateColumns="false">
+                <asp:ListView runat="server" ID="lsvPayeeList" DataKeyNames="PayeesID" ItemType="Varopay.Models.Payees" SelectMethod="lsvPayeeList_GetData" ItemPlaceholderID="plchldPayee">
                     <LayoutTemplate>
                         <table>
                             <tr>
@@ -24,12 +24,15 @@
                                 </td>
                             </tr>
                             <tr>
-                               <asp:PlaceHolder ID="plchldPayee"  runat="server"></asp:PlaceHolder>
+                                <td colspan="4">
+                                    <asp:PlaceHolder ID="plchldPayee"  runat="server">
+                               </asp:PlaceHolder>
+                                </td>
                             </tr>
                         </table>
                     </LayoutTemplate>
                     <ItemTemplate>
-                        <table>
+                        <table style="width:100%;">
                             <tr>
                                 <td>
                                     <asp:Label runat="server" Text="<%# Item.Payment.MyAccount.UserName %>"></asp:Label>
