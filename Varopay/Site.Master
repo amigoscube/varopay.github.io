@@ -82,11 +82,6 @@
                             </ul>
                         </div>
                         <div class="col-md-6">
-                            <asp:PlaceHolder ID="ErrorMessage" runat="server" Visible="false">
-                                    <p class="text-danger">
-                                        <asp:Literal ID="FailureText" runat="server"></asp:Literal>
-                                    </p>
-                                </asp:PlaceHolder>
                             <ul class=" nav nav-pills">
                                 <li>
                                     <asp:TextBox runat="server" ID="txtUsername" placeholder="Username" AutoCompleteType="Disabled" CssClass="form-control"></asp:TextBox></li>
@@ -100,6 +95,11 @@
                                     <asp:Button runat="server" CssClass="btn btn-primary" CausesValidation="false" ID="btnSignUp" Text="Signup" data-target="#SignUpModal" data-toggle="modal" role="dialog" />
                                 </li>
                             </ul>
+                            <asp:PlaceHolder ID="ErrorMessage" runat="server" Visible="false">
+                                    <p class="text-danger" style="margin-left:40px;">
+                                        <asp:Literal ID="FailureText" runat="server"></asp:Literal>
+                                    </p>
+                            </asp:PlaceHolder>
                         </div>
                     </div>
 

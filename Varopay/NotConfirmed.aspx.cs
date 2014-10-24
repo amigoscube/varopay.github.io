@@ -35,7 +35,7 @@ namespace Varopay
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             string userId = await GetTwoFactorUserId();
             IdentityHelper.SendConfirmationMail(userId, Context, Request);
-            lblMessage.Text = "Confirmation mail has been sent to your mail.Please Confirm your mail to log in to VaroPay ";
+            ltrFailureText.Text = "Confirmation mail has been sent to your mail.Please Confirm your mail to log in to VaroPay ";
         }
         private IAuthenticationManager AuthenticationManager
         {

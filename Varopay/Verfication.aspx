@@ -9,10 +9,11 @@
         <div class="row" style="margin-top:35px;margin-bottom:190px;">
              <asp:Label ID="lblIncorrect" runat="server"></asp:Label>
             <div class="col-md-3 col-md-offset-3">
-                <asp:TextBox runat="server" ID="txtVerificationCode" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox runat="server" ID="txtVerificationCode" AutoCompleteType="Disabled" CssClass="form-control"></asp:TextBox>
+                <asp:RequiredFieldValidator runat="server" ID="rqvVerification" ControlToValidate="txtVerificationCode" ErrorMessage="Enter Verification Code" CssClass="text-danger"></asp:RequiredFieldValidator>
             </div>
             <div class="col-md-6">
-                <asp:Button runat="server" ID="btnSubmit" Text="Submit" CausesValidation="false" OnClick="btnSubmit_Click" CssClass="btn btn-default" />
+                <asp:Button runat="server" ID="btnSubmit" Text="Submit" CausesValidation="true" OnClick="btnSubmit_Click" CssClass="btn btn-default" />
             </div>
         </div>
     </div>

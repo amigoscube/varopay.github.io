@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8">
             <section id="loginForm">
-                <div class="form-horizontal">
+                <div class="form-horizontal frgt-mrgn">
                     <h4>Forgot your password?</h4>
                     <hr />
                       <asp:PlaceHolder runat="server" ID="ErrorMessage" Visible="false">
@@ -15,7 +15,7 @@
                     </asp:PlaceHolder>
                     <div class="form-group">
                         <asp:Label runat="server" AssociatedControlID="Email" CssClass="col-md-2 control-label">Email</asp:Label>
-                        <div class="col-md-10">
+                        <div class="col-md-6">
                             <asp:TextBox runat="server" ID="Email" CssClass="form-control" TextMode="Email"/>
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="Email"
                                 CssClass="text-danger" ErrorMessage="The email field is required." />
