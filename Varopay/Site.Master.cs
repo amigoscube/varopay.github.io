@@ -178,9 +178,12 @@ namespace Varopay
                     {
                         ApplicationDbContext db = new ApplicationDbContext();
                         var RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>());
-                       // var ad = RoleManager.FindByName("Administrator").Id;
-                        //var adId = db.Users.Find(ad).Id;
-                        //manager.SendEmail(adId, "User LockedOut", "" + user.UserName + " is Locked out.Unlock the user to access his account");
+                   //    var ad = RoleManager.FindByName("Administrator").Id;
+                   //    var adId = db.Users.Find(ad).Id;
+                   //    manager.SendEmail(adId, "User LockedOut", "" + user.UserName + " is Locked out.Unlock the user to access his account");
+                        ApplicationUser ad = db.Users.Single(a => a.UserName == "admin");
+                      // /var adId = manager.FindById(ad);
+                        manager.SendEmail(ad.Id, "User LockedOut", "" + user.UserName + " is Locked out.Unlock the user to access his account");
                         Response.Redirect("~/LockedOut.aspx");
                     }
                     Response.Redirect("~/Account/Forgot.aspx");

@@ -67,7 +67,7 @@ namespace Varopay.Admin
             {
                 manager.ResetAccessFailedCount(usr.Id);
                 manager.SetLockoutEndDate(usr.Id, DateTime.UtcNow.AddMinutes(3));
-                manager.SendEmail(usr.Id, "Account Unlocked", "Dear" + usr.UserName + ",</br>Your Account has been Unlocked.You can Now Login to your VarPpay Account");
+                manager.SendEmail(usr.Id, "Account Unlocked", "Dear " + usr.UserName + ",</br>Your Account has been Unlocked.You can Now Login to your VarPpay Account");
                 ltrUnlocked.Text = "User has been Unlocked";
             }
             else

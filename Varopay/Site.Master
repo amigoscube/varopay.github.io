@@ -22,7 +22,7 @@
     </script>
 </head>
 <body>
-    <div class="loader"></div>
+   <%-- <div class="loader"></div>--%>
     <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>

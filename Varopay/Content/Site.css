@@ -271,3 +271,9 @@ float:right;
 #UserAccount ul.nav {
     padding-left:0px;
 }
+.verify
+{
+    text-align:center;
+    font-weight:bold;
+    margin-top:215px;
+}
