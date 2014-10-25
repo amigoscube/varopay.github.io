@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container">
         <h4>
-            Your verification is wrong
+            Your verification code is wrong
         </h4>
     </div>
 </asp:Content>

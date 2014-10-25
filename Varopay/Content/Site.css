@@ -281,3 +281,12 @@ float:right;
     margin-top:100px;
     margin-bottom:240px;
 }
+#NotConfirmd
+{
+    margin-top:150px;
+    margin-bottom:200px;
+    text-align:center;
+}
+.btn-mrgn-top-10 {
+margin-top:10px;
+}
