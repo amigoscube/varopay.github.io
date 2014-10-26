@@ -174,12 +174,14 @@
     <Content Include="Admin\Account.aspx" />
     <Content Include="Admin\Disable.aspx" />
     <Content Include="Admin\Enable.aspx" />
+    <Content Include="Content\animate.css" />
     <Content Include="Content\datepicker3.css" />
     <Content Include="Error.aspx" />
     <Content Include="Help.aspx" />
     <Content Include="Images\defaultProfile.jpg" />
     <Content Include="Images\delete.jpg" />
     <Content Include="Images\Edit.jpg" />
+    <Content Include="Images\favicon %282%29.ico" />
     <Content Include="Images\favicon.ico" />
     <Content Include="Images\loader.gif" />
     <Content Include="Images\Pageload.gif" />

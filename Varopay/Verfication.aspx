@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Verfication.aspx.cs" Inherits="Varopay.Verfication" Async="true" EnableEventValidation="false" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Verfication.aspx.cs" Inherits="Varopay.Verfication" Async="true" EnableEventValidation="false"%>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container">
         <div class="row">
@@ -13,7 +13,7 @@
                 <asp:RequiredFieldValidator runat="server" ID="rqvVerification" ControlToValidate="txtVerificationCode" ErrorMessage="Enter Verification Code" CssClass="text-danger"></asp:RequiredFieldValidator>
             </div>
             <div class="col-md-6">
-                <asp:Button runat="server" ID="btnSubmit" Text="Submit" CausesValidation="true" OnClick="btnSubmit_Click" CssClass="btn btn-default" />
+                <asp:Button runat="server" ID="btnSubmit" Text="Submit" CausesValidation="false" OnClick="btnSubmit_Click" CssClass="btn btn-default" />
             </div>
         </div>
     </div>

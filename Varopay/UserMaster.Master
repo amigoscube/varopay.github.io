@@ -102,8 +102,8 @@
                         <ul class="nav nav-justified">
                             <li><a href="~/User/MyAccount.aspx" class="activeacc pad-left-0" role="button" runat="server">MyAccount</a></li>
                             <li><a href="~/User/SendMoney.aspx" role="button" runat="server">SendMoney</a></li>
-                            <%--<li><a href="~/User/CurrencyExchange.aspx" role="button" runat="server">CurrencyExchange</a></li>
-                            <li><a href="~/User/Deposit.aspx" role="button" runat="server">MoneyTransfer</a></li>--%>
+                            <li><a href="~/User/CurrencyExchange.aspx" role="button" runat="server">CurrencyExchange</a></li>
+                            <%--<li><a href="~/User/Deposit.aspx" role="button" runat="server">MoneyTransfer</a></li>--%>
                             <li><a href="~/User/Statement.aspx" role="button" runat="server">Statement </a></li>
                             <li><a href="~/User/Analytics.aspx" role="button" runat="server">Analytics</a></li>
                             <li><a href="~/User/InternalMail.aspx" role="button" runat="server">InternalMail</a></li>
