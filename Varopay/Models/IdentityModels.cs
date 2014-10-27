@@ -212,6 +212,12 @@ namespace Varopay
             string s = st.FirstOrDefault() + ID.ToString();
             return s ;
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="from">From Account</param>
+        /// <param name="To">To Account </param>
+        /// <param name="amount">Amount to be transferred</param>
         public static void SendMoney(string from, string To,double amount)
         {
             ApplicationDbContext db = new ApplicationDbContext();
@@ -230,12 +236,24 @@ namespace Varopay
                 {
                 acf.Amount -= amount;
                 tof.Amount += amount;
+                Transaction trans = new Transaction()
+                {
+                    TransactionID=Guid.NewGuid(),
+                    Amount = amount.ToString(),
+                    Date= DateTime.Now.ToString(),
+                    AccountTransaction= tof,
+                    Status= "Success",
+                };
+                 db.Transactions.Add(trans);
                  db.SaveChanges();
                  dbtrans.Commit();
                 }
                 catch
                 {
                     dbtrans.Rollback();
+                    Transaction transa = new Transaction();
+                    transa.Status = "Failed";
+                      
                 }
             }
         }
