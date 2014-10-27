@@ -10,7 +10,10 @@
                             <table>
                                 <tr>
                                     <td>
-                                        <asp:HyperLink runat="server" NavigateUrl ="~/User/TransferToAccount.aspx?AccountsID={0}" Text="<%# Item.CurAcc %>" ></asp:HyperLink>
+                                        <asp:HyperLink runat="server" NavigateUrl ='<%# string.Format("~/User/TransferToAccount.aspx?CurAcc={0}",Eval("CurAcc")) %>' Text="<%# Item.CurAcc %>" ></asp:HyperLink>
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" ID="lblBalance" Text="<%# Item.Amount %>"></asp:Label>
                                     </td>
                                 </tr>
                             </table>

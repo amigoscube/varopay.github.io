@@ -170,6 +170,7 @@ namespace Varopay
             ac.AccountsID = Guid.NewGuid();
             ac.MyAccount = us;
             ac.Currency = cur;
+            ac.Amount = 20.00;
             ac.CurAcc = IdentityHelper.CreateId(c);
             db.Account.Add(ac);
             db.SaveChanges();
@@ -211,14 +212,33 @@ namespace Varopay
             string s = st.FirstOrDefault() + ID.ToString();
             return s ;
         }
-      //  public IQueryable<Varopay.Models.Accounts> GetAccountData(string user)
-     //   {
-        //    ApplicationDbContext db = new ApplicationDbContext();
-      //      ApplicationUser us = db.Users.Find(user);
-      //      IQueryable<Varopay.Models.Accounts> acct = db.Account.Where(a => a.MyAccount.Id.Contains(user));
-      //      return acct;
-
-       // }
+        public static void SendMoney(string from, string To,double amount)
+        {
+            ApplicationDbContext db = new ApplicationDbContext();
+            var frmac = db.Account.Single(f => f.CurAcc == from).AccountsID;
+            var toac = db.Account.Single(t => t.CurAcc == To).AccountsID;
+            Accounts acf = db.Account.Find(frmac);
+            Accounts tof = db.Account.Find(toac);
+            if (acf.Amount < Convert.ToDouble(amount)|| acf.Amount==0.0)
+            {
+                throw (new Exception("Insufficient Funds"));
+            }
+            else if (tof != null)
+            { 
+                DbContextTransaction dbtrans = db.Database.BeginTransaction();
+                try
+                {
+                acf.Amount -= amount;
+                tof.Amount += amount;
+                 db.SaveChanges();
+                 dbtrans.Commit();
+                }
+                catch
+                {
+                    dbtrans.Rollback();
+                }
+            }
+        }
     }
 }
 #endregion

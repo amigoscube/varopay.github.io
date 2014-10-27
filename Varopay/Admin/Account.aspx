@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/AdminMaster.Master" AutoEventWireup="true" CodeBehind="Account.aspx.cs" Inherits="Varopay.Admin.Account" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/AdminMaster.Master" AutoEventWireup="true" CodeBehind="Account.aspx.cs" Inherits="Varopay.Admin.Account" EnableEventValidation="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -92,18 +92,21 @@
                                     </td>
                                 <td>
                                     <asp:FileUpload ID="fupPartner" runat="server" CssClass="form-control" />
-                                     <asp:RequiredFieldValidator ID="rqvImage" runat="server" ControlToValidate="fupPartner" ErrorMessage="RequiredField" CssClass="text-warning"></asp:RequiredFieldValidator>
+                                    <%-- <asp:RequiredFieldValidator ID="rqvImage" runat="server" ControlToValidate="fupPartner" ErrorMessage="RequiredField" CssClass="text-warning"></asp:RequiredFieldValidator>--%>
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-default" CausesValidation="true" OnClick="btnSubmit_Click" />
+                                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-default" OnClick="btnSubmit_Click" />
                                 </td>
                             </tr>
                         </table>
                     </div>
                 </div>
                         </ContentTemplate>
+                    <Triggers>
+                        <asp:PostBackTrigger ControlID="btnSubmit" />
+                    </Triggers>
                     </asp:UpdatePanel>
             </div>
         </div>

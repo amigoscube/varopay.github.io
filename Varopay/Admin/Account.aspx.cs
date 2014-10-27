@@ -25,26 +25,32 @@ namespace Varopay.Admin
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (this.fupPartner.HasFile)
+            if (fupPartner.HasFile)
             {
-                fupPartner.SaveAs(Server.MapPath("~/CertifiedPartnerImages/"+this.fupPartner.FileName));
+                fupPartner.SaveAs(Server.MapPath("~/CertifiedPartnerImages/" + this.fupPartner.FileName));
                 string fileName = Path.GetFileName(this.fupPartner.PostedFile.FileName);
-                 Session["ImagePath"] = "~/CertifiedPartnerImages/"+fileName;
-            }
-            var cr = db.CertifiedPartners.Find(txtPartnerName.Text);
-            var partr = new CertifiedPartner() { 
-                CertifiedPartnerID  = Guid.NewGuid(),
-                PartnerName = txtPartnerName.Text,
-                WebsiteUrl = txtUrl.Text,
-                Description = txtDescription.Text,
-                ImageUrl = Session["ImagePath"].ToString()
-            };
-                
-            db.CertifiedPartners.Add(partr);
-            db.SaveChanges();
+                Session["ImagePath"] = "~/CertifiedPartnerImages/" + fileName;
 
-            ltrError.Text = "Certified Partner is Successfully Created";
+                //var cr = db.CertifiedPartners.Find(txtPartnerName.Text);
+                var partr = new CertifiedPartner()
+                {
+                    CertifiedPartnerID = Guid.NewGuid(),
+                    PartnerName = txtPartnerName.Text,
+                    WebsiteUrl = txtUrl.Text,
+                    Description = txtDescription.Text,
+                    ImageUrl = Session["ImagePath"].ToString()
+                };
+
+                db.CertifiedPartners.Add(partr);
+                db.SaveChanges();
+
+                ltrError.Text = "Certified Partner is Successfully Created";
             }
+            else
+            {
+                ltrError.Text = "Please enter valid Details";
+            }
+        }
         protected void btnRemove_Click(object sender, EventArgs e)
         {            
            // var pnr = db.CertifiedPartners.Find(cp);

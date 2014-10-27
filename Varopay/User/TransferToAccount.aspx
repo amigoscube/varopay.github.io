@@ -6,7 +6,24 @@
         <div class="row">
             <div class="col-md-6">
                 <table runat="server">
+                   <tr>
+                       <td>
+                           <asp:Label runat="server" ID="lblFromAccount" Text="From Account"></asp:Label>
+                       </td>
+                       <td>
+                           <asp:TextBox runat="server" ID="txtFromAccount" CssClass="form-control"></asp:TextBox>
+                       </td>
+                   </tr>
                     <tr>
+                        <td>
+                            <asp:Label runat="server" ID="lblToAccount" Text="To Account"></asp:Label>
+                        </td>
+                        <td>
+                            <asp:TextBox runat="server" ID="txtAccount" CssClass="form-control"></asp:TextBox>
+                            <asp:RequiredFieldValidator runat="server" CssClass="text-danger" ID="rqvToAccount" ErrorMessage="Required Field" ControlToValidate="txtAccount"></asp:RequiredFieldValidator>
+                        </td>
+                    </tr>
+                     <tr>
                         <td>
                             <asp:Label runat="server" ID="lblAmount" Text="Amount"></asp:Label>
                         </td>
@@ -18,19 +35,12 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            <asp:Label runat="server" ID="lblToAccount" Text="To Account"></asp:Label>
-                        </td>
-                        <td>
-                            <asp:TextBox runat="server" ID="txtAccount" CssClass="form-control"></asp:TextBox>
-                        </td>
-                    </tr>
-                    <tr>
                         <td colspan="3" class="text-center">
                             <asp:Button runat="server" ID="btnSend" Text="Send" CssClass="btn btn-default" OnClick="btnSend_Click" />
                         </td>
                     </tr>
                 </table>
+                <asp:Label ID="lblException" runat="server" CssClass="text-danger"></asp:Label>
             </div>
         </div>
          

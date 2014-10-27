@@ -27,6 +27,9 @@
                                     <td>
                                         <asp:Label runat="server" ID="lblAccount" Text="<%# Item.CurAcc %>"></asp:Label>
                                     </td>
+                                    <td>
+                                        <asp:Label runat="server" ID="lblAmount" Text="<%# Item.Amount %>"></asp:Label>
+                                    </td>
                                 </tr>
                             </table>
                         </ItemTemplate>

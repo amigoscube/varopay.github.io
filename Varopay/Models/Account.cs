@@ -10,6 +10,9 @@ namespace Varopay.Models
     {
         public Guid AccountsID { get; set; }
         public String CurAcc { get; set; }
+
+        [DataType(DataType.Currency)]
+        public Double Amount { get; set; }
         public virtual ApplicationUser MyAccount { get; set; }
         public virtual Currency Currency { get; set; }
     }  
