@@ -45,6 +45,12 @@
                             <asp:Button ID="btnLockedOut" runat="server" Text="Unlock" CssClass="btn btn-default" ClientIDMode="Static" data-target="#UnlockUserModal" data-toggle="modal" role="dialog" />
                         </td>
                     </tr>
+                    <tr>
+                        <td>
+                            <h4>Enable/Disabe Currency</h4>
+                        </td>
+                        <td><a href="~/Admin/Enable.aspx" runat="server">Enable/Disable</a></td>
+                    </tr>
                 </table>
                 </div>
             </div>

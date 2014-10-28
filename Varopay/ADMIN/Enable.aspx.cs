@@ -13,5 +13,21 @@ namespace Varopay.Admin
         {
 
         }
+
+        protected void chkCurrency_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        // The return type can be changed to IEnumerable, however to support
+        // paging and sorting, the following parameters must be added:
+        //     int maximumRows
+        //     int startRowIndex
+        //     out int totalRowCount
+        //     string sortByExpression
+        public IQueryable<Varopay.Models.Currency> gdvCurrency_GetData()
+        {
+            return null;
+        }
     }
 }
