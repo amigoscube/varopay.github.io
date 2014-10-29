@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Varopay.Models;
 
 namespace Varopay.Admin
 {
@@ -27,7 +28,8 @@ namespace Varopay.Admin
         //     string sortByExpression
         public IQueryable<Varopay.Models.Currency> gdvCurrency_GetData()
         {
-            return null;
+            ApplicationDbContext db = new ApplicationDbContext();
+            return db.Currencies;
         }
     }
 }

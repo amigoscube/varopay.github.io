@@ -105,7 +105,7 @@
                             <li><a href="~/User/CurrencyExchange.aspx" role="button" runat="server">CurrencyExchange</a></li>
                             <%--<li><a href="~/User/Deposit.aspx" role="button" runat="server">MoneyTransfer</a></li>--%>
                             <li><a href="~/User/Statement.aspx" role="button" runat="server">Statement </a></li>
-                            <li><a href="~/User/Analytics.aspx" role="button" runat="server">Analytics</a></li>
+                            <%--<li><a href="~/User/Analytics.aspx" role="button" runat="server">Analytics</a></li>--%>
                             <li><a href="~/User/InternalMail.aspx" role="button" runat="server">InternalMail</a></li>
                             <li><a href="~/User/History.aspx" role="button" runat="server">History</a></li>
                             <li><a href="~/User/Settings.aspx" role="button" runat="server">Settings</a></li>

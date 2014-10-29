@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-9 col-md-offset-2">
                 <asp:GridView ID="gdvCurrency" runat="server" AutoGenerateColumns="false" DataKeyNames="CurrencyID" ItemType="Varopay.Models.Currency" SelectMethod="gdvCurrency_GetData">
                     <Columns>
                         <asp:TemplateField HeaderText="Currency">
@@ -19,7 +19,7 @@
                         </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
-                                </div>
+            </div>
         </div>
     </div>
 
