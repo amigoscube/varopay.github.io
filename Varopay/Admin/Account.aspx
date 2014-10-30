@@ -34,7 +34,7 @@
                             <h4>Deposit Amount</h4>
                         </td>
                         <td>
-                            <asp:Button ID="btnDepAmt" runat="server" Text="Deposit" ClientIDMode="Static" CssClass="btn btn-default" />
+                            <asp:Button ID="btnDepAmt" runat="server" Text="Deposit" ClientIDMode="Static" CssClass="btn btn-default"/>
                         </td>
                     </tr>
                     <tr>

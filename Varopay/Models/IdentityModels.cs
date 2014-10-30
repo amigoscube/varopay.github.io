@@ -33,6 +33,7 @@ namespace Varopay.Models
         public string Country { get; set; }
         public string Address { get; set; }
         public string AccountType { get; set; }
+        public string Status { get; set; }
 
         [DataType(DataType.Upload)]
         public string ProfileImg { get; set; }
@@ -63,6 +64,7 @@ namespace Varopay.Models
         public DbSet<Transaction> Transactions { get; set; }
         public DbSet<TransactionType> TransactionTypes { get; set; }
         public DbSet<CertifiedPartner> CertifiedPartners { get; set; }
+        public DbSet<FAQ> FAQs { get; set; }
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

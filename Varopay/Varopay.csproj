@@ -172,12 +172,14 @@
     <Content Include="Account\ResetPassword.aspx" />
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Admin\Account.aspx" />
+    <Content Include="Admin\DepositToUser.aspx" />
     <Content Include="Admin\Disable.aspx" />
     <Content Include="Admin\Enable.aspx" />
     <Content Include="Content\animate.css" />
     <Content Include="Content\datepicker3.css" />
     <Content Include="Error.aspx" />
     <Content Include="Help.aspx" />
+    <Content Include="Images\AddNewitem.jpg" />
     <Content Include="Images\defaultProfile.jpg" />
     <Content Include="Images\delete.jpg" />
     <Content Include="Images\Edit.jpg" />
@@ -360,6 +362,13 @@
     <Compile Include="Admin\Account.aspx.designer.cs">
       <DependentUpon>Account.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\DepositToUser.aspx.cs">
+      <DependentUpon>DepositToUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\DepositToUser.aspx.designer.cs">
+      <DependentUpon>DepositToUser.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Disable.aspx.cs">
       <DependentUpon>Disable.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -400,6 +409,7 @@
       <DependentUpon>LockedOut.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\CertifiedPartners.cs" />
+    <Compile Include="Models\FAQ.cs" />
     <Compile Include="User\AddAccount.aspx.cs">
       <DependentUpon>AddAccount.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
