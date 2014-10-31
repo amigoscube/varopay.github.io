@@ -20,6 +20,14 @@
             $(".loader").delay(1000).fadeOut("slow");
         })
     </script>
+     <script type="text/javascript">
+         $(function () {
+             $("#UserAccount li a").on("click", function () {
+                 $("#UserAccount li a.activeacc").removeClass("activeacc");
+                 $(this).addClass("activeacc");
+             });
+         });
+        </script>
 </head>
 <body>
     <div class="loader"></div>
@@ -48,14 +56,6 @@
                 $(".overlayforaddnote").show().SetOverlayHeightWidth();
                 $('#PageLoader').delay(4000).fadeOut("slow");
                 setTimeout(function () { $(".overlayforaddnote").hide() }, 4000);
-            });
-        </script>
-        <script type="text/javascript">
-            $(function () {
-                $("#UserAccount li a").on("click", function () {
-                    $("#UserAccount li a.activeacc").removeClass("activeacc");
-                    $(this).addClass("activeacc");
-                });
             });
         </script>
        <%-- <script>

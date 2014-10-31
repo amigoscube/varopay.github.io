@@ -31,6 +31,9 @@
                     </Columns>
                 </asp:GridView>
                 <asp:Label runat="server" ID="lblResult"></asp:Label>
+                <div>
+                    <asp:Button ID="btnSave" runat="server" Text="Save Changes" CssClass="btn btn-default" />
+                </div>
             </div>
         </div>
     </div>

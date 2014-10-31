@@ -22,7 +22,7 @@ namespace Varopay.App_Start
             InitializeIdentityForEf(context);
 
             List<Currency> curs = new List<Currency>();            
-            curs.Add(new Currency() { CurrencyName = "USD", CurrencyID = Guid.NewGuid() });
+            curs.Add(new Currency() { CurrencyName = "USD", CurrencyID = Guid.NewGuid(), Status="Active"});
 
             foreach(Currency cur in curs)
                 context.Currencies.Add(cur);
@@ -55,6 +55,7 @@ namespace Varopay.App_Start
             {
                 var result = UserManager.AddToRole(User.Id, AdminRole);
                 User.EmailConfirmed = true;
+                User.Status = "Active";
             }
         }
     }

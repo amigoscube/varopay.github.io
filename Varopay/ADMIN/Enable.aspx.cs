@@ -14,12 +14,39 @@ namespace Varopay.Admin
         ApplicationDbContext db = new ApplicationDbContext();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                foreach (GridViewRow rw in gdvCurrency.Rows)
+                {
+                    Label lbl = (Label)rw.FindControl("lblCurrency");
+                    CheckBox chk = (CheckBox)rw.FindControl("chkCurrency");
+                    var curency = db.Currencies.Single(c => c.CurrencyName == lbl.Text).CurrencyID;
+                    Currency cur = db.Currencies.Find(curency);
+                    if (cur.Status == "Active")
+                    {
+                        chk.Checked = true;
+                    }
+                }
+            }
         }
-
         protected void chkCurrency_CheckedChanged(object sender, EventArgs e)
         {
-
+            foreach (GridViewRow gr in gdvCurrency.Rows)
+            {
+                Label lbl = (Label)gr.FindControl("lblCurrency");
+                CheckBox chk = (CheckBox)gr.FindControl("chkCurrency");
+                var curency = db.Currencies.Single(c => c.CurrencyName == lbl.Text).CurrencyID;
+                Currency cur = db.Currencies.Find(curency);
+                if (chk.Checked)
+                {
+                    cur.Status = "Active";
+                }
+                else
+                {
+                    cur.Status = "Inactive";
+                }
+                db.SaveChanges();
+            }
         }
 
         // The return type can be changed to IEnumerable, however to support
@@ -41,11 +68,13 @@ namespace Varopay.Admin
                 Currency cur = new Currency()
                 {
                     CurrencyID = Guid.NewGuid(),
-                    CurrencyName = currency.Text.ToString()
+                    CurrencyName = currency.Text.ToString(),
+                    Status="Active"
                 };
                 db.Currencies.Add(cur);
                 db.SaveChanges();
-                lblResult.Text = "Successfully added"+currency.Text+ "";
+                gdvCurrency_GetData();
+                lblResult.Text = "Successfully added "+currency.Text+ "";
             }
         }
     }

@@ -12,6 +12,7 @@ namespace Varopay.Models
 
         [DataType(DataType.Currency)]
         public String CurrencyName { get; set; }
+        public String Status { get; set; }
     }
 
     public enum CurrencyName

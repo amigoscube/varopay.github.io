@@ -51,6 +51,14 @@
                         </td>
                         <td><a href="~/Admin/Enable.aspx" runat="server">Enable/Disable</a></td>
                     </tr>
+                    <tr>
+                        <td>
+                            <h4>FAQ</h4>
+                        </td>
+                        <td>
+                            <a href="~/Admin/FAQList.aspx" runat="server">FAQ List</a>
+                        </td>
+                    </tr>
                 </table>
                 </div>
             </div>

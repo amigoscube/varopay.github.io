@@ -17,5 +17,6 @@ namespace Varopay.Models
         [DataType(DataType.ImageUrl)]
         public String ImageUrl{ get; set; }
         public String Description { get; set; }
+        public String Status { get; set; }
     }
 }
