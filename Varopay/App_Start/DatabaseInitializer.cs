@@ -56,6 +56,10 @@ namespace Varopay.App_Start
                 var result = UserManager.AddToRole(User.Id, AdminRole);
                 User.EmailConfirmed = true;
                 User.Status = "Active";
+                foreach(CurrencyName c in Enum.GetValues(typeof(CurrencyName)))
+                {
+                    IdentityHelper.createAccount(User.Id, c);
+                }
             }
         }
     }

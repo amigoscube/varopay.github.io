@@ -172,10 +172,13 @@
     <Content Include="Account\ResetPassword.aspx" />
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Admin\Account.aspx" />
+    <Content Include="Admin\AddFAQ.aspx" />
+    <Content Include="Admin\DepositInAdmin.aspx" />
     <Content Include="Admin\DepositToUser.aspx" />
     <Content Include="Admin\Disable.aspx" />
     <Content Include="Admin\Enable.aspx" />
     <Content Include="Admin\FAQList.aspx" />
+    <Content Include="Admin\PartersList.aspx" />
     <Content Include="Content\animate.css" />
     <Content Include="Content\datepicker3.css" />
     <Content Include="Error.aspx" />
@@ -363,6 +366,20 @@
     <Compile Include="Admin\Account.aspx.designer.cs">
       <DependentUpon>Account.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\AddFAQ.aspx.cs">
+      <DependentUpon>AddFAQ.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AddFAQ.aspx.designer.cs">
+      <DependentUpon>AddFAQ.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\DepositInAdmin.aspx.cs">
+      <DependentUpon>DepositInAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\DepositInAdmin.aspx.designer.cs">
+      <DependentUpon>DepositInAdmin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\DepositToUser.aspx.cs">
       <DependentUpon>DepositToUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -390,6 +407,13 @@
     </Compile>
     <Compile Include="Admin\FAQList.aspx.designer.cs">
       <DependentUpon>FAQList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\PartersList.aspx.cs">
+      <DependentUpon>PartersList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\PartersList.aspx.designer.cs">
+      <DependentUpon>PartersList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Api\AccountsController.cs" />
     <Compile Include="Api\CurrenciesController.cs" />

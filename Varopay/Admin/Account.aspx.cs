@@ -81,5 +81,10 @@ namespace Varopay.Admin
               ltrUnlocked.Text=  result.Errors.FirstOrDefault();
             }
         }
+
+        protected void btnDepAdmin_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

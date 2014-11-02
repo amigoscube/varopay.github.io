@@ -16,6 +16,7 @@
                                 <asp:Button ID="btnAdd" runat="server" ClientIDMode="Static" CssClass="btn btn-default" Text="Add" data-target="#AddPartnerModal" data-toggle="modal" role="dialog"/>
                                 <asp:Button ID="btnDelete" runat="server" ClientIDMode="Static" CssClass="btn btn-default" Text="Delete" data-target="#RemovePartnerModal" data-toggle="modal" role="dialog"/>
                             </div>
+                            <a href="PartersList.aspx">Certified Partners List</a>
                         </td>
                     </tr>
                     <%--<tr>
@@ -34,7 +35,10 @@
                             <h4>Deposit Amount</h4>
                         </td>
                         <td>
-                            <asp:Button ID="btnDepAmt" runat="server" Text="Deposit" ClientIDMode="Static" CssClass="btn btn-default"/>
+                            <div class="btn-group">
+                                <asp:Button ID="btnDepAmt" runat="server" Text="Deposit In User Account" ClientIDMode="Static" CssClass="btn btn-default" PostBackUrl="~/Admin/DepositToUser.aspx"/>
+                                <asp:Button ID="btnDepAdmin" runat="server" Text="Deposit In Admin Account" ClientIDMode="Static" CssClass="btn btn-default" PostBackUrl="~/Admin/DepositInAdmin.aspx"/>
+                            </div>
                         </td>
                     </tr>
                     <tr>
