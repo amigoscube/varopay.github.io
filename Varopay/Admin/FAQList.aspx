@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-9 col-md-offset-3">
-                <asp:GridView ID="gdvFAQ" runat="server" ItemType="Varopay.Models.FAQ" AutoGenerateColumns="false" DataKeyNames="FAQId" ShowFooter="true" SelectMethod="gdvFAQ_GetData" OnRowCommand="gdvFAQ_RowCommand" OnRowDeleting="gdvFAQ_RowDeleting" OnRowDeleted="gdvFAQ_RowDeleted" OnRowDataBound="gdvFAQ_RowDataBound">
+                <asp:GridView ID="gdvFAQ" runat="server" ItemType="Varopay.Models.FAQ" EmptyDataText="There are nop FAQ's to display" AutoGenerateColumns="false" DataKeyNames="FAQId" ShowFooter="true" SelectMethod="gdvFAQ_GetData" OnRowCommand="gdvFAQ_RowCommand" OnRowDeleting="gdvFAQ_RowDeleting" OnRowDeleted="gdvFAQ_RowDeleted" OnRowDataBound="gdvFAQ_RowDataBound">
                     <Columns>
                         <asp:TemplateField HeaderText="Q/A">
                             <ItemTemplate>

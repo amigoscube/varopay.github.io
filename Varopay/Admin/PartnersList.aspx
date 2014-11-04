@@ -1,11 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/AdminMaster.Master" AutoEventWireup="true" CodeBehind="PartersList.aspx.cs" Inherits="Varopay.Admin.PartersList" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/AdminMaster.Master" AutoEventWireup="true" CodeBehind="PartnersList.aspx.cs" Inherits="Varopay.Admin.PartnersList" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container">
         <div class="row">
             <div class="col-md-9 col-md-offset-3">
-                <asp:GridView runat="server" ID="gdvPartners" AutoGenerateColumns="false" ShowFooter="true" ItemType="Varopay.Models.CertifiedPartner" SelectMethod="gdvPartners_GetData" OnRowDeleted="gdvPartners_RowDeleted" OnRowDeleting="gdvPartners_RowDeleting" OnRowCommand="gdvPartners_RowCommand" OnRowDataBound="gdvPartners_RowDataBound" DataKeyNames="CertifiedPartnerID">
+                <asp:GridView runat="server" ID="gdvPartners" AutoGenerateColumns="false" EmptyDataText="There are no certified partners to display" ShowFooter="true" ItemType="Varopay.Models.CertifiedPartner" SelectMethod="gdvPartners_GetData" OnRowDeleted="gdvPartners_RowDeleted" OnRowDeleting="gdvPartners_RowDeleting" OnRowCommand="gdvPartners_RowCommand" DataKeyNames="CertifiedPartnerID">
                     <Columns>
                         <asp:TemplateField HeaderText="Certiifed Partner">
                             <ItemTemplate>
@@ -30,6 +30,7 @@
                         </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
+                <asp:Button ID="btnSave" runat="server" CssClass="btn btn-default" Text="Save Changes" />
             </div>
         </div>
     </div>

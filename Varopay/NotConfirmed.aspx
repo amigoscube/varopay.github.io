@@ -16,7 +16,7 @@
     </div>
         <div class="row">
             <div class="col-md-12 btn-mrgn-top-10">
-                 <asp:Button runat="server" Text="Send Confirmation Mail" ID="BtnSendMail" OnClick="BtnSendMail_Click" CssClass="btn btn-primary " CausesValidation="true"/>
+                 <asp:Button runat="server" Text="Send Confirmation Mail" ID="BtnSendMail" OnClick="BtnSendMail_Click" CssClass="btn btn-primary " CausesValidation="false"/>
             </div>
             <asp:PlaceHolder runat="server" ID="phdErrMessage" visible="false">
                 <asp:Literal runat="server" ID="ltrFailureText"/>

@@ -16,20 +16,17 @@
                                 <asp:Button ID="btnAdd" runat="server" ClientIDMode="Static" CssClass="btn btn-default" Text="Add" data-target="#AddPartnerModal" data-toggle="modal" role="dialog"/>
                                 <asp:Button ID="btnDelete" runat="server" ClientIDMode="Static" CssClass="btn btn-default" Text="Delete" data-target="#RemovePartnerModal" data-toggle="modal" role="dialog"/>
                             </div>
-                            <a href="PartersList.aspx">Certified Partners List</a>
+                            <a href="PartnersList.aspx">Certified Partners List</a>
                         </td>
                     </tr>
-                    <%--<tr>
+                    <tr>
                         <td>
-                            <h4>Manage User Role,Accounts</h4>
+                            <h4>Manage User Accounts</h4>
+                            <ul>
+                                <li><a></a></li>
+                            </ul>
                         </td>
-                        <td>
-                            <div class="btn-group">
-                                <asp:Button ID="btnUser" runat="server" ClientIDMode="Static" CssClass="btn btn-default" Text="User"/>
-                                <asp:Button ID="btnAdmin" runat="server" ClientIDMode="Static" CssClass="btn btn-default" Text="Admin" />
-                            </div>
-                        </td>
-                    </tr>--%>
+                    </tr>
                     <tr>
                         <td>
                             <h4>Deposit Amount</h4>
