@@ -12,7 +12,7 @@
         <Columns>
             <asp:TemplateField HeaderText="Username">
                 <ItemTemplate>
-                    <asp:Label ID="lblName" runat="server" Text="<%# Item.UserName %>"></asp:Label>
+                    <asp:HyperLink ID="hplName" NavigateUrl ='<%# string.Format("~/Admin/UserDetails.aspx?Id={0}",Eval("Id")) %>' runat="server" Text="<%# Item.UserName %>"></asp:HyperLink>
                 </ItemTemplate>
             </asp:TemplateField>
              <asp:TemplateField HeaderText="Email">
@@ -32,14 +32,14 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText ="Action">
                 <ItemTemplate>
-                    <a href="#" runat="server">View</a>|
-                    <a href="#" runat="server">Edit</a>|
-                    <a href="#" runat="server">Suspend</a>|
-                    <a href="#" runat="server">Close</a>
+                    <a href="UserDetails.aspx?Id=<%# Eval("Id")%>">View</a>|
+                    <a href="EditUser.aspx?Id=<%# Eval("Id") %>">Edit</a>|
+                    <a href="#" id="lkSuspend" runat="server" onclick="">Suspend</a>|
+                    <a href="#" id="lkClose" runat="server">Close</a>
                 </ItemTemplate>
             </asp:TemplateField>
-             <asp:HyperLinkField >
-            </asp:HyperLinkField>
+             <%--<asp:HyperLinkField DataNavigateUrlFields="Username" DataNavigateUrlFormatString="~/Admin/UserDetails.aspx?Id={0}">
+            </asp:HyperLinkField>--%>
         </Columns>
         <PagerTemplate>
         </PagerTemplate>

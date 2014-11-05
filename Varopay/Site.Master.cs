@@ -115,7 +115,7 @@ namespace Varopay
             //    lblCaptcha.Text = "Invalid Captcha";
             //}
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            var user = new ApplicationUser() { UserName = txtRegisterUsername.Text, Email = txtRegisterEmail.Text, PhoneNumber = txtPhoneNumber.Text, City = txtRegisterCity.Text, Address = txtRegisterAddress.Text,Country = ddlCountry.SelectedValue.ToString(),Zipcode=txtZipcode.Text };
+            var user = new ApplicationUser() { UserName = txtRegisterUsername.Text, Email = txtRegisterEmail.Text, PhoneNumber = txtPhoneNumber.Text, City = txtRegisterCity.Text, Address = txtRegisterAddress.Text,Country = ddlCountry.SelectedValue.ToString(),Zipcode=txtZipcode.Text,Status="Active"};
             IdentityResult result = manager.Create(user, txtRegisterPassword.Text);
             string role = "User";
             var RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>());
@@ -184,7 +184,7 @@ namespace Varopay
                     FailureText.Text = "Invalid username or password.";
                     //Response.Redirect("~/Account/Forgot.aspx");
                 }
-                else if (us != null && user.EmailConfirmed == true)
+                else if (us != null && user.EmailConfirmed == true && user.Status=="Active")
                 {
                     string verify = manager.GenerateTwoFactorToken(user.Id, "EmailCode");
                     manager.SendEmail(user.Id, "Verification Code", "Your Verification code is:" + verify + "");

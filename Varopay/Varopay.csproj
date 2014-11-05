@@ -179,11 +179,13 @@
     <Content Include="Admin\DepositInAdmin.aspx" />
     <Content Include="Admin\DepositToUser.aspx" />
     <Content Include="Admin\Disable.aspx" />
+    <Content Include="Admin\EditUser.aspx" />
     <Content Include="Admin\Enable.aspx" />
     <Content Include="Admin\FAQList.aspx" />
     <Content Include="Admin\PartnersList.aspx" />
     <Content Include="Admin\Search.aspx" />
     <Content Include="Admin\Suspended.aspx" />
+    <Content Include="Admin\UserDetails.aspx" />
     <Content Include="Content\animate.css" />
     <Content Include="Content\datepicker3.css" />
     <Content Include="Error.aspx" />
@@ -420,6 +422,13 @@
     <Compile Include="Admin\Disable.aspx.designer.cs">
       <DependentUpon>Disable.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\EditUser.aspx.cs">
+      <DependentUpon>EditUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EditUser.aspx.designer.cs">
+      <DependentUpon>EditUser.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Enable.aspx.cs">
       <DependentUpon>Enable.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -454,6 +463,13 @@
     </Compile>
     <Compile Include="Admin\Suspended.aspx.designer.cs">
       <DependentUpon>Suspended.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UserDetails.aspx.cs">
+      <DependentUpon>UserDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UserDetails.aspx.designer.cs">
+      <DependentUpon>UserDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Api\AccountsController.cs" />
     <Compile Include="Api\CurrenciesController.cs" />

@@ -10,7 +10,7 @@
 namespace Varopay.Admin {
     
     
-    public partial class AddNew {
+    public partial class EditUser {
         
         /// <summary>
         /// lblUsername control.
@@ -31,15 +31,6 @@ namespace Varopay.Admin {
         protected global::System.Web.UI.WebControls.TextBox txtRegisterUsername;
         
         /// <summary>
-        /// rfvUsername control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvUsername;
-        
-        /// <summary>
         /// lblEmail control.
         /// </summary>
         /// <remarks>
@@ -58,15 +49,6 @@ namespace Varopay.Admin {
         protected global::System.Web.UI.WebControls.TextBox txtRegisterEmail;
         
         /// <summary>
-        /// rfvEmail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEmail;
-        
-        /// <summary>
         /// lblCity control.
         /// </summary>
         /// <remarks>
@@ -83,15 +65,6 @@ namespace Varopay.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtRegisterCity;
-        
-        /// <summary>
-        /// rqvCity control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqvCity;
         
         /// <summary>
         /// lblAddress control.
@@ -148,15 +121,6 @@ namespace Varopay.Admin {
         protected global::System.Web.UI.WebControls.TextBox txtZipcode;
         
         /// <summary>
-        /// rqvZipcode control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqvZipcode;
-        
-        /// <summary>
         /// lblPhoneNumber control.
         /// </summary>
         /// <remarks>
@@ -175,102 +139,12 @@ namespace Varopay.Admin {
         protected global::System.Web.UI.WebControls.TextBox txtPhoneNumber;
         
         /// <summary>
-        /// rqvPhoneNumber control.
+        /// btnSubmit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqvPhoneNumber;
-        
-        /// <summary>
-        /// lblPassword control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPassword;
-        
-        /// <summary>
-        /// txtRegisterPassword control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRegisterPassword;
-        
-        /// <summary>
-        /// rfvRegisterPassword control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvRegisterPassword;
-        
-        /// <summary>
-        /// lblConfirmPassword control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblConfirmPassword;
-        
-        /// <summary>
-        /// txtRegisterConfirmPassword control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRegisterConfirmPassword;
-        
-        /// <summary>
-        /// rfvRegisterConfirmPassword control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvRegisterConfirmPassword;
-        
-        /// <summary>
-        /// cmpPassword control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator cmpPassword;
-        
-        /// <summary>
-        /// lblAccountType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAccountType;
-        
-        /// <summary>
-        /// rblAccountType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblAccountType;
-        
-        /// <summary>
-        /// lblCaptcha control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCaptcha;
+        protected global::System.Web.UI.WebControls.Button btnSubmit;
     }
 }

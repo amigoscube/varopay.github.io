@@ -30,8 +30,8 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText ="Action">
                 <ItemTemplate>
-                    <a href="#" runat="server">View</a>|
-                    <a href="#" runat="server">Edit</a>|
+                    <a href="UserDetails.aspx?Id=<%# Eval("Id")%>" runat="server">View</a>|
+                    <a href="EditUser.aspx?Id=<%# Eval("Id") %>" runat="server">Edit</a>|
                     <a href="#" runat="server">Activate</a>|
                     <a href="#" runat="server">Close</a>
                 </ItemTemplate>

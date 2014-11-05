@@ -19,7 +19,7 @@
             </asp:TemplateField>
              <asp:TemplateField HeaderText="Phone Number">
                 <ItemTemplate>
-                    <asp:HyperLink ID="lblPhone" runat="server" Text="<%# Item.PhoneNumber %>"></asp:HyperLink>
+                    <asp:Label ID="lblPhone" runat="server" Text="<%# Item.PhoneNumber %>"></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
              <asp:TemplateField HeaderText="Country">
@@ -29,13 +29,13 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText ="Action">
                 <ItemTemplate>
-                    <a href="#" runat="server">View</a>|
-                    <a href="#" runat="server">Edit</a>|
+                    <a href="UserDetails.aspx?Id=<%# Eval("Id")%>" runat="server">View</a>|
+                    <a href="EditUser.aspx?Id=<%# Eval("Id") %>" runat="server">Edit</a>|
                     <a href="#" runat="server">Activate</a>|
                     <a href="#" runat="server">Delete</a>
                 </ItemTemplate>
             </asp:TemplateField>
-             <asp:HyperLinkField >
+             <asp:HyperLinkField DataNavigateUrlFields="Username" DataNavigateUrlFormatString="~/Admin/UserDetails.aspx?Id={0}">
             </asp:HyperLinkField>
         </Columns>
         <PagerTemplate>
