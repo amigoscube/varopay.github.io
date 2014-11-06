@@ -34,7 +34,7 @@
                 <ItemTemplate>
                     <a href="UserDetails.aspx?Id=<%# Eval("Id")%>">View</a>|
                     <a href="EditUser.aspx?Id=<%# Eval("Id") %>">Edit</a>|
-                    <a href="#" id="lkSuspend" runat="server" onclick="">Suspend</a>|
+                    <a href="#" id="lkSuspend" runat="server">Suspend</a>|
                     <a href="#" id="lkClose" runat="server">Close</a>
                 </ItemTemplate>
             </asp:TemplateField>

@@ -27,5 +27,20 @@ namespace Varopay.Admin
         {
             return db.Users.Where(u => u.Status == "Active");
         }
+        public void Suspend()
+        {
+            foreach (GridViewRow gr in gdvActive.Rows)
+            {
+                HyperLink hpl = (HyperLink)gr.FindControl("hplName");
+                var user = db.Users.Single(u => u.UserName == hpl.Text).Id;
+                ApplicationUser us = db.Users.Find(user);
+                us.Status = "Suspended";
+                db.SaveChanges();
+            }
+        }
+        public void Close()
+        {
+ 
+        }
     }
 }

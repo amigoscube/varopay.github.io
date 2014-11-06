@@ -5,6 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
+                <asp:Label ID="lblMessage" runat="server" CssClass="text-danger"></asp:Label>
                  <table runat="server">
                             <tr>
                                 <td>
@@ -122,7 +123,7 @@
                                     <asp:TextBox runat="server" placeholder="Enter the Captcha" AutoCompleteType="Disabled" ID="txtCaptcha" CssClass="form-control"></asp:TextBox>
                                     <asp:RequiredFieldValidator runat="server" ID="rqvCaptcha" CssClass="text-warning" ErrorMessage="Please enter the captcha" ControlToValidate="txtCaptcha"></asp:RequiredFieldValidator> 
                                    <%-- <asp:CustomValidator runat="server" ID="cstCaptcha" Type="String" ControlToValidate="txtCaptcha" OnServerValidate="cstCaptcha_ServerValidate" ErrorMessage="Invalid Captcha" CssClass="text-warning" Display="Dynamic"></asp:CustomValidator>--%>
-                                </td>
+                               <%-- </td>
                             </tr>
                             <tr>
                                 <td></td>
@@ -130,6 +131,11 @@
                                     <asp:Label ID="lblCaptcha" runat="server"></asp:Label>
                                 </td>
                             </tr>--%>
+                     <tr class="text-center">
+                         <td colspan="2">
+                             <asp:Button ID="btnCreate" runat="server" Text="Add User" CssClass="btn btn-default" OnClick="btnCreate_Click"/>
+                         </td>
+                     </tr>
                         </table>
             </div>
         </div>

@@ -20,7 +20,10 @@
             <asp:ScriptReference Name="respond" />
         </Scripts>
     </asp:ScriptManager>
-        <header >
+        <script>
+
+        </script>
+        <header>
             <div class="container">
             <div class="row">
                 <div class="col-md-9">

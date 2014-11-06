@@ -13,6 +13,15 @@ namespace Varopay.Admin {
     public partial class AddNew {
         
         /// <summary>
+        /// lblMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMessage;
+        
+        /// <summary>
         /// lblUsername control.
         /// </summary>
         /// <remarks>
@@ -265,12 +274,12 @@ namespace Varopay.Admin {
         protected global::System.Web.UI.WebControls.RadioButtonList rblAccountType;
         
         /// <summary>
-        /// lblCaptcha control.
+        /// btnCreate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCaptcha;
+        protected global::System.Web.UI.WebControls.Button btnCreate;
     }
 }
