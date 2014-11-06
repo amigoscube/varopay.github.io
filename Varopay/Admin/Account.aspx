@@ -23,7 +23,10 @@
                         <td>
                             <h4>Manage User Accounts</h4>
                             <ul>
-                                <li><a></a></li>
+                                <li><a href="ActiveUser.aspx">Active Users</a></li>
+                                <li><a href="Suspended.aspx">Suspended Users</a></li>
+                                <li><a href="Closed.aspx">Closed Users</a></li>
+                                <li><a href="AddNew.aspx">Add New User</a></li>
                             </ul>
                         </td>
                     </tr>
