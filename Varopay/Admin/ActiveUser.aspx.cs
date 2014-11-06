@@ -27,5 +27,11 @@ namespace Varopay.Admin
         {
             return db.Users.Where(u => u.Status == "Active");
         }
+        public void Suspend(string user)
+        {
+            var us = db.Users.Single(u => u.UserName == user);
+            ApplicationUser usr = db.Users.Find(us);
+            usr.Status = "Suspend";   
+        }
     }
 }

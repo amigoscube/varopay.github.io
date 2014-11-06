@@ -6,6 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
      <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
       <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -20,7 +21,7 @@
             <asp:ScriptReference Name="respond" />
         </Scripts>
     </asp:ScriptManager>
-        <header >
+        <header>
             <div class="container">
             <div class="row">
                 <div class="col-md-9">
