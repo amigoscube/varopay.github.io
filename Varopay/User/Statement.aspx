@@ -3,9 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
+    <div class="container" id="statement">
+        <div class="row" style="margin-top:10%;margin-bottom:20%;">
+            <%--<div class="col-md-6 ">
                 <div class="row">
                     <asp:ListView ID="lsvAccountsStmt" runat="server">
                         <ItemTemplate>
@@ -22,16 +22,15 @@
                         </ItemTemplate>
                     </asp:ListView>
                 </div>
-            </div>
-            <div class="col-md-6">
-                <div class="row">
+            </div>--%>
+            <div class="col-md-6 col-md-offset-3">
                     <table runat="server">
                         <tr>
                             <td>
                                 <asp:Label runat="server" ID="lblBatch" Text="Batch"></asp:Label>
                             </td>
                             <td>
-                                <asp:TextBox runat="server" ID="txtBatch" CssClass="form-control"></asp:TextBox>
+                                <asp:TextBox runat="server" ID="txtBatch" CssClass="form-control btn-mrgn-top-10"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
@@ -39,7 +38,7 @@
                                 <asp:Label runat="server" ID="lblFromDate" Text="From Date"></asp:Label>
                             </td>
                             <td>
-                                <asp:TextBox runat="server" ID="txtFromDate" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+                                <asp:TextBox runat="server" ID="txtFromDate" CssClass="form-control btn-mrgn-top-10" ClientIDMode="Static"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
@@ -47,7 +46,7 @@
                                 <asp:Label runat="server" ID="lblToDate" Text="ToDate"></asp:Label>
                             </td>
                             <td>
-                                <asp:TextBox runat="server" ID="txtToDate" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+                                <asp:TextBox runat="server" ID="txtToDate" CssClass="form-control btn-margin-top-10" ClientIDMode="Static"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
@@ -55,7 +54,7 @@
                                 <asp:Label runat="server" ID="lblAccountFrom" Text="Account From"></asp:Label>
                             </td>
                             <td>
-                                <asp:TextBox runat="server" ID="txtAccountFrom" CssClass="form-control"></asp:TextBox>
+                                <asp:TextBox runat="server" ID="txtAccountFrom" CssClass="form-control btn-margin-top-10"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
@@ -63,7 +62,7 @@
                                 <asp:Label runat="server" ID="lblAccountTo" Text="Account To"></asp:Label>
                             </td>
                             <td>
-                                <asp:TextBox runat="server" ID="txtAccountTo" CssClass="form-control"></asp:TextBox>
+                                <asp:TextBox runat="server" ID="txtAccountTo" CssClass="form-control btn-margin-top-10"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
@@ -71,7 +70,7 @@
                                 <asp:Label ID="lblAction" runat="server" Text="Action"></asp:Label>
                             </td>
                             <td>
-                                <asp:DropDownList ID="ddlAction" CssClass="form-control" runat="server">
+                                <asp:DropDownList ID="ddlAction" CssClass="form-control btn-mrgn-top-10" runat="server">
                                     <asp:ListItem Value=""></asp:ListItem>
                                     <asp:ListItem Value="1">Deposit</asp:ListItem>
                                     <asp:ListItem Value="2">Withdraw</asp:ListItem>
@@ -80,12 +79,12 @@
                         </tr>
                         <tr>
                             <td colspan="2" class="text-center">
-                                <asp:Button runat="server" ID="btnSearch" Text="Search" CssClass="btn btn-default" />
+                                <asp:Button runat="server" ID="btnSearch" Text="Search" CssClass="btn btn-default mrgn-top-10" />
                             </td>
                         </tr>
                     </table>
                 </div>
-                <div class="row">
+               <%-- <div class="row">
                     <table runat="server">
                         <tr>
                             <td>
@@ -117,8 +116,7 @@
                             </td>
                         </tr>
                     </table>
-                </div>
-            </div>
+                </div>--%>
         </div>
     </div>
 </asp:Content>
