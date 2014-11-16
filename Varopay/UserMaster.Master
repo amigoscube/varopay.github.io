@@ -6,16 +6,13 @@
 <head runat="server">
     <title></title>
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
     <script src="../Scripts/bootstrap.js" type="text/javascript"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-            <link href="Content/datepicker3.css" rel="stylesheet" />
-   <%-- <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />--%>
-
+    <link href="Content/datepicker3.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <script>
+     <script>
         $(window).load(function () {
             $(".loader").delay(1000).fadeOut("slow");
         })
@@ -39,7 +36,6 @@
                 <asp:ScriptReference Name="respond" />                    
             </Scripts>
         </asp:ScriptManager>
-        <%--<script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>--%>
         <script src="../Scripts/bootstrap-datepicker.js" type="text/javascript"></script>
         <script>
             $(document).ready(function () {
@@ -58,7 +54,7 @@
                 setTimeout(function () { $(".overlayforaddnote").hide() }, 4000);
             });
         </script>
-       <%-- <script>
+        <%-- <script>
             $(function () {
                 $('#UserAccount li a').click(function (e) {
                     e.preventDefault();
@@ -69,7 +65,7 @@
                 });
             });
         </script>--%>
-      <%--<script>
+        <%--<script>
             (function () {
                 var nav = document.getElementById('UserAccount'),
                 anchor = nav.getElementsByTagName('li a'),
