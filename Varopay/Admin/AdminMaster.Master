@@ -6,9 +6,38 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+     <script src="../Scripts/jquery-1.10.2.js"></script>
+      <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+    <script src=" http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.js"></script>
      <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
       <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <script>
+        $(function () {
+            $('#txtKey').autocomplete({
+                    source: function (request, response) {
+                        var param = { Username: $('#txtKey').val() };
+                        $.ajax({
+                            url: "Search.aspx/GetUsers",
+                            data: JSON.stringify(param),
+                            datatype: "application/json;charset=utf-8",
+                            datafilter: function (data) { return data; },
+                            success: function (data) {
+                                response($.map(data.d, function (item) {
+                                    return
+                                    {
+                                        value: item
+                                    }
+                                }))
+                            },
+                            error: function (XMLHttpRequest, textstatus, errorThrown) {
+                                alert(textstatus);
+                            }
+                        });
+                    },
+                    minlength: 1
+                });
+        });
+    </script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>

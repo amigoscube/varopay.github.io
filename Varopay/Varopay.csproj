@@ -200,6 +200,7 @@
     <Content Include="Images\Pageload.gif" />
     <Content Include="LockedOut.aspx" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
+    <Content Include="Scripts\jquery-ui.js" />
     <Content Include="User\AddAccount.aspx" />
     <Content Include="User\Analytics.aspx" />
     <Content Include="Contact.aspx" />

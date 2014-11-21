@@ -16,12 +16,17 @@
                 <asp:Label ID="lblSearchby" runat="server" Text="SearchBy"></asp:Label>
             </div>
             <div class="col-md-3">
-                <asp:DropDownList ID="ddlSearchBy" runat="server">
+                <asp:DropDownList ID="ddlSearchBy" runat="server" CssClass="form-control">
                     <asp:ListItem>Select</asp:ListItem>
                     <asp:ListItem>Username</asp:ListItem>
                     <asp:ListItem>EmailId</asp:ListItem>
                     <asp:ListItem>Phone Number</asp:ListItem>
                 </asp:DropDownList>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-6">
+                <asp:Button runat="server" ID="btnSearch" CssClass="btn btn-default" Text="Search" OnClick="btnSearch_Click" />
             </div>
         </div>
     </div>

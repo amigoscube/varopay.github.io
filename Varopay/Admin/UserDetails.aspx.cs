@@ -14,7 +14,12 @@ namespace Varopay.Admin
         protected void Page_Load(object sender, EventArgs e)
         {
             var id = Request.QueryString["Id"];
-            ApplicationUser us = db.Users.Find(id);
+            User(id);
+
+        }
+        private void User(string ID)
+        {
+            ApplicationUser us = db.Users.Find(ID);
             Username.Text = us.UserName;
             Email.Text = us.Email;
             Country.Text = us.Country;
@@ -22,7 +27,6 @@ namespace Varopay.Admin
             City.Text = us.City;
             PhoneNumber.Text = us.PhoneNumber;
             Zipcode.Text = us.Zipcode;
-
         }
     }
 }
