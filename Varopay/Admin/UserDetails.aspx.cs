@@ -14,10 +14,10 @@ namespace Varopay.Admin
         protected void Page_Load(object sender, EventArgs e)
         {
             var id = Request.QueryString["Id"];
-            User(id);
+           Details(id);
 
         }
-        private void User(string ID)
+        private void Details(string ID)
         {
             ApplicationUser us = db.Users.Find(ID);
             Username.Text = us.UserName;

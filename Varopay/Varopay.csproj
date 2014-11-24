@@ -497,6 +497,7 @@
     <Compile Include="LockedOut.aspx.designer.cs">
       <DependentUpon>LockedOut.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Models\ApiEvenet.cs" />
     <Compile Include="Models\CertifiedPartners.cs" />
     <Compile Include="Models\FAQ.cs" />
     <Compile Include="User\AddAccount.aspx.cs">
