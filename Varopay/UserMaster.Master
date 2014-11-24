@@ -6,24 +6,21 @@
 <head runat="server">
     <title></title>
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
     <script src="../Scripts/bootstrap.js" type="text/javascript"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-            <link href="Content/datepicker3.css" rel="stylesheet" />
-   <%-- <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />--%>
-
+    <link href="Content/datepicker3.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <script>
+     <script>
         $(window).load(function () {
             $(".loader").delay(1000).fadeOut("slow");
         })
     </script>
      <script type="text/javascript">
          $(function () {
-             $("#UserAccount li a").on("click", function () {
-                 $("#UserAccount li a.activeacc").removeClass("activeacc");
+             $('#UserAccount li a').on("click", function (e) {
+                 $('#UserAccount li a.activeacc').removeClass('activeacc');
                  $(this).addClass("activeacc");
              });
          });
@@ -39,7 +36,6 @@
                 <asp:ScriptReference Name="respond" />                    
             </Scripts>
         </asp:ScriptManager>
-        <%--<script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>--%>
         <script src="../Scripts/bootstrap-datepicker.js" type="text/javascript"></script>
         <script>
             $(document).ready(function () {
@@ -58,6 +54,29 @@
                 setTimeout(function () { $(".overlayforaddnote").hide() }, 4000);
             });
         </script>
+        <%-- <script>
+            $(function () {
+                $('#UserAccount li a').click(function (e) {
+                    e.preventDefault();
+                    var $this = $(this);
+                    $this.closest('ul').find('.activeacc').removeClass('.activeacc');
+                    $this.parent().addClass('.activeacc');
+
+                });
+            });
+        </script>--%>
+        <%--<script>
+            (function () {
+                var nav = document.getElementById('UserAccount'),
+                anchor = nav.getElementsByTagName('li a'),
+                    current = window.location.pathname.split('/')[1];
+                for (var i = 0; i < anchor.length; i++) {
+                    if (anchor[i].href == current) {
+                        anchor[i].className = "activeacc";
+                    }
+                }
+            });
+        </script>--%>
         <header id="UserHeader">
             <div class="container">
                 <div class="row">
@@ -79,12 +98,12 @@
                         <ul class="nav nav-justified">
                             <li><a href="~/User/MyAccount.aspx" class="activeacc pad-left-0" role="button" runat="server">MyAccount</a></li>
                             <li><a href="~/User/SendMoney.aspx" role="button" runat="server">SendMoney</a></li>
-                            <li><a href="~/User/CurrencyExchange.aspx" role="button" runat="server">CurrencyExchange</a></li>
+                           <%-- <li><a href="~/User/CurrencyExchange.aspx" role="button" runat="server">CurrencyExchange</a></li>--%>
                             <%--<li><a href="~/User/Deposit.aspx" role="button" runat="server">MoneyTransfer</a></li>--%>
                             <li><a href="~/User/Statement.aspx" role="button" runat="server">Statement </a></li>
                             <%--<li><a href="~/User/Analytics.aspx" role="button" runat="server">Analytics</a></li>--%>
-                            <li><a href="~/User/InternalMail.aspx" role="button" runat="server">InternalMail</a></li>
-                            <li><a href="~/User/History.aspx" role="button" runat="server">History</a></li>
+                            <li><a href="~/User/InternalMail.aspx" role="button" runat="server">Internal Mail</a></li>
+                           <%-- <li><a href="~/User/History.aspx" role="button" runat="server">History</a></li>--%>
                             <li><a href="~/User/Settings.aspx" role="button" runat="server">Settings</a></li>
                         </ul>
                     </div>

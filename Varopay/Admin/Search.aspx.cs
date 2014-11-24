@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Varopay.Models;
@@ -18,17 +17,28 @@ namespace Varopay.Admin
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-
+            GetUsers();
+            gdvUsers_GetData();
         }
-        [WebMethod]
-        private static List<string> GetUsers(string Username)
+        private void GetUsers()
         {
-            List<string> user = new List<string>();
             ApplicationDbContext db = new ApplicationDbContext();
-            IQueryable<Varopay.Models.ApplicationUser> query = db.Users.Where(u=>u.UserName.Contains(Username));
-            user.Add(query.ToString());
-            return user;
+            List<string> user = new List<string>();
+            IEnumerable<Varopay.Models.ApplicationUser> us = db.Users.Where(u => (u.UserName.Contains(txtKey.Text)));
+        }
 
+        // The return type can be changed to IEnumerable, however to support
+        // paging and sorting, the following parameters must be added:
+        //     int maximumRows
+        //     int startRowIndex
+        //     out int totalRowCount
+        //     string sortByExpression
+        public IQueryable<Varopay.Models.ApplicationUser> gdvUsers_GetData()
+        {
+            ApplicationDbContext db = new ApplicationDbContext();
+            List<string> user = db.Users.Select(s => s.UserName).ToList();
+            IQueryable<Varopay.Models.ApplicationUser> us = db.Users.Where(u => (u.UserName.Contains(txtKey.Text)));
+            return db.Users;
         }
     }
 }

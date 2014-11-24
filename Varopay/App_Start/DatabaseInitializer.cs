@@ -20,14 +20,6 @@ namespace Varopay.App_Start
         protected override void Seed(ApplicationDbContext context)
         {
             InitializeIdentityForEf(context);
-
-            List<Currency> curs = new List<Currency>();            
-            curs.Add(new Currency() { CurrencyName = "USD", CurrencyID = Guid.NewGuid(), Status="Active"});
-
-            foreach(Currency cur in curs)
-                context.Currencies.Add(cur);
-            context.SaveChanges();
-
             base.Seed(context);
         }
         private void InitializeIdentityForEf(ApplicationDbContext context)
@@ -46,6 +38,13 @@ namespace Varopay.App_Start
             {
                 var roleresult = RoleManager.Create(new IdentityRole(AdminRole));
             }
+            
+            List<Currency> curs = new List<Currency>();
+            curs.Add(new Currency() { CurrencyName = "USD", CurrencyID = Guid.NewGuid(), Status = "Active" });
+
+            foreach (Currency cur in curs)
+                context.Currencies.Add(cur);
+            context.SaveChanges();
 
             var User = new ApplicationUser();
             User.UserName = username;

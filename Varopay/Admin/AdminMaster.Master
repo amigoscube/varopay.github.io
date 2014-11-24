@@ -50,7 +50,7 @@
             <asp:ScriptReference Name="respond" />
         </Scripts>
     </asp:ScriptManager>
-        <header>
+        <header >
             <div class="container">
             <div class="row">
                 <div class="col-md-9">
@@ -67,7 +67,7 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <ul class="nav nav-justified">
+                    <ul>
                         <li><a href="#" runat="server">Account</a></li>
                         <li><a href="#" runat="server">Enable</a></li>
                         <li><a href="#" runat="server">Disable</a></li>
