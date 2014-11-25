@@ -15,8 +15,8 @@ namespace Varopay
         protected void Page_Load(object sender, EventArgs e)
         {
             Response.Clear();
-            int height = 30;
-            int width = 200;
+            int height = 50;
+            int width = 180;
             Bitmap bmp = new Bitmap(width, height);
 
             RectangleF rectf = new RectangleF(10, 5, 0, 0);

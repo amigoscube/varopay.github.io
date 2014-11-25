@@ -198,6 +198,7 @@
     <Content Include="Images\favicon.ico" />
     <Content Include="Images\loader.gif" />
     <Content Include="Images\Pageload.gif" />
+    <Content Include="Images\safe.jpg" />
     <Content Include="LockedOut.aspx" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\jquery-ui.js" />

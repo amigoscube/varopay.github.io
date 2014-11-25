@@ -290,3 +290,13 @@ float:right;
 .btn-mrgn-top-10 {
 margin-top:10px;
 }
+.mrgn-btm-20 {
+margin-bottom:20px;
+}
+.margin-tp-15 {
+margin-top:15px;
+}
+.invalid-msg {
+    margin-left:40px;
+    float:left;
+}

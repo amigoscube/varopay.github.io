@@ -59,6 +59,11 @@
             }
 
         </script>
+        <%--<script>
+            $('#btnRegister').click(function () {
+                $(".loader").delay(1000).fadeOut("slow");
+            });
+        </script>--%>
         <script>
             $(document).ready(function () {
                 $.getJSON('Scripts/countries.json', function (d) {
@@ -97,9 +102,9 @@
                                 </li>
                             </ul>
                             <asp:PlaceHolder ID="ErrorMessage" runat="server">
-                                    <p class="text-danger" style="margin-left:40px;float:left">
+                                    <p class="text-danger invalid-msg">
                                         <asp:Literal ID="FailureText" runat="server"></asp:Literal>
-                                        <a href="~/Account/Forgot.aspx" runat="server" class="text-danger" style="margin-left:7px;">ForgotPassword?</a> 
+                                        <a href="~/Account/Forgot.aspx" runat="server" class="text-danger" style="margin-left:8px;">ForgotPassword?</a> 
                                     </p>
                             </asp:PlaceHolder>
                         </div>
@@ -156,6 +161,7 @@
                         <h1 class="modal-title" id="SignUpModalLabel">Sign Up</h1>
                     </div>
                     <div class="modal-body">
+                        <div class="loader"></div>
                         <h5 class="text-danger"><asp:Literal ID="ltrError" runat="server"></asp:Literal></h5>
                         <table runat="server">
                             <tr>
@@ -190,7 +196,7 @@
                                     <asp:Label runat="server" Text="Address" ID="lblAddress"></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:TextBox runat="server" ID="txtRegisterAddress" CssClass="form-control" AutoCompleteType="Disabled" TextMode="SingleLine"></asp:TextBox>
+                                    <asp:TextBox runat="server" ID="txtRegisterAddress" CssClass="form-control mrgn-btm-20" AutoCompleteType="Disabled" TextMode="SingleLine"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
@@ -198,7 +204,7 @@
                                     <asp:Label runat="server" Text="Country" ID="lblCountry"></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:DropDownList runat="server" ID="ddlCountry" CssClass="form-control">
+                                    <asp:DropDownList runat="server" ID="ddlCountry" CssClass="form-control mrgn-btm-20">
                                     </asp:DropDownList>
                                     <%--    <asp:RequiredFieldValidator runat="server" ID="rqvRegisterCountry" ControlToValidate="ddlCountry" CssClass="text-warning" ErrorMessage="Country field cannot be empty"></asp:RequiredFieldValidator>--%>
                                 </td>
@@ -246,7 +252,7 @@
                                     <asp:Label ID="lblAccountType" runat="server" Text="Account Type"></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:RadioButtonList runat="server" ID="rblAccountType" class="form-horizontal">
+                                    <asp:RadioButtonList runat="server" ID="rblAccountType" >
                                         <asp:ListItem>Personal</asp:ListItem>
                                         <asp:ListItem>Business</asp:ListItem>
                                     </asp:RadioButtonList>
@@ -259,7 +265,7 @@
                                             <table>
                                                 <tr>
                                                     <td>
-                                                        <asp:Image ID="imgCaptcha" runat="server" />
+                                                        <asp:Image ID="imgCaptcha" runat="server" Width="180" Height="50"/>
                                                     </td>
                                                     <td>
                                                        
@@ -271,7 +277,7 @@
                                     </asp:UpdatePanel>
                                 </td>
                                 <td>
-                                    <asp:TextBox runat="server" placeholder="Enter the Captcha" AutoCompleteType="Disabled" ID="txtCaptcha" CssClass="form-control"></asp:TextBox>
+                                    <asp:TextBox runat="server" placeholder="Enter the Captcha" AutoCompleteType="Disabled" ID="txtCaptcha" CssClass="form-control margin-tp-15"></asp:TextBox>
                                     <asp:RequiredFieldValidator runat="server" ID="rqvCaptcha" CssClass="text-warning" ErrorMessage="Please enter the captcha" ControlToValidate="txtCaptcha"></asp:RequiredFieldValidator> 
                                    <%-- <asp:CustomValidator runat="server" ID="cstCaptcha" Type="String" ControlToValidate="txtCaptcha" OnServerValidate="cstCaptcha_ServerValidate" ErrorMessage="Invalid Captcha" CssClass="text-warning" Display="Dynamic"></asp:CustomValidator>--%>
                                 </td>
@@ -286,12 +292,12 @@
                         <p>
                             <asp:CheckBox ID="chkAgree" runat="server" Text="I Agree to the Terms and Conditions" TextAlign="Right" onchange="enable();" />
                         </p>
-                        <div class="modal-footer" runat="server">
+                        </div>
+                    <div class="modal-footer" runat="server">
                             <asp:Button Text="Register" runat="server" ID="btnRegister" CssClass="btn btn-primary" OnClick="btnRegister_Click" ClientIDMode="Static"  Enabled="false" />
-                            <asp:Button Text="Cancel" runat="server" data-dismiss="modal" CssClass="btn btn-primary" ID="btnCancel" />
+                            <asp:Button Text="Cancel" runat="server" data-dismiss="modal" CssClass="btn btn-primary" CausesValidation="false" ID="btnCancel" />
                         </div>
                     </div>
-                </div>
                 </ContentTemplate>
             </asp:UpdatePanel>
             </div>
@@ -393,7 +399,7 @@
                     </div>
                     <div class="modal-footer">
                         <asp:Button Text="Submit" runat="server" ID="btnSubmitFeedBack" CssClass="btn btn-primary" />
-                        <asp:Button Text="Cancel" data-dismiss="modal" runat="server" CssClass="btn btn-default" />
+                        <asp:Button Text="Cancel" data-dismiss="modal" runat="server" CausesValidation="false" CssClass="btn btn-default" />
                     </div>
                 </div>
             </div>

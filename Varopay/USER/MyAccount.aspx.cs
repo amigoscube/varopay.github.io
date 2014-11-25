@@ -20,6 +20,17 @@ namespace Varopay.User
         protected void Page_Load(object sender, EventArgs e)
         {
           // lsvAccountBind();
+            var id = Context.User.Identity.GetUserId();
+            GetCount(id);
+        }
+        public void GetCount(string userId)
+        {
+            ApplicationDbContext db = new ApplicationDbContext();
+            var acCount = db.Account.Count(c => c.MyAccount.Id.Contains(userId));
+            if (acCount >= 6)
+            {
+                addAcnt.Visible = false;
+            }
         }
         //public async void lsvAccountBind()
         //{

@@ -5,7 +5,6 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <h2>Member Area</h2>
                 <p>Welcome to your account <%: Context.User.Identity.GetUserName() %></p>
                 <asp:GridView ID="gdvLog" runat="server">
                     <Columns>
@@ -34,10 +33,7 @@
                             </table>
                         </ItemTemplate>
                     </asp:ListView>
-                    <a href="~/User/AddAccount.aspx" runat="server">Add Account</a>
-                </div>
-                <div class="row">
-                    <h3>Promotions</h3>
+                    <a href="~/User/AddAccount.aspx" runat="server" id="addAcnt">Add Account</a>
                 </div>
             </div>
         </div>
