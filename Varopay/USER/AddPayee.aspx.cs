@@ -22,14 +22,22 @@ namespace Varopay.User
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
+            AddPayee();
+        }
+        private void AddPayee()
+        {
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var payer = Context.User.Identity.GetUserId();
             ApplicationDbContext db = new ApplicationDbContext();
             ApplicationUser user = manager.FindByName(txtPayee.Text);
             if (user != null && user.EmailConfirmed)
             {
-                IdentityHelper.createPayee(user.Id,payer,txtPayeeAccount.Text);
-                Response.Redirect("~/User/SendMoney.aspx");
+                IdentityHelper.createPayee(user.Id, payer, txtPayeeAccount.Text);
+                Response.Redirect("~/User/PayeeList.aspx");
+            }
+            else
+            {
+                lblMsg.Text = "User " + txtPayee.Text + " does not exist";
             }
         }
     }

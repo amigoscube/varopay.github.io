@@ -1,11 +1,12 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UserMaster.Master" AutoEventWireup="true" CodeBehind="AddPayee.aspx.cs" Inherits="Varopay.User.Payee" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UserMaster.Master" AutoEventWireup="true" CodeBehind="AddPayee.aspx.cs" Inherits="Varopay.User.Payee" EnableEventValidation="false" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
-        <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-6">
+         <h3 class="text-center">Add Payee To Transfer Funds</h3>
+        <div class="row" style="margin-top:5%;margin-bottom:8%">
+            <asp:Label ID="lblMsg" runat="server" CssClass="text-danger"></asp:Label>
+            <div class="col-md-6 col-md-offset-3">
             <table runat="server">
                 <tr>
                     <td>
@@ -45,12 +46,11 @@
                 </tr>
                 <tr>
                     <td colspan="2" class="text-center">
-                        <asp:Button runat="server" ID="btnSubmit" Text="Submit"  CssClass="btn btn-default" OnClick="btnSubmit_Click"/>
+                        <asp:Button runat="server" ID="btnSubmit" Text="Submit" CausesValidation="false" CssClass="btn btn-default" OnClick="btnSubmit_Click"/>
                     </td>
                 </tr>
             </table>
         </div>
-            <div class="col-md-3"></div>
     </div>
     </div>
 </asp:Content>

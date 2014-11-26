@@ -21,15 +21,18 @@ namespace Varopay.User
             List<string> clist = cur.ToList();
             ddlAccount.DataSource = clist;
             ddlAccount.DataBind();
-           
         }
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
+            GetAccount();
+        }
+        private void GetAccount()
+        {
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var userId = Context.User.Identity.GetUserId();
-            CurrencyName cur = (CurrencyName)Enum.Parse(typeof(CurrencyName),ddlAccount.SelectedValue);
-            IdentityHelper.createAccount(userId,cur);
+            CurrencyName cur = (CurrencyName)Enum.Parse(typeof(CurrencyName), ddlAccount.SelectedValue);
+            IdentityHelper.createAccount(userId, cur);
             Response.Redirect("~/User/MyAccount.aspx");
         }
     }

@@ -4,12 +4,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container" id =" AddAct">
         <div class="row" style="margin-top:15%">
-            <div class=" col-md-3 col-md-offset-4">
-                 <asp:Label runat="server" ID="lblAccount" Text="Account"></asp:Label>
+            <div class=" col-md-3 col-md-offset-3">
+                 <asp:Label runat="server" ID="lblAccount" Text="Select Account" CssClass="pull-right actfont"></asp:Label>
             </div>
             <div class="col-md-3">
-                <asp:DropDownList runat="server" ID="ddlAccount">
-                            <asp:ListItem>--Select--</asp:ListItem>
+                <asp:DropDownList runat="server" ID="ddlAccount" CssClass="form-control">
                         </asp:DropDownList>
             </div>
         </div>

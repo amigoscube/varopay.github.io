@@ -31,6 +31,15 @@ namespace Varopay.User {
         protected global::System.Web.UI.WebControls.TextBox txtFromAccount;
         
         /// <summary>
+        /// rqvFrom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqvFrom;
+        
+        /// <summary>
         /// lblToAccount control.
         /// </summary>
         /// <remarks>
@@ -85,15 +94,6 @@ namespace Varopay.User {
         protected global::System.Web.UI.WebControls.DropDownList ddlFromAccount;
         
         /// <summary>
-        /// btnSend control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSend;
-        
-        /// <summary>
         /// lblException control.
         /// </summary>
         /// <remarks>
@@ -101,5 +101,14 @@ namespace Varopay.User {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblException;
+        
+        /// <summary>
+        /// btnSend control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSend;
     }
 }
