@@ -6,7 +6,7 @@
     <div class="container" style="margin-bottom:10%;">
         <h3 class="text-center">If you have any query,Send us a mail</h3>
         <div class="row" style="margin-top:5%;">
-            <div class="col-md-3 col-md-offset-3">
+            <div class="col-md-1 col-md-offset-4">
                   <asp:Label runat="server" ID="lblTo" Text="To"></asp:Label>
             </div>
             <div class="col-md-4">
@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-3 col-md-offset-3">
+            <div class="col-md-1 col-md-offset-4">
                 <asp:Label runat="server" ID="lblSubject" Text="Subject"></asp:Label>
             </div>
             <div class="col-md-4">
@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-3 col-md-offset-3">
+            <div class="col-md-1 col-md-offset-4">
                 <asp:Label runat="server" ID="lblMesaage" Text="Message"></asp:Label>
             </div>
             <div class="col-md-4">

@@ -17,9 +17,21 @@ namespace Varopay.User
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            GetUserDet();
         }
-
+        private void GetUserDet()
+        {
+            var user = Context.User.Identity.GetUserId();
+            var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            ApplicationUser usr = manager.FindById(user);
+            txtUsername.Text = usr.UserName;
+            txtRegisterCity.Text = usr.City;
+            txtEmail.Text = usr.Email;
+            txtPhoneNumber.Text = usr.PhoneNumber;
+            txtRegisterAddress.Text = usr.Address;
+            txtZipcode.Text = usr.Zipcode;
+            ddlCountry.SelectedValue = usr.Country;
+        }
         protected void btnUpload_Click(object sender, EventArgs e)
         {
             ApplicationDbContext db = new ApplicationDbContext();
