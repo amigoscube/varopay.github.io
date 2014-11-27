@@ -210,6 +210,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="User\ComposeTicket.aspx" />
     <Content Include="User\CurrencyExchange.aspx" />
+    <Content Include="User\DeleteAccount.aspx" />
     <Content Include="User\Deposit.aspx" />
     <Content Include="Developers.aspx" />
     <Content Include="Exchangers.aspx" />
@@ -554,6 +555,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\DeleteAccount.aspx.cs">
+      <DependentUpon>DeleteAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\DeleteAccount.aspx.designer.cs">
+      <DependentUpon>DeleteAccount.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Deposit.aspx.cs">
       <DependentUpon>Deposit.aspx</DependentUpon>

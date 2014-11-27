@@ -259,6 +259,27 @@ namespace Varopay
                 }
             }
         }
+        public static void LogActivity(string Activity, bool recordpageURL,HttpRequest request)
+        {
+            ApplicationDbContext db = new ApplicationDbContext();
+            var user = HttpContext.Current.User.Identity.GetUserId();
+            ApplicationUser us = db.Users.Find(user);
+            Log userLog = new Log();
+            userLog.Activity = Activity;
+            userLog.Date = DateTime.Now.ToString();
+            userLog.LogID = Guid.NewGuid();
+            userLog.UserLog = us;
+            if (recordpageURL)
+            {
+                userLog.Details = request.RawUrl;
+            }
+            else
+            {
+                userLog.Details = "";
+            }
+            db.Logs.Add(userLog);
+            db.SaveChanges();
+        }
     }
 }
 #endregion

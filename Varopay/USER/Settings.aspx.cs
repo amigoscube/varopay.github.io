@@ -17,7 +17,11 @@ namespace Varopay.User
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            GetUserDet();
+            if (!IsPostBack)
+            {
+                IdentityHelper.LogActivity("Changed Profile", true, Request);
+                GetUserDet();
+            }
         }
         private void GetUserDet()
         {

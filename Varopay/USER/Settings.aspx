@@ -82,7 +82,7 @@
         </div>
         <div class="row">
             <div class="col-md-2 col-md-offset-1">
-                <a href="#">Delete Account</a>
+                <a href="DeleteAccount.aspx">Delete Account</a>
             </div>
             <div class="col-md-3">
 
