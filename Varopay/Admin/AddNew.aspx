@@ -2,9 +2,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="container">
+    <div class="container well well-lg">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
+                <h3 class="text-center">Add New User</h3>
                 <asp:Label ID="lblMessage" runat="server" CssClass="text-danger"></asp:Label>
                  <table runat="server">
                             <tr>

@@ -1,41 +1,40 @@
-﻿
-<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminMaster.Master.cs" Inherits="Varopay.Admin.AdminMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminMaster.Master.cs" Inherits="Varopay.Admin.AdminMaster" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-     <script src="../Scripts/jquery-1.10.2.js"></script>
-      <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+    <script src="../Scripts/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
     <script src=" http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.js"></script>
-     <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
-      <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <script>
         $(function () {
             $('#txtKey').autocomplete({
-                    source: function (request, response) {
-                        var param = { Username: $('#txtKey').val() };
-                        $.ajax({
-                            url: "Search.aspx/GetUsers",
-                            data: JSON.stringify(param),
-                            datatype: "application/json;charset=utf-8",
-                            datafilter: function (data) { return data; },
-                            success: function (data) {
-                                response($.map(data.d, function (item) {
-                                    return
-                                    {
-                                        value: item
-                                    }
-                                }))
-                            },
-                            error: function (XMLHttpRequest, textstatus, errorThrown) {
-                                alert(textstatus);
-                            }
-                        });
-                    },
-                    minlength: 1
-                });
+                source: function (request, response) {
+                    var param = { Username: $('#txtKey').val() };
+                    $.ajax({
+                        url: "Search.aspx/GetUsers",
+                        data: JSON.stringify(param),
+                        datatype: "application/json;charset=utf-8",
+                        datafilter: function (data) { return data; },
+                        success: function (data) {
+                            response($.map(data.d, function (item) {
+                                return
+                                {
+                                    value: item
+                                }
+                            }))
+                        },
+                        error: function (XMLHttpRequest, textstatus, errorThrown) {
+                            alert(textstatus);
+                        }
+                    });
+                },
+                minlength: 1
+            });
         });
     </script>
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -44,66 +43,232 @@
 <body>
     <form id="form1" runat="server">
         <asp:ScriptManager runat="server">
-        <Scripts>
-            <asp:ScriptReference Name="jquery" />
-            <asp:ScriptReference Name="bootstrap" />
-            <asp:ScriptReference Name="respond" />
-        </Scripts>
-    </asp:ScriptManager>
-        <header >
-            <div class="container">
-            <div class="row">
+            <Scripts>
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="respond" />
+            </Scripts>
+        </asp:ScriptManager>
+        <div class="container">
+            <header>
+                <div class="row">
+                    <div class="col-md-9">
+                        <a href="/" runat="server" class="varopay-Logo logo-role-mrgn" role="button"></a>
+                    </div>
+                    <div class="col-md-3 ">
+                        <ul class="nav nav-justified float-right">
+                            <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
+                            <li>
+                                <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </header>
+            <div class="row" id="Admin">
+                <div class="col-md-3 panel panel-default">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4>Manage User Accounts</h4>
+                            <ul>
+                                <li><a href="ActiveUser.aspx">Active Users</a></li>
+                                <li><a href="Suspended.aspx">Suspended Users</a></li>
+                                <li><a href="Closed.aspx">Closed Users</a></li>
+                                <li><a href="AddNew.aspx">Add New User</a></li>
+                                <li><a href="Search.aspx">Search Users</a></li>
+                                <li><a href="#" runat="server" data-target="#UnlockUserModal" data-toggle="modal" role="dialog">Unlock User</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4>Certified Partners</h4>
+                            <ul>
+                                <li><a href="#" runat="server" data-target="#AddPartnerModal" data-toggle="modal" role="dialog">Add Certified Partner</a></li>
+                                <li><a href="#" runat="server" data-target="#RemovePartnerModal" data-toggle="modal" role="dialog">Remove Certified Partner</a></li>
+                                <li><a href="PartnersList.aspx">Certified Partners List</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                             <h4>F.A.Q's</h4>
+                            <ul>
+                                <li><a href="AddFAQ.aspx" runat="server">Add FAQ</a></li>
+                                <li><a href="FAQList.aspx" runat="server">FAQ List</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4>Manage Currency</h4>
+                            <a href="CurrencyList.aspx" runat="server">Currency List</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4>Deposit Funds</h4>
+                            <ul>
+                                <li><a href="DepositToUser.aspx" runat="server">Credit To User Account</a></li>
+                                <li><a href="DepositInAdmin.aspx" runat="server">Credit To Admin Account</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-md-9">
-                    <a href="/" runat="server" class="varopay-Logo logo-role-mrgn" role="button"></a>
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                    </asp:ContentPlaceHolder>
                 </div>
-                <div class="col-md-3 ">
-                    <ul class="nav nav-justified float-right">
-                        <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
-                        <li>
-                            <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <ul>
-                        <li><a href="#" runat="server">Account</a></li>
-                        <li><a href="#" runat="server">Enable</a></li>
-                        <li><a href="#" runat="server">Disable</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-6"></div>
             </div>
         </div>
-        </header>
-        <div>
-        <asp:ContentPlaceHolder ID="MainContent" runat="server">
-        
-        </asp:ContentPlaceHolder>
-    </div>
-        <div class="footer-wrapper">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 side-border">
-                        <ul class="footer-nav float-left pad-zero">
-                            <li><a href="~/SiteMap.aspx" runat="server">SiteMap</a></li>
-                            <li><a href="~/Developers.aspx" runat="server">Developers</a></li>
-                            <li><a href="#" data-target="#FeedBackModal" runat="server" data-toggle="modal" role="dialog">Feedback</a></li>
-                        </ul>
-                        <footer class="clear-both">
-                            <p class="footer-text">&copy; <%: DateTime.Now.Year %> - Varopay All Rights Reserved</p>
-                        </footer>
-                    </div>
-                    <div class="col-md-6">
-                        <ul class="footer-link-font nav-pills footer-nav float-right">
-                            <li><a href="#" data-target="#FAQModal" data-toggle="modal" role="dialog">F.A.Qs</a></li>
-                            <li><a href="#" data-target="#TermsAndConditionsModal" data-toggle="modal" role="dialog">Terms &amp; Conditions</a></li>
-                            <li><a href="#" data-target="#PrivacyPolicyModal" data-toggle="modal" role="dialog">Privacy Policy</a></li>
-                            <li><a href="#" data-target="#LegalNoticeModal" data-toggle="modal" role="dialog">Legal Notice</a></li>
-                        </ul>
+            <div class="footer-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 side-border">
+                            <ul class="footer-nav float-left pad-zero">
+                                <li><a href="~/SiteMap.aspx" runat="server">SiteMap</a></li>
+                                <li><a href="~/Developers.aspx" runat="server">Developers</a></li>
+                                <li><a href="#" data-target="#FeedBackModal" runat="server" data-toggle="modal" role="dialog">Feedback</a></li>
+                            </ul>
+                            <footer class="clear-both">
+                                <p class="footer-text">&copy; <%: DateTime.Now.Year %> - Varopay All Rights Reserved</p>
+                            </footer>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="footer-link-font nav-pills footer-nav float-right">
+                                <li><a href="#" data-target="#FAQModal" data-toggle="modal" role="dialog">F.A.Qs</a></li>
+                                <li><a href="#" data-target="#TermsAndConditionsModal" data-toggle="modal" role="dialog">Terms &amp; Conditions</a></li>
+                                <li><a href="#" data-target="#PrivacyPolicyModal" data-toggle="modal" role="dialog">Privacy Policy</a></li>
+                                <li><a href="#" data-target="#LegalNoticeModal" data-toggle="modal" role="dialog">Legal Notice</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
+            </div>
+        <div class="modal fade" id="AddPartnerModal" role="dialog" aria-hidden="true" tabindex="-1" aria-labelledby="AddPartnerLabel">
+            <div class="modal-dialog">
+                <asp:UpdatePanel ID="upAddPartner" runat="server">
+                    <ContentTemplate>
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <h4>Add Certified Partner</h4>
+                            </div>
+                            <div class="modal-body">
+                                <asp:Literal ID="ltrError" runat="server"></asp:Literal>
+                                <table class="text-center">
+                                    <tr>
+                                        <td>
+                                            <asp:Label runat="server" ID="lbl" Text="Name"></asp:Label>
+                                        </td>
+                                        <td>
+                                            <asp:TextBox runat="server" ID="txtPartnerName" AutoCompleteType="Disabled" CssClass="form-control"></asp:TextBox>
+                                            <asp:RequiredFieldValidator runat="server" ID="rqvPartnerName" ControlToValidate="txtPartnerName" CssClass="text-warning" ErrorMessage="Required Field"></asp:RequiredFieldValidator>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:Label runat="server" Text="Website Url" ID="lblUrl"></asp:Label>
+                                        </td>
+                                        <td>
+                                            <asp:TextBox runat="server" ID="txtUrl" AutoCompleteType="Disabled" CssClass="form-control"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="rqvUrl" runat="server" ControlToValidate="txtUrl" ErrorMessage="RequiredField" CssClass="text-warning"></asp:RequiredFieldValidator>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:Label runat="server" ID="lblDescription" Text="Description"></asp:Label>
+                                        </td>
+                                        <td>
+                                            <asp:TextBox ID="txtDescription" AutoCompleteType="Disabled" CssClass="form-control" runat="server" TextMode="MultiLine"></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:Label ID="lblUpload" runat="server" Text="Upload Image"></asp:Label>
+                                        </td>
+                                        <td>
+                                            <asp:FileUpload ID="fupPartner" runat="server" CssClass="form-control" />
+                                            <%-- <asp:RequiredFieldValidator ID="rqvImage" runat="server" ControlToValidate="fupPartner" ErrorMessage="RequiredField" CssClass="text-warning"></asp:RequiredFieldValidator>--%>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-default" OnClick="btnSubmit_Click" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </ContentTemplate>
+                    <Triggers>
+                        <asp:PostBackTrigger ControlID="btnSubmit" />
+                    </Triggers>
+                </asp:UpdatePanel>
+            </div>
+        </div>
+        <div class="modal fade" id="RemovePartnerModal" aria-labelledby="RemovePartnerLabel" tabindex="-1" aria-hidden="true" role="dialog">
+            <div class="modal-dialog">
+                <asp:UpdatePanel ID="upRemovePartner" runat="server">
+                    <ContentTemplate>
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <h4>Remove Certified Partner</h4>
+                            </div>
+                            <div class="modal-body">
+                                <asp:Literal ID="ltrMessage" runat="server"></asp:Literal>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <asp:Label ID="lblDeletePartner" runat="server" Text="Enter the certified partner name to delete"></asp:Label>
+                                        </td>
+                                        <td>
+                                            <asp:TextBox ID="txtDeletePartner" runat="server" AutoCompleteType="Disabled" CssClass="form-control"></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <asp:Button ID="btnRemove" runat="server" Text="Remove" CssClass="btn btn-default" OnClick="btnRemove_Click" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+            </div>
+        </div>
+        <div id="UnlockUserModal" class="modal fade" aria-labelledby="UnlockUserModal" tabindex="-1" aria-hidden="true" role="dialog">
+            <div class="modal-dialog">
+                <asp:UpdatePanel ID="upUnlock" runat="server">
+                    <ContentTemplate>
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <h4>Unlock User</h4>
+                            </div>
+                            <div class="modal-body">
+                                <asp:Literal ID="ltrUnlocked" runat="server"></asp:Literal>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <asp:Label ID="lblUser" runat="server" Text="Email"></asp:Label>
+                                        </td>
+                                        <td>
+                                            <asp:TextBox ID="txtUser" runat="server" CssClass="form-control"></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:Button ID="btnUnlock" runat="server" CssClass="btn btn-default" Text="Unlock User" OnClick="btnUnlock_Click" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
             </div>
         </div>
     </form>

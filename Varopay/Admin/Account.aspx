@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="container">
+   <%-- <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <table>
@@ -111,7 +111,7 @@
                                 <td>
                                     <asp:FileUpload ID="fupPartner" runat="server" CssClass="form-control" />
                                     <%-- <asp:RequiredFieldValidator ID="rqvImage" runat="server" ControlToValidate="fupPartner" ErrorMessage="RequiredField" CssClass="text-warning"></asp:RequiredFieldValidator>--%>
-                                </td>
+                               <%-- </td>
                             </tr>
                             <tr>
                                 <td colspan="2">
@@ -192,5 +192,5 @@
                 </asp:UpdatePanel>
             </div>
         </div>
-    </div>
+    </div>--%>
 </asp:Content>

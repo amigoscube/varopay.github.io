@@ -324,3 +324,11 @@ font-weight:800;
 #Settings a {
     color:blue;
 }
+#Admin ul {
+list-style:none;
+margin-left:-20px;
+}
+#Admin li
+{
+    margin-left:0px;
+}
