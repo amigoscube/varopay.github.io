@@ -24,8 +24,8 @@ namespace Varopay.User
         {
             var user = Context.User.Identity.GetUserId();
             var act = from ac in db.Account
-                               where ac.MyAccount.Id.Contains(user)
-                               select ac.CurAcc;
+                      where ac.MyAccount.Id.Contains(user)
+                      select ac.CurAcc;
             List<String> ca = act.ToList();
             ddlAccount.DataSource = ca;
             ddlAccount.DataBind();
@@ -45,7 +45,11 @@ namespace Varopay.User
         protected void btnDelete_Click(object sender, EventArgs e)
         {
             var acs = ddlAccount.SelectedValue;
-            RemoveAccount(acs.ToString());
+            if(acs!=null)
+            {
+                RemoveAccount(acs.ToString());
+                lblMsg.Text = "Acccount" + acs + "is successfully deleted";
+            }
         }
     }
 }

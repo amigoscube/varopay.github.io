@@ -50,7 +50,7 @@
                 $('#txtToDate').datepicker();
             });
         </script>
-        <script>
+       <%-- <script>
             $.fn.SetOverlayHeightWidth = function () {
                 $(this).height($(document).height());
                 $(this).width($(document).width());
@@ -59,6 +59,16 @@
                 $(".overlayforaddnote").show().SetOverlayHeightWidth();
                 $('#PageLoader').delay(4000).fadeOut("slow");
                 setTimeout(function () { $(".overlayforaddnote").hide() }, 4000);
+            });
+        </script>--%>
+        <script>
+            $(document).ready(function () {
+                $.getJSON('../Scripts/countries.json', function (d) {
+                    $.each(d, function (i, v) {
+                        var o = '<option value=' + v.code + '>' + v.name + '</option>';
+                        $(o).appendTo('#ddlCountry');
+                    });
+                });
             });
         </script>
         <header id="UserHeader">

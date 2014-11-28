@@ -34,7 +34,7 @@ namespace Varopay.User
             txtPhoneNumber.Text = usr.PhoneNumber;
             txtRegisterAddress.Text = usr.Address;
             txtZipcode.Text = usr.Zipcode;
-            ddlCountry.SelectedValue = usr.Country;
+           // ddlCountry.SelectedValue = usr.Country;
         }
         protected void btnUpload_Click(object sender, EventArgs e)
         {
