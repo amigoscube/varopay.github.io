@@ -22,6 +22,10 @@ namespace Varopay.Admin
 
         protected void btnDeposit_Click(object sender, EventArgs e)
         {
+            Deposit();
+        }
+        private void Deposit()
+        {
             ApplicationDbContext db = new ApplicationDbContext();
             var user = Context.User.Identity.GetUserId();
             var act = db.Account.Single(a => a.MyAccount.Id == user).AccountsID;

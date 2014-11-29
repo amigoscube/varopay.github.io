@@ -4,6 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container">
+        <div class="well">
         <div class="row">
             <div class="col-md-3 col-md-offset-3">
                 <asp:Label ID="lblKey" runat="server" Text="Enter Key to Search"></asp:Label>
@@ -12,7 +13,7 @@
                 <asp:TextBox ID="txtKey" runat="server" CssClass="form-control"></asp:TextBox>
             </div>
         </div>
-        <div class="row">
+        <%--<div class="row">
             <div class="col-md-3 col-md-offset-3">
                 <asp:Label ID="lblSearchby" runat="server" Text="SearchBy"></asp:Label>
             </div>
@@ -24,12 +25,13 @@
                     <asp:ListItem>Phone Number</asp:ListItem>
                 </asp:DropDownList>
             </div>
-        </div>
-        <div class="row">
+        </div>--%>
+        <div class="row margin-tp-15">
             <div class="col-md-6 col-md-offset-6">
-                <asp:Button runat="server" ID="btnSearch" class="btn btn-default" OnClick="btnSearch_Click" Text="Search" />
+                <asp:Button runat="server" ID="btnSearch" class="btn btn-primary" OnClick="btnSearch_Click" Text="Search" />
             </div>
         </div>
+            </div>
         <div class="row">
             <div class="col-md-12">
                 <asp:GridView ID="gdvSearch" runat="server" EmptyDataText="There Are No Active Users to display" AllowPaging="true" AutoGenerateColumns="false">
@@ -64,7 +66,11 @@
                     </Columns>
                     <PagerTemplate>
                     </PagerTemplate>--%>
-                        <asp:BoundField HeaderText="UserName" />
+                        <asp:BoundField HeaderText="UserName" DataField="UserName" />
+                        <asp:BoundField HeaderText="UserName" DataField="Email" />
+                        <asp:BoundField HeaderText="UserName" DataField="PhoneNumber" />
+                        <asp:BoundField HeaderText="UserName" DataField="Country"/>
+                        <asp:BoundField HeaderText="UserName" DataField="Status" />
                     </Columns>
                 </asp:GridView>
             </div>
