@@ -5,7 +5,10 @@
     <div class="container">
         <div class="row">
             <h4>Total Closed Users :  <asp:Label ID="lblclsTotal" runat="server"></asp:Label></h4>
-             <asp:GridView ID="gdvClose" runat="server" ItemType="Varopay.Models.ApplicationUser" EmptyDataText="There Are No Closed Users to display" SelectMethod="gdvClose_GetData" AllowPaging="true" AutoGenerateColumns="false" DataKeyNames="Id">
+             <asp:GridView ID="gdvClose" runat="server" ItemType="Varopay.Models.ApplicationUser" EmptyDataText="There Are No Closed Users to display" BackColor="White" SelectMethod="gdvClose_GetData" AllowPaging="true" AutoGenerateColumns="false" DataKeyNames="Id">
+                 <EmptyDataRowStyle  BackColor="Gray" Font-Bold="true" ForeColor="#E7E7EF"/>
+                    <AlternatingRowStyle BackColor="LightGray" />
+                     <HeaderStyle ForeColor="White" Font-Bold="True" BackColor="#6B696B" Height="30" CssClass="text-center"></HeaderStyle>
         <Columns>
             <asp:TemplateField HeaderText="Username">
                 <ItemTemplate>
@@ -29,8 +32,8 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText ="Action">
                 <ItemTemplate>
-                    <a href="UserDetails.aspx?Id=<%# Eval("Id")%>" runat="server">View</a>|
-                    <a href="EditUser.aspx?Id=<%# Eval("Id") %>" runat="server">Edit</a>|
+                    <a href="UserDetails.aspx?Id=<%# Eval("Id")%>">View</a>|
+                    <a href="EditUser.aspx?Id=<%# Eval("Id") %>">Edit</a>|
                     <a href="#" runat="server">Activate</a>|
                     <a href="#" runat="server">Delete</a>
                 </ItemTemplate>

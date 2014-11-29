@@ -14,6 +14,8 @@ namespace Varopay.Admin
         ApplicationDbContext db = new ApplicationDbContext();
         protected void Page_Load(object sender, EventArgs e)
         {
+            var count = db.CertifiedPartners.Count();
+            lblTotal.Text = count.ToString();
             if (!IsPostBack)
             {
                 foreach (GridViewRow gr in gdvPartners.Rows)

@@ -4,20 +4,18 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container">
         <div class="row">
-            <div class="col-md-9 col-md-offset-2">
-                <asp:GridView ID="gdvCurrency" runat="server" AutoGenerateColumns="false" ShowFooter="true" DataKeyNames="CurrencyID" ItemType="Varopay.Models.Currency" SelectMethod="gdvCurrency_GetData" OnRowCommand="gdvCurrency_RowCommand">
+            <div class="col-md-12">
+                <asp:GridView ID="gdvCurrency" runat="server" AutoGenerateColumns="false" ShowFooter="true" DataKeyNames="CurrencyID" ItemType="Varopay.Models.Currency" SelectMethod="gdvCurrency_GetData" BackColor="White" OnRowCommand="gdvCurrency_RowCommand">
+                    <EmptyDataRowStyle  BackColor="White" Font-Bold="true" ForeColor="#E7E7EF"/>
+                    <AlternatingRowStyle BackColor="LightGray" />
+                     <HeaderStyle ForeColor="White" Font-Bold="True" BackColor="#6B696B" Height="30" CssClass="text-center"></HeaderStyle>
                     <Columns>
                         <asp:TemplateField HeaderText="Currency">
                             <ItemTemplate>
                                 <asp:Label ID="lblCurrency" runat="server" Text="<%# Item.CurrencyName %>"></asp:Label>
                             </ItemTemplate>
-                           <%-- <EditItemTemplate>
-                                <asp:TextBox runat="server" ID="txtCurrency" CssClass="form-control"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="rqvCurrency" runat="server" CssClass="text-danger" ControlToValidate="txtCurrency" ErrorMessage="Enter Currency"></asp:RequiredFieldValidator>
-                            </EditItemTemplate>--%>
                             <FooterTemplate>
                                 <asp:TextBox runat="server" ID="txtCurrency" CssClass="form-control"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="rqvCurrency" runat="server" CssClass="text-danger" ControlToValidate="txtCurrency" ErrorMessage="Enter Currency" ValidationGroup="validation"></asp:RequiredFieldValidator>
                             </FooterTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField>
@@ -30,10 +28,17 @@
                         </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
-                <asp:Label runat="server" ID="lblResult"></asp:Label>
-                <div>
-                    <asp:Button ID="btnSave" runat="server" Text="Save Changes" CssClass="btn btn-default" />
-                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                 <%--<asp:RequiredFieldValidator ID="rqvCurrency" runat="server" CssClass="text-danger" ControlToValidate="txtCurrency" ErrorMessage="Enter Currency" ValidationGroup="validation"></asp:RequiredFieldValidator>--%>
+                 <asp:Label runat="server" ID="lblResult"></asp:Label>
+            </div>
+        </div>
+        <div class="row margin-tp-15">
+            <div class="col-md-12 text-center">
+                <asp:Button ID="btnSave" runat="server" Text="Save Changes" CssClass="btn btn-primary" />
             </div>
         </div>
     </div>

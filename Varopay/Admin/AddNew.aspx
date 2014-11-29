@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container well well-lg">
         <div class="row">
-            <div class="col-md-6 col-md-offset-3">
+            <div class="col-md-6 col-md-offset-1">
                 <h3 class="text-center">Add New User</h3>
                 <asp:Label ID="lblMessage" runat="server" CssClass="text-danger"></asp:Label>
                  <table runat="server">
@@ -37,18 +37,18 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <asp:Label runat="server" Text="Address" ID="lblAddress"></asp:Label>
+                                    <asp:Label runat="server" Text="Address" CssClass="mrgn-btm-20" ID="lblAddress"></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:TextBox runat="server" ID="txtRegisterAddress" CssClass="form-control" AutoCompleteType="Disabled" TextMode="SingleLine"></asp:TextBox>
+                                    <asp:TextBox runat="server" ID="txtRegisterAddress" CssClass="form-control mrgn-btm-20" AutoCompleteType="Disabled" TextMode="SingleLine"></asp:TextBox>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr class="mrgn-btm-20">
                                 <td>
-                                    <asp:Label runat="server" Text="Country" ID="lblCountry"></asp:Label>
+                                    <asp:Label runat="server" Text="Country" CssClass="mrgn-btm-20" ID="lblCountry"></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:DropDownList runat="server" ID="ddlCountry" CssClass="form-control">
+                                    <asp:DropDownList runat="server" ID="ddlCountry" CssClass="form-control mrgn-btm-20">
                                     </asp:DropDownList>
                                     <%--    <asp:RequiredFieldValidator runat="server" ID="rqvRegisterCountry" ControlToValidate="ddlCountry" CssClass="text-warning" ErrorMessage="Country field cannot be empty"></asp:RequiredFieldValidator>--%>
                                 </td>
@@ -102,39 +102,9 @@
                                     </asp:RadioButtonList>
                                 </td>
                             </tr>
-                            <%--<tr>
-                               <td>
-                                   <asp:UpdatePanel ID="upCaptcha" runat="server">
-                                        <ContentTemplate>
-                                            <table>
-                                                <tr>
-                                                    <td>
-                                                        <asp:Image ID="imgCaptcha" runat="server" />
-                                                    </td>
-                                                    <td>
-                                                       
-                                                        <button type="button" id="btn" runat="server" onserverclick="btnRefresh_Click" causesvalidation="false" class="btn btn-default"><span class="glyphicon glyphicon-refresh"></span></button>
-                                                   </td>
-                                                </tr>
-                                            </table>
-                                        </ContentTemplate>
-                                    </asp:UpdatePanel>
-                                </td>
-                                <td>
-                                    <asp:TextBox runat="server" placeholder="Enter the Captcha" AutoCompleteType="Disabled" ID="txtCaptcha" CssClass="form-control"></asp:TextBox>
-                                    <asp:RequiredFieldValidator runat="server" ID="rqvCaptcha" CssClass="text-warning" ErrorMessage="Please enter the captcha" ControlToValidate="txtCaptcha"></asp:RequiredFieldValidator> 
-                                   <%-- <asp:CustomValidator runat="server" ID="cstCaptcha" Type="String" ControlToValidate="txtCaptcha" OnServerValidate="cstCaptcha_ServerValidate" ErrorMessage="Invalid Captcha" CssClass="text-warning" Display="Dynamic"></asp:CustomValidator>--%>
-                               <%-- </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>
-                                    <asp:Label ID="lblCaptcha" runat="server"></asp:Label>
-                                </td>
-                            </tr>--%>
                      <tr class="text-center">
                          <td colspan="2">
-                             <asp:Button ID="btnCreate" runat="server" Text="Add User" CssClass="btn btn-default" OnClick="btnCreate_Click"/>
+                             <asp:Button ID="btnCreate" runat="server" Text="Add User" CssClass="btn btn-primary btn-mrgn-top-10" OnClick="btnCreate_Click"/>
                          </td>
                      </tr>
                         </table>

@@ -175,7 +175,7 @@
                                             <asp:RequiredFieldValidator ID="rqvUrl" runat="server" ControlToValidate="txtUrl" ErrorMessage="RequiredField" CssClass="text-warning"></asp:RequiredFieldValidator>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <tr class="mrgn-btm-20">
                                         <td>
                                             <asp:Label runat="server" ID="lblDescription" Text="Description"></asp:Label>
                                         </td>
@@ -192,9 +192,9 @@
                                             <%-- <asp:RequiredFieldValidator ID="rqvImage" runat="server" ControlToValidate="fupPartner" ErrorMessage="RequiredField" CssClass="text-warning"></asp:RequiredFieldValidator>--%>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <tr class="margin-tp-15">
                                         <td colspan="2">
-                                            <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-default" OnClick="btnSubmit_Click" />
+                                            <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-primary" OnClick="btnSubmit_Click" />
                                         </td>
                                     </tr>
                                 </table>
@@ -227,9 +227,9 @@
                                             <asp:TextBox ID="txtDeletePartner" runat="server" AutoCompleteType="Disabled" CssClass="form-control"></asp:TextBox>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <tr class="margin-tp-15 text-center">
                                         <td colspan="2">
-                                            <asp:Button ID="btnRemove" runat="server" Text="Remove" CssClass="btn btn-default" OnClick="btnRemove_Click" />
+                                            <asp:Button ID="btnRemove" runat="server" Text="Remove" CssClass="btn btn-primary" OnClick="btnRemove_Click" />
                                         </td>
                                     </tr>
                                 </table>
@@ -259,9 +259,9 @@
                                             <asp:TextBox ID="txtUser" runat="server" CssClass="form-control"></asp:TextBox>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <tr class="margin-tp-15 text-center">
                                         <td>
-                                            <asp:Button ID="btnUnlock" runat="server" CssClass="btn btn-default" Text="Unlock User" OnClick="btnUnlock_Click" />
+                                            <asp:Button ID="btnUnlock" runat="server" CssClass="btn btn-primary" Text="Unlock User" OnClick="btnUnlock_Click" />
                                         </td>
                                     </tr>
                                 </table>

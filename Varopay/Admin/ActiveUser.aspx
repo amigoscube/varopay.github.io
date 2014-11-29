@@ -8,7 +8,10 @@
             <h4>Total Active Users : <asp:Label ID="lblTotal" runat="server"></asp:Label></h4>
         </div>
     </div>
-    <asp:GridView ID="gdvActive" runat="server" ItemType="Varopay.Models.ApplicationUser" EmptyDataText="There Are No Active Users to display" SelectMethod="gdvActive_GetData" AllowPaging="true" AutoGenerateColumns="false" DataKeyNames="Id">
+    <asp:GridView ID="gdvActive" runat="server" ItemType="Varopay.Models.ApplicationUser" EmptyDataText="There Are No Active Users to display" BackColor="White" SelectMethod="gdvActive_GetData" AllowPaging="true" AutoGenerateColumns="false" DataKeyNames="Id">
+        <EmptyDataRowStyle  BackColor="White" Font-Bold="true" ForeColor="#E7E7EF"/>
+                    <AlternatingRowStyle BackColor="LightGray" />
+                     <HeaderStyle ForeColor="White" Font-Bold="True" BackColor="#6B696B" Height="30" CssClass="text-center"></HeaderStyle>
         <Columns>
             <asp:TemplateField HeaderText="Username">
                 <ItemTemplate>
