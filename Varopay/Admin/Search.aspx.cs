@@ -27,7 +27,9 @@ namespace Varopay.Admin
             var query = from u in db.Users
                         where u.UserName.Contains(txtKey.Text)
                         select  u.UserName;
-            List<String> us = query.ToList();
+            //ApplicationUser usr = db.Users.Select(u => u.UserName.Contains(txtKey.Text)).ToList()
+            IQueryable<Varopay.Models.ApplicationUser> us = db.Users.Where(u => (u.UserName.Contains(txtKey.Text)));
+            //List<ApplicationUser> us = query.ToList();
             gdvSearch.DataSource = us;
             gdvSearch.DataBind();
             
@@ -44,7 +46,7 @@ namespace Varopay.Admin
         //    ApplicationDbContext db = new ApplicationDbContext();
         //    //List<string> user = db.Users.Select(s => s.Id).ToList();
         //    //foreach(usr u in user)
-        //    //IQueryable<Varopay.Models.ApplicationUser> us = db.Users.Where(u => (u.UserName.Contains(txtKey.Text)));
+        //IQueryable<Varopay.Models.ApplicationUser> us = db.Users.Where(u => (u.UserName.Contains(txtKey.Text)));
         //    return db.Users.ToList();
         //}
     }

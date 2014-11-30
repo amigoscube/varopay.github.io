@@ -66,5 +66,19 @@ namespace Varopay.User
             IQueryable<Varopay.Models.Accounts> acct = db.Account.Where(a => a.MyAccount.Id.Contains(user));
             return acct;
         }
+
+        // The return type can be changed to IEnumerable, however to support
+        // paging and sorting, the following parameters must be added:
+        //     int maximumRows
+        //     int startRowIndex
+        //     out int totalRowCount
+        //     string sortByExpression
+        public IQueryable<Varopay.Models.Log> gdvLog_GetData()
+        {
+            ApplicationDbContext db = new ApplicationDbContext();
+            var user = Context.User.Identity.GetUserId();
+            IQueryable<Varopay.Models.Log> usLog = db.Logs.Where(u => u.UserLog.Id.Contains(user)).OrderByDescending(u => u.Date).Take(10);
+            return usLog;
+        }
     }
 }

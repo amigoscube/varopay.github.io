@@ -33,6 +33,7 @@ namespace Varopay.User
             if (user != null && user.EmailConfirmed)
             {
                 IdentityHelper.createPayee(user.Id, payer, txtPayeeAccount.Text);
+                IdentityHelper.LogActivity("Payee Addded", true, Request);
                 Response.Redirect("~/User/PayeeList.aspx");
             }
             else

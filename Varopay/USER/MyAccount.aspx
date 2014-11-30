@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-6">
                 <p>Welcome to your account <%: Context.User.Identity.GetUserName() %></p>
-                <asp:GridView ID="gdvLog" runat="server">
+                <asp:GridView ID="gdvLog" ItemType="Varopay.Models.Log" DataKeyNames="LogId" SelectMethod="gdvLog_GetData" runat="server">
                     <Columns>
                         <asp:TemplateField>
                             <ItemTemplate>

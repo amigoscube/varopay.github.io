@@ -189,6 +189,7 @@ namespace Varopay
                     string verify = manager.GenerateTwoFactorToken(user.Id, "EmailCode");
                     manager.SendEmail(user.Id, "Verification Code", "Your Verification code is:" + verify + "");
                     SetTwoFactorAuthCookie(user.Id);
+                    IdentityHelper.LogActivity("Logged In", true, Request);
                     manager.ResetAccessFailedCount(user.Id);
                     Response.Redirect("~/Verfication.aspx");
                 }
