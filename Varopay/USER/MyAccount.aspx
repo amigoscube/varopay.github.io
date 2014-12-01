@@ -6,11 +6,18 @@
         <div class="row">
             <div class="col-md-6">
                 <p>Welcome to your account <%: Context.User.Identity.GetUserName() %></p>
-                <asp:GridView ID="gdvLog" ItemType="Varopay.Models.Log" DataKeyNames="LogId" SelectMethod="gdvLog_GetData" runat="server">
+                <asp:GridView ID="gdvLog" ItemType="Varopay.Models.Log" DataKeyNames="LogId" SelectMethod="gdvLog_GetData" GridLines="None" runat="server" BackColor="White" AutoGenerateColumns="false">
+                     <AlternatingRowStyle BackColor="LightGray" />
+                     <HeaderStyle ForeColor="White" Font-Bold="True" BackColor="#6B696B" Height="30" CssClass="text-center"></HeaderStyle>
                     <Columns>
-                        <asp:TemplateField>
+                        <asp:TemplateField HeaderText="Date">
                             <ItemTemplate>
-                                <asp:Label ID="lbl" runat="server"></asp:Label>
+                                <asp:Label ID="lblDate" runat="server" Text="<%# Item.Date %>"></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Action">
+                            <ItemTemplate>
+                                <asp:Label runat="server" ID="lblAction" Text="<%# Item.Activity%>"></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
