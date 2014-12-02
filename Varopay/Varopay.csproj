@@ -202,6 +202,7 @@
     <Content Include="LockedOut.aspx" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="User\Add Money.aspx" />
     <Content Include="User\AddAccount.aspx" />
     <Content Include="User\Analytics.aspx" />
     <Content Include="Contact.aspx" />
@@ -234,6 +235,7 @@
     <Content Include="Account\Web.config" />
     <Content Include="Content\countries.json" />
     <Content Include="User\AddPayee.aspx" />
+    <Content Include="User\OkPay.aspx" />
     <Content Include="User\PasswordSettings.aspx" />
     <Content Include="User\PayeeList.aspx" />
     <Content Include="Scripts\countries.json" />
@@ -502,6 +504,13 @@
     <Compile Include="Models\ApiEvenet.cs" />
     <Compile Include="Models\CertifiedPartners.cs" />
     <Compile Include="Models\FAQ.cs" />
+    <Compile Include="User\Add Money.aspx.cs">
+      <DependentUpon>Add Money.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Add Money.aspx.designer.cs">
+      <DependentUpon>Add Money.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\AddAccount.aspx.cs">
       <DependentUpon>AddAccount.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -656,6 +665,13 @@
     </Compile>
     <Compile Include="User\AddPayee.aspx.designer.cs">
       <DependentUpon>AddPayee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\OkPay.aspx.cs">
+      <DependentUpon>OkPay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\OkPay.aspx.designer.cs">
+      <DependentUpon>OkPay.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\PasswordSettings.aspx.cs">
       <DependentUpon>PasswordSettings.aspx</DependentUpon>

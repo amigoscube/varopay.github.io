@@ -17,7 +17,9 @@ namespace Varopay.User
         {
             ApplicationDbContext db = new ApplicationDbContext();
            // System.Threading.Thread.Sleep(5000);
-            var cur = db.Currencies.Select(c => c.CurrencyName);
+            var cur = from c in db.Currencies
+                      where c.Status.Equals("Active")
+                      select c.CurrencyName;
             List<string> clist = cur.ToList();
             ddlAccount.DataSource = clist;
             ddlAccount.DataBind();

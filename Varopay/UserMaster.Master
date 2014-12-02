@@ -15,13 +15,32 @@
     <script>
         $(window).load(function () {
             $(".loader").delay(1000).fadeOut("slow");
-        })
+            var myDropDownList = $("#ddlCurrency");
+            $.ajax({
+                type: "post",
+                url: "OkPay.aspx/FillCurrency",
+                data: '{name:"abc"}',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    $.each(jQuery.parseJSON(data.d), function () {
+                        myDropDownList.append($("<option></option>").val(this['FieldDescription']).html(this['FieldCode']));
+                    });
+                },
+            });
+        });
     </script>
      <script type="text/javascript">
          $(function () {
              $('#UserAccount li a').on("click", function (e) {
                  $('#UserAccount li a').removeClass('activeacc');
                  $(this).closest("a").addClass('activeacc');
+             });
+         });
+         $(document).ready(function () {
+             $('#SendOkPay').click(function(){
+                 var ddl_value = $('#ddlCurrency option:selected').text();
+                 $('#Currency').val(ddl_value);
              });
          });
         </script>
@@ -50,17 +69,6 @@
                 $('#txtToDate').datepicker();
             });
         </script>
-       <%-- <script>
-            $.fn.SetOverlayHeightWidth = function () {
-                $(this).height($(document).height());
-                $(this).width($(document).width());
-            };
-            $(document).ready(function () {
-                $(".overlayforaddnote").show().SetOverlayHeightWidth();
-                $('#PageLoader').delay(4000).fadeOut("slow");
-                setTimeout(function () { $(".overlayforaddnote").hide() }, 4000);
-            });
-        </script>--%>
         <script>
             $(document).ready(function () {
                 $.getJSON('../Scripts/countries.json', function (d) {
@@ -93,8 +101,8 @@
                             <li><a href="~/User/MyAccount.aspx" class="activeacc pad-left-0" role="button" runat="server">MyAccount</a></li>
                             <li><a href="~/User/SendMoney.aspx" role="button" runat="server">SendMoney</a></li>
                            <%-- <li><a href="~/User/CurrencyExchange.aspx" role="button" runat="server">CurrencyExchange</a></li>--%>
-                            <%--<li><a href="~/User/Deposit.aspx" role="button" runat="server">MoneyTransfer</a></li>--%>
-                            <li><a href="~/User/Statement.aspx" role="button" runat="server">Statement </a></li>
+                            <li><a href="~/User/Deposit.aspx" role="button" runat="server">Add Money</a></li>
+                           <%-- <li><a href="~/User/Statement.aspx" role="button" runat="server">Statement </a></li>--%>
                             <%--<li><a href="~/User/Analytics.aspx" role="button" runat="server">Analytics</a></li>--%>
                             <li><a href="~/User/InternalMail.aspx" role="button" runat="server">Internal Mail</a></li>
                            <%-- <li><a href="~/User/History.aspx" role="button" runat="server">History</a></li>--%>
@@ -109,31 +117,8 @@
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
-        <div class="footer-wrapper">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 side-border">
-                        <ul class="footer-nav float-left pad-zero">
-                            <li><a href="~/SiteMap.aspx" runat="server">SiteMap</a></li>
-                            <li><a href="~/Developers.aspx" runat="server">Developers</a></li>
-                            <li><a href="#" data-target="#FeedBackModal" runat="server" data-toggle="modal" role="dialog">Feedback</a></li>
-                        </ul>
-                        <footer class="clear-both">
-                            <p class="footer-text">&copy; <%: DateTime.Now.Year %> - Varopay All Rights Reserved</p>
-                        </footer>
-                    </div>
-                    <div class="col-md-6">
-                        <ul class="footer-link-font nav-pills footer-nav float-right">
-                            <li><a href="#" data-target="#FAQModal" data-toggle="modal" role="dialog">F.A.Qs</a></li>
-                            <li><a href="#" data-target="#TermsAndConditionsModal" data-toggle="modal" role="dialog">Terms &amp; Conditions</a></li>
-                            <li><a href="#" data-target="#PrivacyPolicyModal" data-toggle="modal" role="dialog">Privacy Policy</a></li>
-                            <li><a href="#" data-target="#LegalNoticeModal" data-toggle="modal" role="dialog">Legal Notice</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-         <div class="modal fade" id="FAQModal">
+        
+        <div class="modal fade" id="FAQModal">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -236,5 +221,34 @@
             </div>
         </div>
     </form>
+    <div>
+        <asp:ContentPlaceHolder ID="ApiIntegration" runat="server">
+
+        </asp:ContentPlaceHolder>
+    </div>
+    <div class="footer-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 side-border">
+                        <ul class="footer-nav float-left pad-zero">
+                            <li><a href="~/SiteMap.aspx" runat="server">SiteMap</a></li>
+                            <li><a href="~/Developers.aspx" runat="server">Developers</a></li>
+                            <li><a href="#" data-target="#FeedBackModal" runat="server" data-toggle="modal" role="dialog">Feedback</a></li>
+                        </ul>
+                        <footer class="clear-both">
+                            <p class="footer-text">&copy; <%: DateTime.Now.Year %> - Varopay All Rights Reserved</p>
+                        </footer>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="footer-link-font nav-pills footer-nav float-right">
+                            <li><a href="#" data-target="#FAQModal" data-toggle="modal" role="dialog">F.A.Qs</a></li>
+                            <li><a href="#" data-target="#TermsAndConditionsModal" data-toggle="modal" role="dialog">Terms &amp; Conditions</a></li>
+                            <li><a href="#" data-target="#PrivacyPolicyModal" data-toggle="modal" role="dialog">Privacy Policy</a></li>
+                            <li><a href="#" data-target="#LegalNoticeModal" data-toggle="modal" role="dialog">Legal Notice</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
 </body>
 </html>

@@ -126,9 +126,13 @@ namespace Varopay
 
             if (result.Succeeded)
             {
+                ApplicationDbContext db = new ApplicationDbContext();
                 var roleresult = manager.AddToRole(user.Id, role);
                 IdentityHelper.SendConfirmationMail(user.Id,Context,Request);
-                var cur = new Varopay.Models.Currency();
+                //var cur = new Varopay.Models.Currency();
+                var cur = from c in db.Currencies
+                          where c.Status.Equals("Active")
+                          select c.CurrencyName;
                 foreach (CurrencyName c in Enum.GetValues(typeof(CurrencyName)))
                 {
                     IdentityHelper.createAccount(user.Id, c);
