@@ -161,7 +161,7 @@
                         <h1 class="modal-title" id="SignUpModalLabel">Sign Up</h1>
                     </div>
                     <div class="modal-body">
-                        <div class="loader"></div>
+                        <%--<div class="loader"></div>--%>
                         <h5 class="text-danger"><asp:Literal ID="ltrError" runat="server"></asp:Literal></h5>
                         <table runat="server">
                             <tr>
