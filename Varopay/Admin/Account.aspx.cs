@@ -20,6 +20,10 @@ namespace Varopay.Admin
         IdentityResult result = new IdentityResult();
         protected void Page_Load(object sender, EventArgs e)
         {
+            lblActive.Text = db.Users.Count(a => a.Status == "Active").ToString();
+            lblSuspended.Text = db.Users.Count(s=> s.Status == "Suspend").ToString();
+            lblClosed.Text = db.Users.Count(c => c.Status == "Closed").ToString();
+            lblTransaction.Text = db.Transactions.Count().ToString();
              
         }
 

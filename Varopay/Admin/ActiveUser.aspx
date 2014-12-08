@@ -37,8 +37,9 @@
                 <ItemTemplate>
                     <a href="UserDetails.aspx?Id=<%# Eval("Id")%>">View</a>|
                     <a href="EditUser.aspx?Id=<%# Eval("Id") %>">Edit</a>|
-                    <a href="#" id="lkSuspend" runat="server">Suspend</a>|
-                    <a href="#" id="lkClose" runat="server">Close</a>
+                    <asp:LinkButton ID="lkbtnSuspend" runat="server" OnClick="lkbtnSuspend_Click" Text="Suspend"></asp:LinkButton>
+                   <%-- <a href="#" id="lkSuspend" runat="server">Suspend</a>|
+                    <a href="#" id="lkClose" runat="server">Close</a>--%>
                 </ItemTemplate>
             </asp:TemplateField>
              <%--<asp:HyperLinkField DataNavigateUrlFields="Username" DataNavigateUrlFormatString="~/Admin/UserDetails.aspx?Id={0}">

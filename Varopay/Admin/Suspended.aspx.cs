@@ -5,6 +5,11 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Varopay.Models;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Owin;
+using Microsoft.Owin;
+using Microsoft.AspNet.Identity;
 
 namespace Varopay.Admin
 {
@@ -29,6 +34,20 @@ namespace Varopay.Admin
         public IQueryable<Varopay.Models.ApplicationUser> gdvSuspend_GetData()
         {
             return db.Users.Where(u=>u.Status=="Suspend");
+        }
+        private void Activate(string Id)
+        {
+            var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            var us = manager.FindById(Id);
+            //ApplicationUser usr = db.Users.Find(us);
+            us.Status = "Closed";
+            var result = manager.Update(us);
+        }
+
+        protected void lkbtnActivate_Click(object sender, EventArgs e)
+        {
+           // var name = (HyperLink)gdvSuspend.DataKeys[e.RowIndex].Values;
+            //Activate(name.Text);
         }
     }
 }
