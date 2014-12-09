@@ -37,7 +37,8 @@
                 <ItemTemplate>
                     <a href="UserDetails.aspx?Id=<%# Eval("Id")%>">View</a>|
                     <a href="EditUser.aspx?Id=<%# Eval("Id") %>">Edit</a>|
-                    <asp:LinkButton ID="lkbtnSuspend" runat="server" OnClick="lkbtnSuspend_Click" Text="Suspend"></asp:LinkButton>
+                    <asp:LinkButton ID="lkbtnSuspend" runat="server" OnClick="lkbtnSuspend_Click" Text="Suspend"></asp:LinkButton>|
+                    <asp:LinkButton ID="lkbtnClose" runat="server" OnClick="lkbtnClose_Click" Text="Close"></asp:LinkButton>
                    <%-- <a href="#" id="lkSuspend" runat="server">Suspend</a>|
                     <a href="#" id="lkClose" runat="server">Close</a>--%>
                 </ItemTemplate>

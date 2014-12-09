@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <p>Welcome to your account <%: Context.User.Identity.GetUserName() %></p>
+                <b>Welcome to your account <%: Context.User.Identity.GetUserName() %></b>
                 <asp:GridView ID="gdvLog" ItemType="Varopay.Models.Log" DataKeyNames="LogId" SelectMethod="gdvLog_GetData" GridLines="None" runat="server" BackColor="White" AutoGenerateColumns="false">
                      <AlternatingRowStyle BackColor="LightGray" />
                      <HeaderStyle ForeColor="White" Font-Bold="True" BackColor="#6B696B" Height="30" CssClass="text-center"></HeaderStyle>

@@ -48,15 +48,19 @@ namespace Varopay.Admin
             us.Status = "Closed";
             var result = manager.Update(us);
         }
-        protected void lkbtnSuspend_Click(object sender, GridViewRowEventArgs e)
+        protected void lkbtnSuspend_Click(object sender, EventArgs e)
         {
-          //foreach(GridViewRow gr in gdvActive.Rows)
-          //{
-          //    HyperLink hplname = (HyperLink)gr.FindControl("hplName");
-          //    Suspend(hplname.Text);
-          //}
-            var name = (HyperLink)gdvActive.DataKeys[e.Row.RowIndex].Values;
-            Suspend(name.Text);
+            GridViewRow grow = ((LinkButton)sender).NamingContainer as GridViewRow;
+            HyperLink name = (HyperLink)grow.FindControl("hplName");
+            IdentityHelper.ChangeStatus(name.Text, "Suspend");
+            gdvActive_GetData();
+        }
+
+        protected void lkbtnClose_Click(object sender, EventArgs e)
+        {
+            GridViewRow grow = ((LinkButton)sender).NamingContainer as GridViewRow;
+            HyperLink name = (HyperLink)grow.FindControl("hplName");
+            IdentityHelper.ChangeStatus(name.Text, "Close");
         }
     }
 }

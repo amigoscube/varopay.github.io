@@ -75,7 +75,7 @@
                                 <li><a href="Suspended.aspx">Suspended Users</a></li>
                                 <li><a href="Closed.aspx">Closed Users</a></li>
                                 <li><a href="AddNew.aspx">Add New User</a></li>
-                                <li><a href="Search.aspx">Search Users</a></li>
+                               <%-- <li><a href="Search.aspx">Search Users</a></li>--%>
                                 <li><a href="#" runat="server" data-target="#UnlockUserModal" data-toggle="modal" role="dialog">Unlock User</a></li>
                             </ul>
                         </div>

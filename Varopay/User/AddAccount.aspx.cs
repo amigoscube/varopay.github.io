@@ -35,7 +35,7 @@ namespace Varopay.User
             var userId = Context.User.Identity.GetUserId();
             CurrencyName cur = (CurrencyName)Enum.Parse(typeof(CurrencyName), ddlAccount.SelectedValue);
             IdentityHelper.createAccount(userId, cur);
-            IdentityHelper.LogActivity("Account Created", true, Request);
+            IdentityHelper.LogActivity("Account Created", true, Request,userId);
             Response.Redirect("~/User/MyAccount.aspx");
         }
     }

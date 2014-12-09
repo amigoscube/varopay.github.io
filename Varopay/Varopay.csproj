@@ -191,6 +191,10 @@
     <Content Include="Error.aspx" />
     <Content Include="Help.aspx" />
     <Content Include="Images\AddNewitem.jpg" />
+    <Content Include="Images\caraousel1.jpg" />
+    <Content Include="Images\carousel2.jpg" />
+    <Content Include="Images\carousel3.jpg" />
+    <Content Include="Images\carousel4.jpg" />
     <Content Include="Images\defaultProfile.jpg" />
     <Content Include="Images\delete.jpg" />
     <Content Include="Images\Edit.jpg" />

@@ -19,7 +19,8 @@ namespace Varopay.User
         {
             if (!IsPostBack)
             {
-                IdentityHelper.LogActivity("Changed Profile", true, Request);
+                var id = Context.User.Identity.GetUserId();
+                IdentityHelper.LogActivity("Changed Profile", true, Request,id);
                 GetUserDet();
             }
         }

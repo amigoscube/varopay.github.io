@@ -12,19 +12,19 @@
                     </ol>
                     <div class="carousel-inner">
                         <div class="item active">
-                            <img src="Images/white.jpg" class="transparent-img" />
+                            <img src="Images/caraousel1.jpg" class="transparent-img" />
                             <div class="carousel-caption">
                                 <h1>Make Fast And Safe Payments With VaroPay.</h1>
                             </div>
                         </div>
                         <div class="item">
-                            <img src="Images/white.jpg" class="transparent-img" />
+                            <img src="Images/carousel3.jpg" class="transparent-img" />
                             <div class="carousel-caption">
                                 <h1>2 Security Authentications</h1>
                             </div>
                         </div>
                         <div class="item">
-                            <img src="Images/white.jpg" class="transparent-img" />
+                            <img src="Images/carousel4.jpg" class="transparent-img" />
                             <div class="carousel-caption">
                                 <h1>Low Fees and Easy for both<br />
                                     Business & Individuals</h1>

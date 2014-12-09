@@ -40,7 +40,7 @@ namespace Varopay.User
                     if (ac != null)
                     {
                         IdentityHelper.SendMoney(frmAct, txtAccount.Text, Convert.ToDouble(txtAmount.Text));
-                        IdentityHelper.LogActivity("Transacted" + txtAmount.Text, true, Request);
+                        IdentityHelper.LogActivity("Transacted" + txtAmount.Text, true, Request,uid);
                         lblException.Text = "Successfully  transacted " + txtAmount.Text + " USD to  " + txtAccount.Text + "";
                     }
                 }

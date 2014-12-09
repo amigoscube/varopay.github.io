@@ -34,8 +34,8 @@
                 <ItemTemplate>
                     <a href="UserDetails.aspx?Id=<%# Eval("Id")%>">View</a>|
                     <a href="EditUser.aspx?Id=<%# Eval("Id") %>">Edit</a>|
-                    <a href="#" runat="server">Activate</a>|
-                    <a href="#" runat="server">Delete</a>
+                    <asp:LinkButton ID="lkbtnActivate" runat="server" Text="Activate" OnClick="lkbtnActivate_Click"></asp:LinkButton> 
+                    <asp:LinkButton ID="lkbtnDelete" runat="server" Text="Delete" OnClick="lkbtnDelete_Click"></asp:LinkButton>
                 </ItemTemplate>
             </asp:TemplateField>
              <asp:HyperLinkField DataNavigateUrlFields="Username" DataNavigateUrlFormatString="~/Admin/UserDetails.aspx?Id={0}">

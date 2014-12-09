@@ -35,19 +35,29 @@ namespace Varopay.Admin
         {
             return db.Users.Where(u=>u.Status=="Suspend");
         }
-        private void Activate(string Id)
+        private void ChangeStatus(string uname,string Status)
         {
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            var us = manager.FindById(Id);
+            var us = manager.FindByName(uname);
             //ApplicationUser usr = db.Users.Find(us);
-            us.Status = "Closed";
+            us.Status = Status;
             var result = manager.Update(us);
         }
 
         protected void lkbtnActivate_Click(object sender, EventArgs e)
         {
-           // var name = (HyperLink)gdvSuspend.DataKeys[e.RowIndex].Values;
-            //Activate(name.Text);
+            GridViewRow grow = ((LinkButton)sender).NamingContainer as GridViewRow;
+            Label name = (Label)grow.FindControl("lblName");
+            IdentityHelper.ChangeStatus(name.Text,"Active");
+            gdvSuspend_GetData();
+        }
+
+        protected void lkbtnClosed_Click(object sender, EventArgs e)
+        {  
+            GridViewRow grow = ((LinkButton)sender).NamingContainer as GridViewRow;
+            Label name = (Label)grow.FindControl("lblName");
+            IdentityHelper.ChangeStatus(name.Text, "Closed");
+            gdvSuspend_GetData();
         }
     }
 }

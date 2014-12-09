@@ -19,55 +19,55 @@
             <div class="col-md-2 fntwt">
                 <asp:Label ID="lblUsername" Text="Username" runat="server"></asp:Label>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-4">
                 <asp:Label ID="Username" runat="server" CssClass="form-control"></asp:Label>
             </div>
         </div>
-        <div class="row">
+        <div class="row margin-tp-15">
             <div class="col-md-2 fntwt">
                 <asp:Label runat="server" ID="lblEmail" Text="Email"></asp:Label>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-4">
                 <asp:Label runat="server" ID="Email" CssClass="form-control"></asp:Label>
             </div>
         </div>
-        <div class="row">
+        <div class="row margin-tp-15">
             <div class="col-md-2 fntwt">
                 <asp:Label runat="server" Text="City" ID="lblCity"></asp:Label>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-4">
                 <asp:Label runat="server" ID="City" CssClass="form-control"></asp:Label>
             </div>
         </div>
-        <div class="row">
+        <div class="row margin-tp-15">
             <div class="col-md-2 fntwt">
                 <asp:Label runat="server" Text="Address" ID="lblAddress"></asp:Label>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-4">
                 <asp:Label runat="server" ID="Address" CssClass="form-control"></asp:Label>
             </div>
         </div>
-        <div class="row">
+        <div class="row margin-tp-15">
             <div class="col-md-2 fntwt">
                 <asp:Label runat="server" Text="Country" ID="lblCountry"></asp:Label>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-4">
                 <asp:Label runat="server" ID="Country" CssClass="form-control"></asp:Label>
             </div>
         </div>
-        <div class="row">
+        <div class="row margin-tp-15">
             <div class="col-md-2 fntwt">
                 <asp:Label runat="server" Text="Zipcode" ID="lblZipcode"></asp:Label>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-4">
                 <asp:Label ID="Zipcode" CssClass="form-control" runat="server"></asp:Label>
             </div>
         </div>
-        <div class="row">
+        <div class="row margin-tp-15">
             <div class="col-md-2 fntwt">
                 <asp:Label runat="server" ID="lblPhoneNumber" Text="Mobile Number"></asp:Label>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-4">
                 <asp:Label runat="server" ID="PhoneNumber" CssClass="form-control"></asp:Label>
             </div>
         </div>

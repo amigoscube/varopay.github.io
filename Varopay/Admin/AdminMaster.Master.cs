@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Varopay.Models;
+using System.Web.Security;
 
 namespace Varopay.Admin
 {
@@ -17,11 +18,19 @@ namespace Varopay.Admin
         IdentityResult result = new IdentityResult();
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            if (Request.UrlReferrer == null || string.IsNullOrEmpty(Request.UrlReferrer.AbsolutePath))
+            {
+                Session.Abandon();
+                FormsAuthentication.SignOut();
+                FormsAuthentication.RedirectToLoginPage();
+            }
+            if (!IsPostBack)
+            {
                 var user = Context.User.Identity.GetUserId();
                 var act = db.Account.Single(a => a.MyAccount.Id == user).AccountsID;
                 Accounts ac = db.Account.Find(act);
-                lblBalance.Text = "$"+ac.Amount.ToString();
+                lblBalance.Text = "$" + ac.Amount.ToString();
+            }
             
         }
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)

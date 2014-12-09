@@ -11,7 +11,7 @@
                                     <asp:Label ID="lblUsername" Text="Username" runat="server"></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:TextBox ID="txtRegisterUsername" AutoCompleteType="Disabled" runat="server" CssClass="form-control"></asp:TextBox>
+                                    <asp:TextBox ID="txtRegisterUsername" AutoCompleteType="Disabled" runat="server" CssClass="form-control" OnTextChanged="txtRegisterUsername_TextChanged"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
@@ -27,7 +27,7 @@
                                     <asp:Label runat="server" Text="City" ID="lblCity"></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:TextBox runat="server" ID="txtRegisterCity" AutoCompleteType="Disabled" CssClass="form-control"></asp:TextBox>
+                                    <asp:TextBox runat="server" ID="txtRegisterCity" AutoCompleteType="Disabled" CssClass="form-control" OnTextChanged="txtRegisterCity_TextChanged"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>

@@ -29,11 +29,19 @@ namespace Varopay.User
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var payer = Context.User.Identity.GetUserId();
             ApplicationDbContext db = new ApplicationDbContext();
+           var payees = from p in db.Payees
+                                  where p.Payer == payer
+                                  select p.Payee;
+            List<string> pays = payees.ToList();
             ApplicationUser user = manager.FindByName(txtPayee.Text);
-            if (user != null && user.EmailConfirmed)
+            if(pays.Contains(user.Id))
+            {
+                lblMsg.Text = txtPayee.Text+" already exists in your payee list";
+            }
+            else if (user != null && user.EmailConfirmed && user.Status=="Active")
             {
                 IdentityHelper.createPayee(user.Id, payer, txtPayeeAccount.Text);
-                IdentityHelper.LogActivity("Payee Addded", true, Request);
+                IdentityHelper.LogActivity("Payee Addded", true, Request,payer);
                 Response.Redirect("~/User/PayeeList.aspx");
             }
             else

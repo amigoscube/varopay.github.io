@@ -37,7 +37,7 @@
                     <a href="EditUser.aspx?Id=<%# Eval("Id") %>">Edit</a>|
                    <%-- <a href="#" runat="server">Activate</a>|--%>
                     <asp:LinkButton ID="lkbtnActivate" runat="server" OnClick="lkbtnActivate_Click" Text="Activate"></asp:LinkButton>|
-                    <a href="#" runat="server">Close</a>
+                    <asp:LinkButton ID="lkbtnClosed" runat="server" OnClick="lkbtnClosed_Click" Text="Close"></asp:LinkButton>
                 </ItemTemplate>
             </asp:TemplateField>
              <asp:HyperLinkField >

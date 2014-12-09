@@ -64,10 +64,12 @@ namespace Varopay
 
                 if (manager.IsInRole(user.Id,"Administrator"))
                 {
+                    IdentityHelper.LogActivity("Login", true, Request,user.Id);
                     Response.Redirect("~/Admin/Account.aspx",false);
                 }
                 else if (manager.IsInRole(user.Id, "User"))
                 {
+                    IdentityHelper.LogActivity("Login", true, Request,user.Id);
                     Response.Redirect("~/User/MyAccount.aspx",false);
                 }
                 else

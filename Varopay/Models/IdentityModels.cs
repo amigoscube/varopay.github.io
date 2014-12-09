@@ -6,6 +6,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using Microsoft.Owin;
 using Owin;
 using Varopay.Models;
 using System.Data.Entity;
@@ -186,11 +187,11 @@ namespace Varopay
         public static void createPayee(string Payee,string Payer,String cuac)
         {
             ApplicationDbContext db = new ApplicationDbContext();
-            var Id = db.Users.Single(u => u.Id == Payee).Id;
+            var Id = db.Users.Single(u => u.Id == Payee).Status;
             var aId = db.Account.Single(a => (a.CurAcc==cuac)).AccountsID;
             Varopay.Models.Accounts acc = db.Account.Find(aId);
             Varopay.Models.Payees pay = new Varopay.Models.Payees();
-            if (pay.Payment != acc)
+            if (pay.Payment != acc && Id=="Active")
             {
                 pay.PayeesID = Guid.NewGuid();
                 pay.Payee = Payee;
@@ -259,11 +260,11 @@ namespace Varopay
                 }
             }
         }
-        public static void LogActivity(string Activity, bool recordpageURL,HttpRequest request)
+        public static void LogActivity(string Activity, bool recordpageURL,HttpRequest request,string userid)
         {
             ApplicationDbContext db = new ApplicationDbContext();
-            var user = HttpContext.Current.User.Identity.GetUserId();
-            ApplicationUser us = db.Users.Find(user);
+           // var user = HttpContext.Current.User.Identity.GetUserId();
+            ApplicationUser us = db.Users.Find(userid);
             Log userLog = new Log();
             userLog.Activity = Activity;
             userLog.Date = DateTime.Now.ToString();
@@ -279,6 +280,14 @@ namespace Varopay
             }
             db.Logs.Add(userLog);
             db.SaveChanges();
+        }
+        public static void ChangeStatus(string Username, string Status)
+        {
+            var manager = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            var us = manager.FindByName(Username);
+            //ApplicationUser usr = db.Users.Find(us);
+            us.Status = Status;
+            var result = manager.Update(us);
         }
     }
 }
